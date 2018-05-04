@@ -19,9 +19,12 @@ public class PullRefreshActivity extends AppCompatActivity {
     public static String TAG_PREFIX = "PullRefresh--";
     private String TAG = TAG_PREFIX+getClass().getSimpleName();
     private PullRefreshListView mPullRefreshListView;
+    private PullRefreshListView2 mPullRefreshListView2;
+    private PullRefreshListView3 mPullRefreshListView3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.d(TAG,"oncreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pullrefresh_activity_main);
         mPullRefreshListView = (PullRefreshListView) findViewById(R.id.pullrefresh_listview);
@@ -31,11 +34,30 @@ public class PullRefreshActivity extends AppCompatActivity {
                 Toast.makeText(PullRefreshActivity.this,"position = "+position,Toast.LENGTH_LONG).show();
             }
         });
+
+//        mPullRefreshListView2 = (PullRefreshListView2) findViewById(R.id.pullrefresh_listview);
+//        mPullRefreshListView2.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(PullRefreshActivity.this,"position = "+position,Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+//        mPullRefreshListView3 = (PullRefreshListView3) findViewById(R.id.pullrefresh_listview);
+//        mPullRefreshListView3.getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(PullRefreshActivity.this,"position = "+position,Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
     @Override
     protected void onResume() {
+        Log.d(TAG,"onresume()");
         super.onResume();
+        Log.d(TAG,"onresume() over");
+        Log.d(TAG,"mPullRefreshListView3.getHeight() = "+mPullRefreshListView.getHeight());
         //mPullRefreshListView.initView();
     }
 

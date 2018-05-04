@@ -18,18 +18,18 @@
         <item>item15</item>
         <item>item16</item>
         <item>item17</item>
-        <item>item18</item>
-        <item>item19</item>
-        <item>item20</item>
-        <item>item21</item>
-        <item>item22</item>
-        <item>item23</item>
-        <item>item24</item>
-        <item>item25</item>
-        <item>item26</item>
-        <item>item27</item>
-        <item>item28</item>
-        <item>item29</item>
-        <item>item30</item>
+        <!--<item>item18</item>-->
+        <!--<item>item19</item>-->
+        <!--<item>item20</item>-->
+        <!--<item>item21</item>-->
+        <!--<item>item22</item>-->
+        <!--<item>item23</item>-->
+        <!--<item>item24</item>-->
+        <!--<item>item25</item>-->
+        <!--<item>item26</item>-->
+        <!--<item>item27</item>-->
+        <!--<item>item28</item>-->
+        <!--<item>item29</item>-->
+        <!--<item>item30</item>-->
     </string-array>
 </resources>

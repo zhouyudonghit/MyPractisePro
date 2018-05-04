@@ -27,6 +27,11 @@ public class MyViewGroup extends LinearLayout {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.d(TAG,"onInterceptTouchEvent"+ev.toString());
+        switch (ev.getAction())
+        {
+            case MotionEvent.ACTION_MOVE:
+                return true;
+        }
         return super.onInterceptTouchEvent(ev);
     }
 

@@ -158,12 +158,12 @@ public class MyHeadView extends LinearLayout {
         return mImageView;
     }
 
-    public TextView getmTextView()
+    public TextView getTextView()
     {
         return mTextView;
     }
 
-    public void startLoadAniamtion()
+    public void startLoadAnimation()
     {
         mImageView.startAnimation(mAnimationSet);
     }

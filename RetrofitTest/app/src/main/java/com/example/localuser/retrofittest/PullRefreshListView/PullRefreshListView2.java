@@ -3,30 +3,24 @@ package com.example.localuser.retrofittest.PullRefreshListView;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
-import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
 import com.example.localuser.retrofittest.R;
 
 /**
- * Created by localuser on 2018/4/24.
+ * Created by localuser on 2018/5/2.
  */
 
-public class PullRefreshListView extends LinearLayout implements MyHeadView.AnimEndCallback{
+public class PullRefreshListView2 extends LinearLayout implements MyHeadView.AnimEndCallback{
     private String TAG = PullRefreshActivity.TAG_PREFIX + getClass().getSimpleName();
 
     private static int MOVE_DIRECTION_UP = 0;
@@ -40,12 +34,12 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
 
     private Context mContext;
     private ListView mListView;
-    private LinearLayout rootView,realRootView;
+    private LinearLayout rootView;
     private MyHeadView headerView,footView;
     private ImageView mImageView;
     private Point mOldPoint,mNewPint,mStartPoint;
     private Scroller mScroller;
-    private int itemCount = 17;
+    private int itemCount = 30;
     private boolean scrolled = false;
     private int mMoveDirection;
     private int totalOffset = 0;
@@ -53,7 +47,7 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
     private boolean headAnimRunning = false;
     private boolean footAnimRunning = false;
 
-    public PullRefreshListView(Context context, AttributeSet attrs) {
+    public PullRefreshListView2(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         init();
@@ -62,8 +56,7 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
     public void init()
     {
         Log.d(TAG,"init()");
-        rootView = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.layout_pullrefresh_listview,this);
-        realRootView = rootView.findViewById(R.id.root_layout);
+        rootView = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.layout_pullrefresh_listview_2,this);
         headerView = rootView.findViewById(R.id.head_layout);
         headerView.setAnimEndCallback(this);
         //headerView.setVisibility(View.GONE);
@@ -71,7 +64,6 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
         footView = rootView.findViewById(R.id.foot_layout);
         footView.setVisibility(View.VISIBLE);
         footView.getTextView().setText("上拉加载更多");
-        footView.setAnimEndCallback(this);
 
         mListView = rootView.findViewById(R.id.my_listview);
 
@@ -112,20 +104,8 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         Log.d(TAG,"onMeasure()");
 //        headerView.measure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(270,MeasureSpec.getMode(heightMeasureSpec)));
-        //一定要设置好listview的高度，高度和父控件的高度一样，这样才没有问题
-        if(getHeight() != 0)
-        {
-            View tmpView = mListView.getChildAt(0);
-            int height = tmpView.getHeight();
-            int listHeight = height*itemCount+mListView.getDividerHeight()*(itemCount-1);
-            if(listHeight < getHeight())
-            {
-                mListView.measure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(listHeight,MeasureSpec.EXACTLY));
-            }else{
-                mListView.measure(widthMeasureSpec,heightMeasureSpec);
-            }
-        }
-        footView.measure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(headerView.getHeight(),MeasureSpec.getMode(heightMeasureSpec)));
+//        mListView.measure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(1400,MeasureSpec.getMode(heightMeasureSpec)));
+        //footView.measure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(headerView.getHeight(),MeasureSpec.getMode(heightMeasureSpec)));
     }
 
     @Override
@@ -137,7 +117,7 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
         Log.d(TAG,"footview.height = "+footView.getHeight());
         if(changed && !scrolled)
         {
-            realRootView.scrollBy(0,height);
+            //scrollBy(0,height);
             scrolled = true;
         }
         //mListView.layout(l,t,r,b);
@@ -170,23 +150,13 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
 
     public void onDispatchTouchEventMove(MotionEvent ev)
     {
-        mNewPint.set((int)ev.getRawX(),(int)ev.getRawY());
         if(headAnimRunning) {
+            mNewPint.set((int)ev.getRawX(),(int)ev.getRawY());
             if(mNewPint.y - mStartPoint.y < 0)
             {
-                headerView.clearAnim();
+                headerView.clearAnimation();
                 headAnimRunning = false;
                 mScroller.startScroll(0,0,0,headerView.getHeight(),SCROLL_BACK_UP_TIME);
-                invalidate();
-            }
-        }
-        if(footAnimRunning)
-        {
-            if(mNewPint.y - mStartPoint.y > 0)
-            {
-                footView.clearAnim();
-                footAnimRunning = false;
-                mScroller.startScroll(0,0,0,footView.getHeight(),SCROLL_BACK_UP_TIME);
                 invalidate();
             }
         }
@@ -237,7 +207,7 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
                 }
             }
         }
-        return isIntercepted;
+        return false;
     }
 
     @Override
@@ -263,15 +233,14 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
     public void onTouchEventMove(MotionEvent ev)
     {
         Log.d(TAG, "onTouchEventMove()");
+        int headHeight = headerView.getHeight();
         mNewPint.set((int) ev.getRawX(), (int) ev.getRawY());
         int offset = (int) ((mOldPoint.y - mNewPint.y) * OFFSET_RATE);
-        int footHeight = footView.getHeight();
-        int headHeight = headerView.getHeight();
         if(mMoveDirection == MOVE_DIRECTION_DOWN) {
             //这一步是保证totalOffset+offset不超过headHeight
             if(totalOffset < headHeight && totalOffset - offset > headHeight)
             {
-                offset = totalOffset - headHeight;
+                offset = totalOffset - headerView.getHeight();
             }
             //这一步是保证此次获取到的间隔不大于headHeight，在手指滑动很快的时候，第一次获取到的offset的值有可能大于headHeight
             if(Math.abs(offset) > headHeight)
@@ -281,9 +250,9 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
             totalOffset += -offset;
             Log.d(TAG, "onTouchEventMove(),offset = " + offset+",totaloffset = "+totalOffset);
             Log.d(TAG,"head.gettop="+headerView.getTop());
-            if(realRootView.getScrollY() > 0) {
+            if(getScrollY() > 0) {
                 if (totalOffset <= headerView.getHeight()) {
-                    realRootView.scrollBy(0, offset);
+                    scrollBy(0, offset);
                 } else {
                     headerView.scale(totalOffset);
                 }
@@ -291,30 +260,9 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
                 headerView.scale(totalOffset);
             }
         }else{
-            Log.d(TAG,"offset = "+offset+",realrootview.getScrollY()="+realRootView.getScrollY());
+            Log.d(TAG,"offset = "+offset+",getScrollY()="+getScrollY());
             Log.d(TAG,"footView.getHeight() = "+footView.getHeight());
-            if(totalOffset < footHeight && totalOffset - offset > footHeight)
-            {
-                offset = footHeight - totalOffset;
-            }
-            if(offset > footHeight)
-            {
-                offset = footHeight;
-            }
-            totalOffset += offset;
-            if(realRootView.getScrollY() < headHeight+footHeight)
-            {
-                if(totalOffset <= footHeight)
-                {
-                    realRootView.scrollBy(0,offset);
-                }else{
-                    footView.scale(totalOffset);
-                }
-            }else{
-                footView.scale(totalOffset);
-            }
-            //realRootView.scrollBy(0,offset);
-            //scrollBy(0,offset);
+            rootView.getChildAt(0).scrollBy(0,offset);
         }
         mOldPoint.set(mNewPint.x, mNewPint.y);
     }
@@ -335,16 +283,7 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
                 invalidate();
             }
         }else{
-            totalOffset = totalOffset*-1;
-            Log.d(TAG,"totalOffset = "+totalOffset+",footView.getHeight()"+footView.getHeight());
-            if(totalOffset >= footView.getHeight())
-            {
-                footAnimRunning = true;
-                footView.startLoadAnimation();
-            }else{
-                mScroller.startScroll(0, realRootView.getScrollY(), 0, footView.getHeight()-realRootView.getScrollY(), SCROLL_BACK_UP_SHORT_TIME);
-                invalidate();
-            }
+
         }
     }
 
@@ -354,29 +293,18 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
         super.computeScroll();
         if(mScroller.computeScrollOffset())
         {
-            if(mMoveDirection == MOVE_DIRECTION_DOWN) {
-                Log.d(TAG, "rootView.getScrollY()" + rootView.getScrollY() + ",mScroller.getCurrY()" + mScroller.getCurrY());
-                realRootView.scrollTo(0, mScroller.getCurrY());
-            }else{
-                Log.d(TAG, "realrootView.getScrollY()" + realRootView.getScrollY() + ",mScroller.getCurrY()" + mScroller.getCurrY());
-                realRootView.scrollTo(0, mScroller.getCurrY());
-            }
+            Log.d(TAG,"rootView.getScrollY()"+rootView.getScrollY()+",mScroller.getCurrY()"+mScroller.getCurrY());
+            scrollTo(0,mScroller.getCurrY());
             invalidate();
         }
     }
 
     @Override
     public void animEnd() {
-        if(mMoveDirection == MOVE_DIRECTION_DOWN) {
-            Log.d(TAG, "onAnimationEnd,headerView.getHeight()=" + headerView.getHeight());
-            headAnimRunning = false;
-            mScroller.startScroll(0, 0, 0, headerView.getHeight(), SCROLL_BACK_UP_TIME);
-        }else{
-            Log.d(TAG, "onAnimationEnd,headerView.getHeight()=" + footView.getHeight());
-            footAnimRunning = false;
-            mScroller.startScroll(0, headerView.getHeight()+footView.getHeight(), 0, -footView.getHeight(), SCROLL_BACK_UP_TIME);
-        }
+        Log.d(TAG, "onAnimationEnd,headerView.getHeight()=" + headerView.getHeight());
+        headAnimRunning = false;
         totalOffset = 0;
+        mScroller.startScroll(0, 0, 0, headerView.getHeight(), SCROLL_BACK_UP_TIME);
         invalidate();
     }
 
