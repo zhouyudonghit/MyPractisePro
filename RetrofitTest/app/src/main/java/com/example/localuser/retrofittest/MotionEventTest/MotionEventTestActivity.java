@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 
 import com.example.localuser.retrofittest.R;
 
@@ -26,6 +27,14 @@ public class MotionEventTestActivity extends AppCompatActivity {
         myFragment = MyFragment.getInstance();
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.fragment_container,myFragment).commit();
+        MyView myView = (MyView) findViewById(R.id.MyView1);
+        myView.isClickable();
+//        myView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
     }
 
     @Override

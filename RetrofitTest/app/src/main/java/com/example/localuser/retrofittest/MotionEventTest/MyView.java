@@ -26,13 +26,13 @@ public class MyView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.d(TAG,"onTouchEvent"+event.toString());
-        switch (event.getAction())
-        {
-            case MotionEvent.ACTION_DOWN:
-                return true;
-            case MotionEvent.ACTION_MOVE:
-                return true;
-        }
+//        switch (event.getAction())
+//        {
+//            case MotionEvent.ACTION_DOWN:
+//                return true;
+//            case MotionEvent.ACTION_MOVE:
+//                return true;
+//        }
         return super.onTouchEvent(event);
     }
 }

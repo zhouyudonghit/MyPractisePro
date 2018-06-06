@@ -1,6 +1,8 @@
 package com.example.localuser.retrofittest;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,10 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
+import com.example.localuser.retrofittest.BootCompleteReceiver.BootCompletedReceiver;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
+import com.example.localuser.retrofittest.DialogView.DialogActivity;
 import com.example.localuser.retrofittest.DrawLayout.DrawLayoutActivity;
+import com.example.localuser.retrofittest.Drawable.DrawableActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
 import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivity;
+import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 
@@ -34,7 +40,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
     public static String TAG = "retrofit";
 
     @Override
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        getPackageManager();
         tv1 = (TextView) findViewById(R.id.toolbar_activity);
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +110,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MotionEventTestActivity.class));
             }
         });
+
+        tv8 = (TextView) findViewById(R.id.dialog_activity);
+        tv8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DialogActivity.class));
+            }
+        });
+
+        tv9 = (TextView) findViewById(R.id.pullrefresh_recyclerview_activity);
+        tv9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PullRefreshRecyclerViewActivity.class));
+            }
+        });
+
+        tv9 = (TextView) findViewById(R.id.drawable_activity);
+        tv9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DrawableActivity.class));
+            }
+        });
+
+//        BootCompletedReceiver receiver = new BootCompletedReceiver();
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
+//        registerReceiver(receiver,intentFilter);
     }
 
     public void test()

@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.localuser.retrofittest">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -19,19 +20,35 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Toolbar.ToolbarActivity" android:theme="@style/APPNoActionBarTheme"></activity>
+        <activity
+            android:name=".Toolbar.ToolbarActivity"
+            android:theme="@style/APPNoActionBarTheme"></activity>
 
-        <activity android:name=".DrawLayout.DrawLayoutActivity" android:theme="@style/APPNoActionBarTheme"></activity>
+        <activity
+            android:name=".DrawLayout.DrawLayoutActivity"
+            android:theme="@style/APPNoActionBarTheme"></activity>
 
         <activity android:name=".Canvas.CanvasActivity"></activity>
 
         <activity android:name=".View.MyViewActivity"></activity>
 
         <activity android:name=".AnimatorTest.AnimatorTestActivity"></activity>
-        
+
         <activity android:name=".PullRefreshListView.PullRefreshActivity"></activity>
 
         <activity android:name=".MotionEventTest.MotionEventTestActivity"></activity>
+
+        <activity android:name=".DialogView.DialogActivity"></activity>
+
+        <activity android:name=".PullRefreshRecyclerView.PullRefreshRecyclerViewActivity"></activity>
+
+        <activity android:name=".Drawable.DrawableActivity"></activity>
+
+        <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
