@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import com.example.localuser.retrofittest.PullRefreshRecyclerView.MyDividerDrawable;
 import com.example.localuser.retrofittest.R;
 
 public class DrawableActivity extends AppCompatActivity {
@@ -17,7 +15,7 @@ public class DrawableActivity extends AppCompatActivity {
         Log.d(TAG,"onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawable_main);
-        myDrawableView = findViewById(R.id.drawable_view);
+        myDrawableView = (MyDrawableView) findViewById(R.id.drawable_view);
 
         myDrawableView.post(new Runnable() {
             @Override

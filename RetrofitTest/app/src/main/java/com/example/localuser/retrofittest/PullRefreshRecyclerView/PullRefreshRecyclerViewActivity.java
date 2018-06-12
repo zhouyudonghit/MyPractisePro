@@ -8,6 +8,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.example.localuser.retrofittest.MainActivity;
 import com.example.localuser.retrofittest.R;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PullRefreshRecyclerViewActivity extends AppCompatActivity {
-    private String TAG_PREX = "PullRefreshRecyclerViewActivity--";
+    public static String TAG_PREX = "PullRefreshRecyclerViewActivity--";
     private String TAG = TAG_PREX+getClass().getSimpleName();
     private MyAdapter adapter;
     private RecyclerView recyclerView;
@@ -26,7 +27,8 @@ public class PullRefreshRecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pullrefresh_recyclerview_main);
-        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView.setVisibility(View.GONE);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         mDatas = new ArrayList<>();
@@ -80,5 +82,7 @@ public class PullRefreshRecyclerViewActivity extends AppCompatActivity {
         divider.setDrawable(dividerDarwble);
         //divider.setDrawable(getDrawable(R.drawable.recycleview_divider_drawable));
         recyclerView.addItemDecoration(divider);
+        recyclerView.getChildCount();
+        int i = 0;
     }
 }

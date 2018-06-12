@@ -222,4 +222,208 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+//    public void execute(Runnable command) {
+//        if (command == null)
+//            throw new NullPointerException();
+//        /*
+//         * 如果少于corePoolSize个数的thread正在运行，尝试启动一个新的线程带着给定的command作为这个线程的第一个任务。
+//         * 调用addWorker方法自动地检查runState和workerCount，并且预防假的当不应该增加线程的时候增加线程的警报，
+//         * 通过返回false。如果一个任务能够成功地排队，我们仍需要二次检查我们是否需要增加一个新的thread
+//         * （因为自从上次检查存在的线程可能死了）或者线程池自从我们进入这个方法是否关闭了。
+//         * 所以我们重新检查状态并且如果必要重新排队或者启动一个新线程如果一个线程也没有的话。如果我们不能把
+//         * 任务入队，我们尝试增加一个新的线程。如果失败，我们知道我们被关闭了或者饱和了并且拒绝这个任务。
+//         */
+//        int c = ctl.get();
+//        if (workerCountOf(c) < corePoolSize) {
+//            //如果工作线程数量小于核心线程数，那么调用addWorker方法，第二个参数传true
+//            if (addWorker(command, true))
+//                return;
+//            //addWorker方法返回false，那么重新获取线程池状态
+//            c = ctl.get();
+//        }
+//
+//        //能走到这一步，说明工作线程数超过了核心线程数，或者是addworker方法返回false，那么把该任务添加到工作队列后面
+//        if (isRunning(c) && workQueue.offer(command)) {
+//            //如果线程池正在运行并且把任务成功添加到任务队列末尾
+//            int recheck = ctl.get();
+//            if (! isRunning(recheck) && remove(command))
+//                reject(command);
+//            else if (workerCountOf(recheck) == 0)
+//                addWorker(null, false);
+//        }
+//        //如果任务队列满了，那么创建新的线程
+//        else if (!addWorker(command, false))
+//            reject(command);
+//    }
+//
+//    private boolean addWorker(Runnable firstTask, boolean core) {
+//        retry:
+//        //下面的for循环用来检查是否能够创建新的工作线程
+//        for (;;) {
+//            int c = ctl.get();
+//            int rs = runStateOf(c);
+//
+//            // Check if queue empty only if necessary.
+//            if (rs >= SHUTDOWN &&
+//                    ! (rs == SHUTDOWN &&
+//                            firstTask == null &&
+//                            ! workQueue.isEmpty()))
+//                return false;
+//
+//            for (;;) {
+//                int wc = workerCountOf(c);
+//                if (wc >= CAPACITY ||
+//                        wc >= (core ? corePoolSize : maximumPoolSize))//这里面会检查当前工作线程数量是否超过限限制
+//                    return false;
+//                if (compareAndIncrementWorkerCount(c))//工作线程数自增1，跳出循环
+//                    break retry;
+//                c = ctl.get();  // Re-read ctl
+//                if (runStateOf(c) != rs)
+//                    continue retry;
+//                // else CAS failed due to workerCount change; retry inner loop
+//            }
+//        }
+//
+//        boolean workerStarted = false;
+//        boolean workerAdded = false;
+//        Worker w = null;
+//        //下面是创建新的worker过程，并启动线程
+//        try {
+//            w = new Worker(firstTask);
+//            final Thread t = w.thread;
+//            if (t != null) {
+//                final ReentrantLock mainLock = this.mainLock;
+//                mainLock.lock();
+//                try {
+//                    // Recheck while holding lock.
+//                    // Back out on ThreadFactory failure or if
+//                    // shut down before lock acquired.
+//                    int rs = runStateOf(ctl.get());
+//
+//                    if (rs < SHUTDOWN ||
+//                            (rs == SHUTDOWN && firstTask == null)) {
+//                        if (t.isAlive()) // precheck that t is startable
+//                            throw new IllegalThreadStateException();
+//                        //把新工作线程添加到工作线程队列
+//                        workers.add(w);
+//                        int s = workers.size();
+//                        if (s > largestPoolSize)
+//                            largestPoolSize = s;
+//                        workerAdded = true;
+//                    }
+//                } finally {
+//                    mainLock.unlock();
+//                }
+//                if (workerAdded) {
+//                    //启动新的工作线程
+//                    t.start();
+//                    workerStarted = true;
+//                }
+//            }
+//        } finally {
+//            if (! workerStarted)
+//                addWorkerFailed(w);
+//        }
+//        return workerStarted;
+//    }
+//
+//    private final class Worker
+//            extends AbstractQueuedSynchronizer
+//            implements Runnable
+//    {
+//        public void run() {
+//            //调用外部类的runWorker方法
+//            runWorker(this);
+//        }
+//    }
+//
+//    final void runWorker(Worker w) {
+//        Thread wt = Thread.currentThread();
+//        Runnable task = w.firstTask;
+//        w.firstTask = null;
+//        w.unlock(); // allow interrupts
+//        boolean completedAbruptly = true;
+//        try {
+//            while (task != null || (task = getTask()) != null) {
+//                w.lock();
+//                // If pool is stopping, ensure thread is interrupted;
+//                // if not, ensure thread is not interrupted.  This
+//                // requires a recheck in second case to deal with
+//                // shutdownNow race while clearing interrupt
+//                if ((runStateAtLeast(ctl.get(), STOP) ||
+//                        (Thread.interrupted() &&
+//                                runStateAtLeast(ctl.get(), STOP))) &&
+//                        !wt.isInterrupted())
+//                    wt.interrupt();
+//                try {
+//                    //此处定义了一个钩子方法，如果有需要的话，子类可以重写该方法实现自己的逻辑，有点像动态代理的样子
+//                    beforeExecute(wt, task);
+//                    Throwable thrown = null;
+//                    try {
+//                        //任务的执行
+//                        task.run();
+//                    } catch (RuntimeException x) {
+//                        thrown = x; throw x;
+//                    } catch (Error x) {
+//                        thrown = x; throw x;
+//                    } catch (Throwable x) {
+//                        thrown = x; throw new Error(x);
+//                    } finally {
+//                        afterExecute(task, thrown);
+//                    }
+//                } finally {
+//                    task = null;
+//                    w.completedTasks++;
+//                    w.unlock();
+//                }
+//            }
+//            completedAbruptly = false;
+//        } finally {
+//            processWorkerExit(w, completedAbruptly);
+//        }
+//    }
+//
+//    private Runnable getTask() {
+//        boolean timedOut = false; // Did the last poll() time out?
+//
+//        for (;;) {
+//            int c = ctl.get();
+//            int rs = runStateOf(c);
+//
+//            // Check if queue empty only if necessary.
+//            if (rs >= SHUTDOWN && (rs >= STOP || workQueue.isEmpty())) {
+//                decrementWorkerCount();
+//                return null;
+//            }
+//
+//            int wc = workerCountOf(c);
+//
+//            // Are workers subject to culling?
+//            boolean timed = allowCoreThreadTimeOut || wc > corePoolSize;
+//
+//            if ((wc > maximumPoolSize || (timed && timedOut))
+//                    && (wc > 1 || workQueue.isEmpty())) {
+//                if (compareAndDecrementWorkerCount(c))
+//                    return null;
+//                continue;
+//            }
+//
+//            try {
+//                Runnable r = timed ?
+//                        workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS) :
+//                        workQueue.take();
+//                if (r != null)
+//                    return r;
+//                timedOut = true;
+//            } catch (InterruptedException retry) {
+//                timedOut = false;
+//            }
+//        }
+//    }
+//
+//    final void reject(Runnable command) {
+//        handler.rejectedExecution(command, this);
+//    }
+
 }
