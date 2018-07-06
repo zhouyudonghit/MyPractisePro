@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="true"
@@ -44,11 +46,21 @@
 
         <activity android:name=".Drawable.DrawableActivity"></activity>
 
+        <activity android:name=".Bluetooth.BluetoothActivity"></activity>
+
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <!--<receiver android:name=".Bluetooth.BluetoothActivity$BluetoothReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.bluetooth.device.action.FOUND" />-->
+                <!--<action android:name="android.bluetooth.device.action.BOND_STATE_CHANGED"></action>-->
+                <!--<action-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
     </application>
 
 </manifest>

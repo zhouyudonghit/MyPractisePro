@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
+import com.example.localuser.retrofittest.Bluetooth.BluetoothActivity;
 import com.example.localuser.retrofittest.BootCompleteReceiver.BootCompletedReceiver;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.DialogView.DialogActivity;
@@ -22,13 +23,6 @@ import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRec
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 
-import java.util.List;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -40,7 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11;
     public static String TAG = "retrofit";
 
     @Override
@@ -127,14 +121,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tv9 = (TextView) findViewById(R.id.drawable_activity);
-        tv9.setOnClickListener(new View.OnClickListener() {
+        tv10 = (TextView) findViewById(R.id.drawable_activity);
+        tv10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, DrawableActivity.class));
             }
         });
 
+        tv11 = (TextView) findViewById(R.id.bluetooth_activity);
+        tv11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, BluetoothActivity.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
@@ -194,33 +195,33 @@ public class MainActivity extends AppCompatActivity {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create()).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();
         GetRequestRxjava_Interface request_interface = retrofit.create(GetRequestRxjava_Interface.class);
-        request_interface.getTopMovie(0,10).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Movie>() {
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(Movie movie) {
-                        Log.d(TAG, "onNext: " + movie.getTitle());
-                        List<Subjects> list = movie.getSubjects();
-                        for (Subjects sub : list) {
-                            Log.d(TAG, "onNext: " + sub.getId() + "," + sub.getYear() + "," + sub.getTitle());
-                        }
-                    }
-                });
+//        request_interface.getTopMovie(0,10).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Observer<Movie>() {
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onSubscribe(@NonNull Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(Movie movie) {
+//                        Log.d(TAG, "onNext: " + movie.getTitle());
+//                        List<Subjects> list = movie.getSubjects();
+//                        for (Subjects sub : list) {
+//                            Log.d(TAG, "onNext: " + sub.getId() + "," + sub.getYear() + "," + sub.getTitle());
+//                        }
+//                    }
+//                });
     }
 
 //    public void execute(Runnable command) {

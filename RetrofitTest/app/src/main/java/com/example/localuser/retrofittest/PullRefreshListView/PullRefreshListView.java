@@ -135,6 +135,7 @@ public class PullRefreshListView extends LinearLayout implements MyHeadView.Anim
         super.onLayout(changed,l,t,r,b);
         Log.d(TAG,"onLayout,height="+height);
         Log.d(TAG,"footview.height = "+footView.getHeight());
+        Log.d(TAG,"listview.height = "+mListView.getHeight());
         if(changed && !scrolled)
         {
             realRootView.scrollBy(0,height);

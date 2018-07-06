@@ -9,8 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-
-import com.example.localuser.retrofittest.MainActivity;
 import com.example.localuser.retrofittest.R;
 
 import java.util.ArrayList;
@@ -20,14 +18,13 @@ public class PullRefreshRecyclerViewActivity extends AppCompatActivity {
     public static String TAG_PREX = "PullRefreshRecyclerViewActivity--";
     private String TAG = TAG_PREX+getClass().getSimpleName();
     private MyAdapter adapter;
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
     private List<String> mDatas;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pullrefresh_recyclerview_main);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setVisibility(View.GONE);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());

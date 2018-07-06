@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="40dp"
+       android:text="打开蓝牙"
+       android:id="@+id/open_bluetooth"/>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/create_connection"
+       android:text="建立连接"
+       android:textSize="40dp"
+       android:layout_marginTop="10dp"/>
+
+   <Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/send_message"
+       android:text="发送消息"
+       android:textSize="40dp"
+       android:layout_marginTop="10dp"/>
+</LinearLayout>
