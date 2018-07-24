@@ -48,6 +48,10 @@
 
         <activity android:name=".Bluetooth.BluetoothActivity"></activity>
 
+        <activity android:name=".ShareAnimator.ShareAnimatorActivity"></activity>
+
+        <activity android:name=".ShareAnimator.SecondShareAnimActivity"></activity>
+
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

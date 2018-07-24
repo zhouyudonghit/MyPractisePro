@@ -3,6 +3,7 @@ package com.example.localuser.retrofittest;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.Bluetooth.BluetoothActivity;
-import com.example.localuser.retrofittest.BootCompleteReceiver.BootCompletedReceiver;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.DialogView.DialogActivity;
 import com.example.localuser.retrofittest.DrawLayout.DrawLayoutActivity;
@@ -20,6 +20,7 @@ import com.example.localuser.retrofittest.Drawable.DrawableActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
 import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivity;
 import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
+import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 
@@ -34,14 +35,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12;
     public static String TAG = "retrofit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //test3();
     }
 
@@ -133,7 +133,15 @@ public class MainActivity extends AppCompatActivity {
         tv11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, BluetoothActivity.class));
+
+            }
+        });
+
+        tv12 = (TextView) findViewById(R.id.share_animator_activity);
+        tv12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {startActivity(new Intent(MainActivity.this, BluetoothActivity.class));
+                startActivity(new Intent(MainActivity.this, ShareAnimatorActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
