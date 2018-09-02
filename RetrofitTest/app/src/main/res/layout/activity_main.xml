@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="left"
@@ -101,5 +104,61 @@
         android:id="@+id/share_animator_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
-</LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="merge_test_activity"
+        android:id="@+id/merge_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="service_test_activity"
+        android:id="@+id/service_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="jobscheduler_test_activity"
+    android:id="@+id/jobscheduler_test_activity"
+    android:textSize="26dp"
+    android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="handler_test_activity"
+        android:id="@+id/handler_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nonemainthread_test_activity"
+        android:id="@+id/nonemainthread_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dslv_test_activity"
+        android:id="@+id/dslv_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="smallmethod_test_activity"
+        android:id="@+id/smallmethod_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+</LinearLayout>
+</ScrollView>

@@ -15,14 +15,21 @@ import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.Bluetooth.BluetoothActivity;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.DialogView.DialogActivity;
+import com.example.localuser.retrofittest.DragSortListView.DslvTestActivity;
 import com.example.localuser.retrofittest.DrawLayout.DrawLayoutActivity;
 import com.example.localuser.retrofittest.Drawable.DrawableActivity;
+import com.example.localuser.retrofittest.HandlerTest.HandlerTestActivity;
+import com.example.localuser.retrofittest.JobSchedulerTest.JobSchedulerTestActivity;
+import com.example.localuser.retrofittest.MergeTest.MergeTestActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
+import com.example.localuser.retrofittest.NoneMainThreadOpUI.NoneMainThreadOpUIActivity;
 import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivity;
 import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
+import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
+import com.example.localuser.retrofittest.service.ServiceTestActivity;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -35,19 +42,33 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18;
     public static String TAG = "retrofit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("activityA","onCreate");
         //test3();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("activityA","onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("activityA","onRestart");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("activityA","onResume");
         getPackageManager();
         tv1 = (TextView) findViewById(R.id.toolbar_activity);
         tv1.setOnClickListener(new View.OnClickListener() {
@@ -140,8 +161,56 @@ public class MainActivity extends AppCompatActivity {
         tv12 = (TextView) findViewById(R.id.share_animator_activity);
         tv12.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {startActivity(new Intent(MainActivity.this, BluetoothActivity.class));
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ShareAnimatorActivity.class));
+            }
+        });
+
+        tv13 = (TextView) findViewById(R.id.merge_test_activity);
+        tv13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MergeTestActivity.class));
+            }
+        });
+
+        tv14 = (TextView) findViewById(R.id.service_test_activity);
+        tv14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ServiceTestActivity.class));
+            }
+        });
+
+        tv15 = (TextView) findViewById(R.id.jobscheduler_test_activity);
+        tv15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, JobSchedulerTestActivity.class));
+            }
+        });
+
+        tv16 = (TextView) findViewById(R.id.nonemainthread_test_activity);
+        tv16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NoneMainThreadOpUIActivity.class));
+            }
+        });
+
+        tv17 = (TextView) findViewById(R.id.dslv_test_activity);
+        tv17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DslvTestActivity.class));
+            }
+        });
+
+        tv18 = (TextView) findViewById(R.id.smallmethod_test_activity);
+        tv18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SmallMethodTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
@@ -435,4 +504,22 @@ public class MainActivity extends AppCompatActivity {
 //        handler.rejectedExecution(command, this);
 //    }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("activityA","onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("activityA","onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("activityA","onDestroy");
+    }
 }
