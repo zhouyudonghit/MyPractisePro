@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 add fifth line.
+=======
+add forth line.
+>>>>>>> 7538e1ebebb5f1074834ad4e2d5cedcd1a113b4f
