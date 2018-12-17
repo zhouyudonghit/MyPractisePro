@@ -64,6 +64,7 @@
 
         <activity android:name=".DragSortListView.DslvTestActivity"></activity>
         <activity android:name=".SmallMethodTest.SmallMethodTestActivity"></activity>
+        <activity android:name=".Glide.GlideTestActivity"></activity>
 
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>

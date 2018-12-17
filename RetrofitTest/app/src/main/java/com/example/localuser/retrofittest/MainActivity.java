@@ -18,6 +18,7 @@ import com.example.localuser.retrofittest.DialogView.DialogActivity;
 import com.example.localuser.retrofittest.DragSortListView.DslvTestActivity;
 import com.example.localuser.retrofittest.DrawLayout.DrawLayoutActivity;
 import com.example.localuser.retrofittest.Drawable.DrawableActivity;
+import com.example.localuser.retrofittest.Glide.GlideTestActivity;
 import com.example.localuser.retrofittest.HandlerTest.HandlerTestActivity;
 import com.example.localuser.retrofittest.JobSchedulerTest.JobSchedulerTestActivity;
 import com.example.localuser.retrofittest.MergeTest.MergeTestActivity;
@@ -42,7 +43,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19;
     public static String TAG = "retrofit";
 
     @Override
@@ -211,6 +212,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SmallMethodTestActivity.class));
+            }
+        });
+
+        tv19 = findViewById(R.id.glide_test_activity);
+        tv19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, GlideTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
