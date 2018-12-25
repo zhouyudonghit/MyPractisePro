@@ -16,6 +16,16 @@ public class HandlerTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        test2();
+//        try {
+//            Thread.sleep(30000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public void test1()
+    {
         Handler handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
@@ -35,5 +45,26 @@ public class HandlerTestActivity extends AppCompatActivity {
                 Log.d(TAG,"after loop");
             }
         }).start();
+    }
+
+    Handler mHandler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            Log.d(TAG,"msg.what"+msg.what);
+            switch (msg.what)
+            {
+                case 0:
+                    sendEmptyMessage(0);
+                    break;
+                 default:
+                    break;
+            }
+        }
+    };
+    public void test2()
+    {
+        mHandler.sendEmptyMessage(0);
     }
 }

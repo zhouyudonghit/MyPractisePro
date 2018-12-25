@@ -21,6 +21,7 @@ import com.example.localuser.retrofittest.Drawable.DrawableActivity;
 import com.example.localuser.retrofittest.Glide.GlideTestActivity;
 import com.example.localuser.retrofittest.HandlerTest.HandlerTestActivity;
 import com.example.localuser.retrofittest.JobSchedulerTest.JobSchedulerTestActivity;
+import com.example.localuser.retrofittest.JsonTest.JsonTestActivity;
 import com.example.localuser.retrofittest.MergeTest.MergeTestActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
 import com.example.localuser.retrofittest.NoneMainThreadOpUI.NoneMainThreadOpUIActivity;
@@ -28,6 +29,7 @@ import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivit
 import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
 import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
+import com.example.localuser.retrofittest.SuningPushTets.SuningPushTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
@@ -43,7 +45,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22;
     public static String TAG = "retrofit";
 
     @Override
@@ -220,6 +222,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, GlideTestActivity.class));
+            }
+        });
+
+        tv20 = findViewById(R.id.json_test_activity);
+        tv20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, JsonTestActivity.class));
+            }
+        });
+
+        tv21 = findViewById(R.id.push_test_activity);
+        tv21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SuningPushTestActivity.class));
+            }
+        });
+
+        tv22 = findViewById(R.id.handler_test_activity);
+        tv22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HandlerTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();

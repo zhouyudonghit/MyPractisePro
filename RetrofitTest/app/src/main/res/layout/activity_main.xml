@@ -168,5 +168,21 @@
         android:id="@+id/glide_test_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="json_test_activity"
+        android:id="@+id/json_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="push_test_activity"
+        android:id="@+id/push_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
 </LinearLayout>
 </ScrollView>
