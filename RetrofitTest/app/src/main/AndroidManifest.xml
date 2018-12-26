@@ -65,9 +65,11 @@
         <activity android:name=".DragSortListView.DslvTestActivity"></activity>
         <activity android:name=".SmallMethodTest.SmallMethodTestActivity"></activity>
         <activity android:name=".Glide.GlideTestActivity"></activity>
+
         <activity android:name=".JsonTest.JsonTestActivity"></activity>
         <activity android:name=".SuningPushTets.SuningPushTestActivity"></activity>
         <activity android:name=".SuningPushTets.SuningPushTestActivity2"></activity>
+        <activity android:name=".TimerTest.TimerTestActivity"></activity>
 
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
@@ -88,7 +90,7 @@
         <service android:name=".JobSchedulerTest.MyJobSchedulerService"
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
 
-        <service android:name=".SuningPushTets.SuningPushService"></service>
+        <service android:name=".SuningPushTets.MessageService"></service>
     </application>
 
 </manifest>

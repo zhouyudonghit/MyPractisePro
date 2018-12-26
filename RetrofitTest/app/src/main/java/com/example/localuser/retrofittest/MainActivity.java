@@ -30,6 +30,7 @@ import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRec
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
 import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
 import com.example.localuser.retrofittest.SuningPushTets.SuningPushTestActivity;
+import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
@@ -45,7 +46,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22;
+    private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     public static String TAG = "retrofit";
 
     @Override
@@ -246,6 +247,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HandlerTestActivity.class));
+            }
+        });
+
+        tv23 = findViewById(R.id.timer_test_activity);
+        tv23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TimerTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
