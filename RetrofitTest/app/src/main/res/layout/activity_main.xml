@@ -192,5 +192,12 @@
         android:id="@+id/timer_test_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="notifiation_test_activity"
+        android:id="@+id/notifiation_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
 </LinearLayout>
 </ScrollView>
