@@ -1,18 +1,14 @@
 package com.example.localuser.retrofittest;
 
-import android.content.BroadcastReceiver;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
-import com.example.localuser.retrofittest.Bluetooth.BluetoothActivity;
+import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.DialogView.DialogActivity;
 import com.example.localuser.retrofittest.DragSortListView.DslvTestActivity;
@@ -35,7 +31,6 @@ import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
-
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -48,7 +43,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24;
+    private TextView tv24,tv25;
     public static String TAG = "retrofit";
 
     @Override
@@ -265,6 +260,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, NotificationTestActivity.class));
+            }
+        });
+
+        tv25 = findViewById(R.id.asynctask_test_activity);
+        tv25.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AsyncTaskTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();

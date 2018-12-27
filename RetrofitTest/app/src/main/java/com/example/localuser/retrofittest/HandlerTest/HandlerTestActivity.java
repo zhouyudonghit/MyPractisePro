@@ -16,12 +16,22 @@ public class HandlerTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        test2();
+//        test2();
 //        try {
 //            Thread.sleep(30000);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void test1()
