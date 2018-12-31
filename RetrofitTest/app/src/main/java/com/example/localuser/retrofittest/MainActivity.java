@@ -274,6 +274,8 @@ public class MainActivity extends AppCompatActivity {
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
 //        registerReceiver(receiver,intentFilter);
+        Exception e = new Exception("test test");
+        e.printStackTrace();
     }
 
     public void test()
