@@ -11,4 +11,12 @@
         android:id="@+id/send_notification"
         android:textSize="20dp"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="update notification"
+        android:id="@+id/update_notification"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
 </LinearLayout>
