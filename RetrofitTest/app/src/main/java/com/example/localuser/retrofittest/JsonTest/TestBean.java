@@ -4,9 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.Date;
+import java.util.List;
 
 public class TestBean implements Parcelable {
     public transient Date date;
+    private List<TestBean2> list;
 
     public TestBean()
     {
@@ -36,5 +38,13 @@ public class TestBean implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(date.getTime());
+    }
+
+    public List<TestBean2> getList() {
+        return list;
+    }
+
+    public void setList(List<TestBean2> list) {
+        this.list = list;
     }
 }

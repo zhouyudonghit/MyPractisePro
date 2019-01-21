@@ -207,5 +207,13 @@
         android:id="@+id/asynctask_test_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="memoryleak_test_activity"
+        android:id="@+id/memoryleak_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
 </LinearLayout>
 </ScrollView>

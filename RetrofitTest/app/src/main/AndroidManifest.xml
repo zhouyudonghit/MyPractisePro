@@ -73,6 +73,7 @@
         <activity android:name=".TimerTest.TimerTestActivity"></activity>
         <activity android:name=".NotificationTest.NotificationTestActivity"></activity>
         <activity android:name=".AsyncTaskTest.AsyncTaskTestActivity"></activity>
+        <activity android:name=".MemoryLeak.MemoryLeakActivity"></activity>
 
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
