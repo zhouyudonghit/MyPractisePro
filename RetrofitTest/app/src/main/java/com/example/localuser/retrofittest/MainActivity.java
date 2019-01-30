@@ -27,6 +27,7 @@ import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivit
 import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
 import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
+import com.example.localuser.retrofittest.SocketTest.SocketTestActivity;
 import com.example.localuser.retrofittest.SuningPushTets.SuningPushTestActivity;
 import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
@@ -44,7 +45,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24,tv25,tv26;
+    private TextView tv24,tv25,tv26,tv27;
     public static String TAG = "retrofit";
 
     @Override
@@ -277,6 +278,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,MemoryLeakActivity.class));
+            }
+        });
+
+        tv27 = findViewById(R.id.socket_test_activity);
+        tv27.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,SocketTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();

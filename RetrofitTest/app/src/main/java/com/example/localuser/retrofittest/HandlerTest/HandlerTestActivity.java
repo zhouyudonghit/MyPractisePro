@@ -27,11 +27,7 @@ public class HandlerTestActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        try {
-            Thread.sleep(30000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        test3();
     }
 
     public void test1()
@@ -76,5 +72,16 @@ public class HandlerTestActivity extends AppCompatActivity {
     public void test2()
     {
         mHandler.sendEmptyMessage(0);
+    }
+
+    public void test3()
+    {
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG,"runnable running");
+            }
+        });
+        Log.d(TAG,"write a log");
     }
 }

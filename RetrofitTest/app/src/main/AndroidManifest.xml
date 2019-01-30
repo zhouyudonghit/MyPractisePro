@@ -74,6 +74,7 @@
         <activity android:name=".NotificationTest.NotificationTestActivity"></activity>
         <activity android:name=".AsyncTaskTest.AsyncTaskTestActivity"></activity>
         <activity android:name=".MemoryLeak.MemoryLeakActivity"></activity>
+        <activity android:name=".SocketTest.SocketTestActivity"></activity>
 
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
@@ -95,6 +96,8 @@
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
 
         <service android:name=".SuningPushTets.MessageService"></service>
+
+        <service android:name=".service.BindService"></service>
     </application>
 
 </manifest>

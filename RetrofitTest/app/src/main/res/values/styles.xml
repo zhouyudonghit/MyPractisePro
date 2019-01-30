@@ -17,6 +17,8 @@
     <style name="MyTextViewTheme">
         <item name="android:textSize">20dp</item>
         <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>
