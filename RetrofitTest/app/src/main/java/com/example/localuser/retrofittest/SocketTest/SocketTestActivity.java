@@ -20,7 +20,7 @@ public class SocketTestActivity extends AppCompatActivity {
     public static String TAG_PREFIX = "SocketTest--";
     private String TAG = TAG_PREFIX + "SocketTestActivity";
     private final static int DEFAULT_SIZE = 1024;
-    private TextView connectServerTV,sendDataTV;
+    private TextView connectServerTV,sendDataTV,startUDPTV;
     private Socket mSocket;
     private String serverIP = "10.200.166.54";
     private int serverPort = 10086;
@@ -30,6 +30,7 @@ public class SocketTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_socket_test_main);
         connectServerTV = findViewById(R.id.connect_server);
         sendDataTV = findViewById(R.id.send_data);
+        startUDPTV = findViewById(R.id.start_udp_server);
 
         connectServerTV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +43,14 @@ public class SocketTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new WriteThread().start();
+            }
+        });
+
+        startUDPTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UDPServer server = new UDPServer();
+                server.init();
             }
         });
     }

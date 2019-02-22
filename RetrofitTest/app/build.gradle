@@ -42,6 +42,4 @@ dependencies {
 
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
-    compile 'com.suning.mobile.plipli:longzhumsg:1.0.6-SNAPSHOT'
 }

@@ -1,6 +1,6 @@
 package com.example.localuser.retrofittest.JsonTest;
 
-public class TestBean2 {
+public class TestBean2 extends AbstractTestBean{
     private String str;
 
     public String getStr() {

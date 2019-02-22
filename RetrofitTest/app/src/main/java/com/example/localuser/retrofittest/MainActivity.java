@@ -28,7 +28,6 @@ import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRec
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
 import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
 import com.example.localuser.retrofittest.SocketTest.SocketTestActivity;
-import com.example.localuser.retrofittest.SuningPushTets.SuningPushTestActivity;
 import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
@@ -230,14 +229,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, JsonTestActivity.class));
-            }
-        });
-
-        tv21 = findViewById(R.id.push_test_activity);
-        tv21.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SuningPushTestActivity.class));
             }
         });
 
