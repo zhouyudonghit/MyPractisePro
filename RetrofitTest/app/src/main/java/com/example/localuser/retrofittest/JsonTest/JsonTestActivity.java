@@ -2,14 +2,13 @@ package com.example.localuser.retrofittest.JsonTest;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
+import android.support.v7.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
