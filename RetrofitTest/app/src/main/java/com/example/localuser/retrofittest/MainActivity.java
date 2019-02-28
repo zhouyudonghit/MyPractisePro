@@ -44,7 +44,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24,tv25,tv26,tv27;
+    private TextView tv24,tv25,tv26,tv27,tv28;
     public static String TAG = "retrofit";
 
     @Override

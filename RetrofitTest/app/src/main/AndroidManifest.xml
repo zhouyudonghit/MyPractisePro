@@ -74,6 +74,8 @@
         <activity android:name=".MemoryLeak.MemoryLeakActivity"></activity>
         <activity android:name=".SocketTest.SocketTestActivity"></activity>
 
+        <activity android:name=".OKhttpTest.OKHttpTestActivity"></activity>
+
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
