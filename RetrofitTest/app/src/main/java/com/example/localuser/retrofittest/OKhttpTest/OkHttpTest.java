@@ -14,12 +14,15 @@ import okhttp3.Response;
 
 public class OkHttpTest {
     private String TAG = LogConfigs.TAG_PREFIX_OKHTTP+"OkHttpTest";
+
+    //异步get请求
     public void test1()
     {
         String url = "http://wwww.baidu.com";
         OkHttpClient okHttpClient = new OkHttpClient();
         final Request request = new Request.Builder().url(url).get().build();
         Call call = okHttpClient.newCall(request);
+        //call的回调是在子线程，不能直接操作UI
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -28,8 +31,22 @@ public class OkHttpTest {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.d(TAG,"suc,"+Thread.currentThread().getName());
+                Log.d(TAG,"suc,"+Thread.currentThread().getName()+",body = "+response.body().toString());
             }
         });
+    }
+
+    public void test2()
+    {
+        String url = "http://wwww.baidu.com";
+        OkHttpClient httpClient = new OkHttpClient();
+        final Request request = new Request.Builder().url(url).get().build();
+        Call call = httpClient.newCall(request);
+        try {
+            Response response = call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d(TAG,e.getLocalizedMessage());
+        }
     }
 }

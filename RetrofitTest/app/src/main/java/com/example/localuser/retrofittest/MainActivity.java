@@ -23,6 +23,7 @@ import com.example.localuser.retrofittest.MergeTest.MergeTestActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
 import com.example.localuser.retrofittest.NoneMainThreadOpUI.NoneMainThreadOpUIActivity;
 import com.example.localuser.retrofittest.NotificationTest.NotificationTestActivity;
+import com.example.localuser.retrofittest.OKhttpTest.OKHttpTestActivity;
 import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivity;
 import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
@@ -277,6 +278,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,SocketTestActivity.class));
+            }
+        });
+        tv28 = findViewById(R.id.okhttp_test_activity);
+        tv28.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,OKHttpTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
