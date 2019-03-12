@@ -9,12 +9,12 @@ import com.example.localuser.retrofittest.R;
 
 public class OKHttpTestActivity extends AppCompatActivity {
     private String TAG = LogConfigs.TAG_PREFIX_OKHTTP+getClass().getSimpleName();
-    private OkHttpTest mOkHttpTest;
+    private BaseOkHttpTest mOkHttpTest;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp_main);
-        mOkHttpTest = new OkHttpTest();
-        mOkHttpTest.testPostKeyValue();
+        mOkHttpTest = new OkHttpTestPost();
+        ((OkHttpTestPost) mOkHttpTest).testPostKeyValue();
     }
 }
