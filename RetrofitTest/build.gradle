@@ -1,4 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+def supportVersion = "26.1.0"
 
 buildscript {
     repositories {
@@ -6,7 +7,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.2.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -25,4 +26,37 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+ext{
+    minSdkVersion=21
+    compileSdkVersion=28
+    buildToolsVersion="26.0.2"
+    targetSdkVersion=26
+    appcompatVersion = "1.1.0-alpha01"
+    materialVersion="1.0.0"
+    butterknifeVersion="8.5.1"
+}
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'androidx.activity:activity'
+                    && !details.requested.name.contains('multidex') ) {
+                details.useVersion '1.0.0-alpha04'//改这个版本号到你想要的版本
+            }
+            if (details.requested.group == 'androidx.fragment:fragment'
+                    && !details.requested.name.contains('multidex') ) {
+                details.useVersion '1.1.0-alpha04'//改这个版本号到你想要的版本
+            }
+            if (details.requested.group == 'androidx.activity:activity'
+                    && !details.requested.name.contains('multidex') ) {
+                details.useVersion '1.0.0-alpha04'//改这个版本号到你想要的版本
+            }
+        }
+    }
 }

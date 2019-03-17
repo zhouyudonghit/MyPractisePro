@@ -9,6 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/arch" />
+            <option value="$PROJECT_DIR$/compiler" />
+            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/qmui" />
+            <option value="$PROJECT_DIR$/qmuidemo" />
+            <option value="$PROJECT_DIR$/qmuilint" />
+            <option value="$PROJECT_DIR$/qmuilintrule" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
