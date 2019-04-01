@@ -26,7 +26,9 @@ public class TimerTestActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_test_main);
-        CountDownTimerTest test = new CountDownTimerTest();
+//        CountDownTimerTest test = new CountDownTimerTest();
+//        test.test();
+        ScheduleThreadPoolTest test = new ScheduleThreadPoolTest();
         test.test();
     }
 

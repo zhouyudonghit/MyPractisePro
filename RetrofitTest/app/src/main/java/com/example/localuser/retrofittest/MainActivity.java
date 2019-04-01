@@ -33,8 +33,6 @@ import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
-
-import androidx.appcompat.app.AppCompatActivity;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -295,7 +293,6 @@ public class MainActivity extends AppCompatActivity {
 //        registerReceiver(receiver,intentFilter);
         Exception e = new Exception("test test");
         e.printStackTrace();
-        DisplayCutout cutout;
     }
 
     public void test()
