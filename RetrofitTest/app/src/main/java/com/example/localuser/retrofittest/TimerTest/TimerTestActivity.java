@@ -29,7 +29,7 @@ public class TimerTestActivity extends AppCompatActivity{
 //        CountDownTimerTest test = new CountDownTimerTest();
 //        test.test();
         ScheduleThreadPoolTest test = new ScheduleThreadPoolTest();
-        test.test();
+        test.test2();
     }
 
     @Override
