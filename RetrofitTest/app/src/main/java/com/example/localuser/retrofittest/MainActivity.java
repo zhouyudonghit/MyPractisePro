@@ -18,6 +18,7 @@ import com.example.localuser.retrofittest.Glide.GlideTestActivity;
 import com.example.localuser.retrofittest.HandlerTest.HandlerTestActivity;
 import com.example.localuser.retrofittest.JobSchedulerTest.JobSchedulerTestActivity;
 import com.example.localuser.retrofittest.JsonTest.JsonTestActivity;
+import com.example.localuser.retrofittest.MdnsTest.MdnsTestActivity;
 import com.example.localuser.retrofittest.MemoryLeak.MemoryLeakActivity;
 import com.example.localuser.retrofittest.MergeTest.MergeTestActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
@@ -45,7 +46,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24,tv25,tv26,tv27,tv28;
+    private TextView tv24,tv25,tv26,tv27,tv28,tv29;
     public static String TAG = "retrofit";
 
     @Override
@@ -285,6 +286,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,OKHttpTestActivity.class));
+            }
+        });
+        tv29 = findViewById(R.id.nsd_test_activity);
+        tv29.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MdnsTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
