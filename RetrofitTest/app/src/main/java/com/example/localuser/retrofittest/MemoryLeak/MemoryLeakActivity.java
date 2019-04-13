@@ -12,6 +12,7 @@ public class MemoryLeakActivity extends AppCompatActivity {
     private static String TAG_PREFIX = "memory-leak";
     private String TAG = TAG_PREFIX+getClass().getSimpleName();
     private Activity mActivity = this;
+    private char[] mChars = new char[10*1024*1024];
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,7 @@ public class MemoryLeakActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(200000);
                     Log.d(TAG,"sleep over");
                     callback.test();
                 } catch (InterruptedException e) {
