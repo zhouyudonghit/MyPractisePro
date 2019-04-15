@@ -81,7 +81,9 @@ public class MyTextView extends AppCompatTextView {
 //        canvas.drawBitmap(mBitmap,matrix,mPaint);
 //        //canvas.restore();
 //        canvas.drawText("test",0,100,mPaint);
-        testOval(canvas);
+//        testOval(canvas);
+//        testPath(canvas);
+        testText(canvas);
     }
 
     public void move()
@@ -135,5 +137,17 @@ public class MyTextView extends AppCompatTextView {
     {
         BaseTest test = new LineTest(this);
         ((LineTest) test).drawLine1(canvas);
+    }
+
+    public void testPath(Canvas canvas)
+    {
+        BaseTest test = new PathTest(this);
+        ((PathTest) test).drawPath2(canvas);
+    }
+
+    public void testText(Canvas canvas)
+    {
+        BaseTest test = new TextTest(this);
+        ((TextTest) test).drawText(canvas);
     }
 }

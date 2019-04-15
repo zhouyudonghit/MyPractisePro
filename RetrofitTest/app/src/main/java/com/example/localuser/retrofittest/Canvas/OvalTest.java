@@ -18,7 +18,8 @@ public class OvalTest extends BaseTest{
     //绘制弧形或者扇形
     public void drawArc1(Canvas canvas)
     {
-        canvas.drawArc(100,200,700,600,0,45,false,mPaint);
+        //貌似没有转到45度
+        canvas.drawArc(100,200,700,600,-225,225,false,mPaint);
 //        mPaint.setColor(Color.BLUE);
 //        canvas.drawArc(100,200,700,600,45,45,true,mPaint);
     }
