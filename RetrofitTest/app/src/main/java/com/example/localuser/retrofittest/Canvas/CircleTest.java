@@ -17,7 +17,8 @@ public class CircleTest extends BaseTest{
         mPaint.setStyle(Paint.Style.STROKE);
         //这个40貌似就是环的宽度，转换成px
         int ringWidth = 40;
-        mPaint.setStrokeWidth(ringWidth);
+        //就是不设置线条限度，就会有一个默认宽度，
+        //mPaint.setStrokeWidth(ringWidth);
         mPaint.setColor(Color.RED);
         int radiu = Math.min(mViewHeight,mViewWidth)/2;
         //画圆环的方法，如果圆环宽度为width，传入的参数半径为radiu，那么实际上从圆心到圆环外边的长度为width/2+radiu

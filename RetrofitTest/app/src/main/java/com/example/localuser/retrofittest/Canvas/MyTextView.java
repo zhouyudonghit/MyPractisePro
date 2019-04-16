@@ -83,7 +83,8 @@ public class MyTextView extends AppCompatTextView {
 //        canvas.drawText("test",0,100,mPaint);
 //        testOval(canvas);
 //        testPath(canvas);
-        testText(canvas);
+//        testCircle(canvas);
+        testShader(canvas);
     }
 
     public void move()
@@ -112,7 +113,7 @@ public class MyTextView extends AppCompatTextView {
     {
         BaseTest test = new CircleTest(this);
         ((CircleTest) test).drawRing1(canvas);
-        ((CircleTest) test).drawRing2(canvas);
+        //((CircleTest) test).drawRing2(canvas);
     }
 
     public void testRect(Canvas canvas)
@@ -142,12 +143,18 @@ public class MyTextView extends AppCompatTextView {
     public void testPath(Canvas canvas)
     {
         BaseTest test = new PathTest(this);
-        ((PathTest) test).drawPath2(canvas);
+        ((PathTest) test).drawPath6(canvas);
     }
 
     public void testText(Canvas canvas)
     {
         BaseTest test = new TextTest(this);
         ((TextTest) test).drawText(canvas);
+    }
+
+    public void testShader(Canvas canvas)
+    {
+        BaseTest test = new ShaderTest(this);
+        ((ShaderTest) test).testShader1(canvas);
     }
 }

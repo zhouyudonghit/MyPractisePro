@@ -65,4 +65,20 @@ public class PathTest extends BaseTest {
         mPaint.setStrokeWidth(10);
         canvas.drawPath(mPath,mPaint);
     }
+
+    public void drawPath6(Canvas canvas)
+    {
+        mPath = new Path();
+        Path newPath = new Path();
+        //mPath.addCircle(mViewWidth/4,mViewHeight/2,mViewWidth/4,Path.Direction.CW);
+        mPath.lineTo(mViewWidth,mViewHeight/2);
+        mPath.lineTo(mViewWidth/2,mViewHeight);
+        //newPath.addCircle(mViewWidth/2,mViewHeight/2,mViewWidth/4,Path.Direction.CW);
+        newPath.moveTo(mViewWidth/2,0);
+        newPath.lineTo(mViewWidth/2,mViewHeight);
+        mPath.op(newPath,Path.Op.INTERSECT);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(20);
+        canvas.drawPath(mPath,mPaint);
+    }
 }
