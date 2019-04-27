@@ -85,6 +85,7 @@ public class MyTextView extends AppCompatTextView {
 //        testPath(canvas);
 //        testCircle(canvas);
         testShader(canvas);
+        exercise(canvas);
     }
 
     public void move()
@@ -151,10 +152,15 @@ public class MyTextView extends AppCompatTextView {
         BaseTest test = new TextTest(this);
         ((TextTest) test).drawText(canvas);
     }
-
-    public void testShader(Canvas canvas)
-    {
+    
+    public void testShader(Canvas canvas) {
         BaseTest test = new ShaderTest(this);
         ((ShaderTest) test).testShader1(canvas);
+    }
+
+    public void exercise(Canvas canvas)
+    {
+        BaseTest test = new Exercise(this);
+        ((Exercise)test).exercise1(canvas);
     }
 }
