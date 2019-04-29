@@ -155,7 +155,7 @@ public class MyTextView extends AppCompatTextView {
     
     public void testShader(Canvas canvas) {
         BaseTest test = new ShaderTest(this);
-        ((ShaderTest) test).testShader1(canvas);
+        ((ShaderTest) test).testShader4(canvas,getContext());
     }
 
     public void exercise(Canvas canvas)

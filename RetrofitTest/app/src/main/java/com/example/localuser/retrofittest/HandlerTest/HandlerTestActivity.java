@@ -27,7 +27,8 @@ public class HandlerTestActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        test3();
+        HandlerTest test = new HandlerTest();
+        test.test();
     }
 
     public void test1()
