@@ -79,6 +79,8 @@
 
         <activity android:name=".MdnsTest.MdnsTestActivity"></activity>
 
+        <activity android:name=".ViewPagerTest.ViewPagerTestActivity"></activity>
+
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

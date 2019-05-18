@@ -152,11 +152,11 @@ public class MyTextView extends AppCompatTextView {
         BaseTest test = new TextTest(this);
         ((TextTest) test).drawText(canvas);
     }
-    
+
     public void testShader(Canvas canvas) {
         BaseTest test = new ShaderTest(this);
         ((ShaderTest) test).testShader4(canvas,getContext());
-    }
+    }git
 
     public void exercise(Canvas canvas)
     {
