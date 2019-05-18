@@ -73,6 +73,7 @@
         <activity android:name=".AsyncTaskTest.AsyncTaskTestActivity"></activity>
         <activity android:name=".MemoryLeak.MemoryLeakActivity"></activity>
         <activity android:name=".SocketTest.SocketTestActivity"></activity>
+        <activity android:name=".ViewpagerTest.ViewpagerTestActivity"></activity>
 
         <activity android:name=".OKhttpTest.OKHttpTestActivity"></activity>
 

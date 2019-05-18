@@ -33,6 +33,7 @@ import com.example.localuser.retrofittest.SocketTest.SocketTestActivity;
 import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
+import com.example.localuser.retrofittest.ViewpagerTest.ViewpagerTestActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -46,7 +47,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24,tv25,tv26,tv27,tv28,tv29;
+    private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30;
     public static String TAG = "retrofit";
 
     @Override
@@ -293,6 +294,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,MdnsTestActivity.class));
+            }
+        });
+        tv30 = findViewById(R.id.viewpager_test_activity);
+        tv30.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ViewpagerTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
