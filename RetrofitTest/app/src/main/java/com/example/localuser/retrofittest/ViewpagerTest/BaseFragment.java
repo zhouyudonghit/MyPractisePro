@@ -16,31 +16,13 @@ import com.example.localuser.retrofittest.R;
 
 public abstract class BaseFragment extends Fragment {
     protected String TAG = getClass().getSimpleName();
-    private static String PARAM_STRING = "param_string";
-    private static String LAYOUT_RES_ID = "layout_res_id";
-    protected static String mParamString;
+    public static String PARAM_STRING = "param_string";
+    public static String LAYOUT_RES_ID = "layout_res_id";
+    protected String mParamString;
     protected int mLayoutResId;
     protected Activity mActivity;
     protected View mView;
     protected TextView mTextView;
-
-    public BaseFragment(String s)
-    {
-
-    }
-    public BaseFragment getInstance(BaseFragment fragment,String str,int layoutId)
-    {
-        Bundle bundle = new Bundle();
-        bundle.putString(PARAM_STRING,str);
-        bundle.putInt(LAYOUT_RES_ID,layoutId);
-        fragment.setArguments(bundle);
-        return fragment;
-    }
-
-    public BaseFragment getInstance(BaseFragment fragment,String str)
-    {
-        return getInstance(fragment,str,-1);
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -116,5 +98,21 @@ public abstract class BaseFragment extends Fragment {
     public void onDetach() {
         Log.d(TAG,"onDetach()");
         super.onDetach();
+    }
+
+    public String getParamString() {
+        return mParamString;
+    }
+
+    public void setParamString(String mParamString) {
+       this.mParamString = mParamString;
+    }
+
+    public int getLayoutResId() {
+        return mLayoutResId;
+    }
+
+    public void setLayoutResId(int mLayoutResId) {
+        this.mLayoutResId = mLayoutResId;
     }
 }
