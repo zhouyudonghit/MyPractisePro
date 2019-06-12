@@ -1,6 +1,7 @@
 package com.example.localuser.retrofittest.ViewpagerTest;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 
 public class MyFragment1 extends BaseFragment {
 
@@ -17,5 +18,7 @@ public class MyFragment1 extends BaseFragment {
     public static BaseFragment getInstance(String str)
     {
         return getInstance(str,-1);
+
+
     }
 }

@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.MainActivity;
 
 /**
@@ -18,7 +19,7 @@ import com.example.localuser.retrofittest.MainActivity;
  */
 
 public class MyView extends View {
-    private String TAG = MyViewActivity.TGA_PREFIX+getClass().getSimpleName();
+    private String TAG = LogConfigs.TAG_PREFIX_MYVIEW +getClass().getSimpleName();
     private Paint mPait;
     private Path mPath;
     private float oldOffset;

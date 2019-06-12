@@ -14,6 +14,7 @@ import android.view.animation.Transformation;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.MainActivity;
 import com.example.localuser.retrofittest.R;
 
@@ -23,18 +24,18 @@ import java.io.UnsupportedEncodingException;
  * Created by localuser on 2018/4/16.
  */
 
-public class MyViewActivity extends AppCompatActivity{
-    public static String TGA_PREFIX = "MyViewActivity--";
-    private String TAG = TGA_PREFIX+getClass().getSimpleName();
+public class MyViewActivity extends AppCompatActivity implements View.OnClickListener{
+    private String TAG = LogConfigs.TAG_PREFIX_MYVIEW +getClass().getSimpleName();
     private MyView myView;
     private MyAdhesionView myAdhesionView;
+    private MyDrawLineView myDrawLineView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_myview_activity_main);
         myView = (MyView) findViewById(R.id.myview);
-        //myView.setVisibility(View.GONE);
+        myView.setVisibility(View.GONE);
         final Animation animation = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
@@ -57,6 +58,10 @@ public class MyViewActivity extends AppCompatActivity{
         });
 
         myAdhesionView = (MyAdhesionView) findViewById(R.id.my_adhesion_view);
+        myAdhesionView.setVisibility(View.GONE);
+
+        myDrawLineView = findViewById(R.id.my_drawline_view);
+        myDrawLineView.setOnClickListener(this);
     }
 
     public void startAnimation()
@@ -78,5 +83,23 @@ public class MyViewActivity extends AppCompatActivity{
     protected void onResume() {
         super.onResume();
         Log.d(TAG,"onResume()");
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.my_drawline_view:
+                myDrawLineViewOnclick();
+                break;
+            default:
+        }
+    }
+
+    public void myDrawLineViewOnclick()
+    {
+        Log.d(TAG,"myDrawLineViewOnclick()");
+//        myDrawLineView.invalidate();
+        myDrawLineView.startAnimation();
     }
 }
