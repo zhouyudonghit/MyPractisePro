@@ -1,4 +1,4 @@
-package com.example.localuser.retrofittest.aidl;
+package com.example.yudongzhou.remoteservice.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -26,7 +26,7 @@ public class Book implements Parcelable {
         out.writeString(bookName);
     }
 
-    public static final Parcelable.Creator<Book> CREATOR = new Parcelable.Creator<Book>() {
+    public static final Creator<Book> CREATOR = new Creator<Book>() {
         public Book createFromParcel(Parcel in) {
             return new Book(in);
         }
