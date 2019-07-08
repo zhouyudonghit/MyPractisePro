@@ -12,6 +12,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
@@ -46,13 +47,27 @@ public class MyDrawLineView extends View {
         Log.d(TAG,"onDraw");
         super.onDraw(canvas);
         Log.d(TAG,"currentIndex = "+currentIndex);
-        if(currentIndex <= POINTS_NUMBER-2) {
-            drawLines(canvas);
-            //currentIndex++;
-            drawEndPoint(canvas,mPoints[currentIndex+1]);
-        }else{
-            currentIndex = 0;
-        }
+//        if(currentIndex <= POINTS_NUMBER-2) {
+//            drawLines(canvas);
+//            //currentIndex++;
+//            drawEndPoint(canvas,mPoints[currentIndex+1]);
+//        }else{
+//            currentIndex = 0;
+//        }
+        Log.d(TAG,""+getGradientColor(0xFF85E7FF,0xFF6293FF,1,2));
+        Log.d(TAG,""+getGradientColor(0xFF6293FF,0xFFFF6681,1,2));
+    }
+
+    public int getGradientColor(int cl1, int cl2, int flag, int runNum)
+    {
+        float R = Color.red(cl1) + (Color.red(cl2) - Color.red(cl1)) * flag / runNum;
+        float G = Color.green(cl1) + (Color.green(cl2) - Color.green(cl1)) * flag
+                / runNum;
+        float B = Color.blue(cl1) + (Color.blue(cl2) - Color.blue(cl1)) * flag
+                / runNum;
+
+        int cl = Color.argb(255,(int)R,(int)G,(int)B);
+        return cl;
     }
 
     public void drawLines(Canvas canvas)
@@ -144,5 +159,6 @@ public class MyDrawLineView extends View {
 //            mDrawColors[i] = originColors[random.nextInt(3)];
             mDrawColors[i] = originColors[3];
         }
+
     }
 }

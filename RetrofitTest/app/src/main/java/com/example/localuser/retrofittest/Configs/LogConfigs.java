@@ -8,4 +8,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_HANDLER = "handlertest--";
     public static String TAG_PREFIX_TABLAYOUT = "tablayout--";
     public static String TAG_PREFIX_MYVIEW = "myviewtest--";
+    public static String TAG_PREFIX_MEMORY_TEST = "memorytest--";
 }

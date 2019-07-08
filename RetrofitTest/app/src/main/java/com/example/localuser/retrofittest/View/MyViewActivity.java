@@ -62,6 +62,7 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
 
         myDrawLineView = findViewById(R.id.my_drawline_view);
         myDrawLineView.setOnClickListener(this);
+        myDrawLineView.setVisibility(View.GONE);
     }
 
     public void startAnimation()

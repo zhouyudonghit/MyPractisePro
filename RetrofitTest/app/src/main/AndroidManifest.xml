@@ -78,8 +78,7 @@
         <activity android:name=".OKhttpTest.OKHttpTestActivity"></activity>
 
         <activity android:name=".MdnsTest.MdnsTestActivity"></activity>
-
-        <activity android:name=".ViewPagerTest.ViewPagerTestActivity"></activity>
+        <activity android:name=".MemoryTest.MemoryTestActivity"></activity>
 
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
