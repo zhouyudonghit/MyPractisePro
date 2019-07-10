@@ -28,6 +28,17 @@ public class MemoryTest {
         ActivityManager am = (ActivityManager) mActivity.getSystemService(ACTIVITY_SERVICE);
         ActivityManager.MemoryInfo outInfo = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(outInfo);
-        Log.d(TAG,"outInfo.availMem = "+outInfo.availMem+",outInfo.threshold"+outInfo.threshold+",outInfo.totalMem = "+outInfo.totalMem+",outInfo.lowMemory = "+outInfo.lowMemory);
+        Log.d(TAG,"outInfo.availMem = "+outInfo.availMem/1024/1024+",outInfo.threshold = "+outInfo.threshold/1024/1024+",outInfo.totalMem = "+outInfo.totalMem/1024/1024+",outInfo.lowMemory = "+outInfo.lowMemory);
+        int memoryClass = am.getMemoryClass();
+        Log.d(TAG,"memoryClass = "+memoryClass);
+        int largeMemoryClass = am.getLargeMemoryClass();
+        Log.d(TAG,"largeMemoryClass = "+largeMemoryClass);
+
+        applyMemory();
+    }
+
+    private void applyMemory()
+    {
+        long[] i = new long[640*1024*1024/8];
     }
 }
