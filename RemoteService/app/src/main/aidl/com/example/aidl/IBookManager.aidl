@@ -1,9 +1,9 @@
 // IBookManager.aidl
-package com.example.yudongzhou.remoteservice;
+package com.example.aidl;
 
 // Declare any non-default types here with import statements
 
-import com.example.yudongzhou.remoteservice.bean.Book;
+import com.example.aidl.bean.Book;
 interface IBookManager {
     List<Book> getBookList();
     void addBook(in Book book);

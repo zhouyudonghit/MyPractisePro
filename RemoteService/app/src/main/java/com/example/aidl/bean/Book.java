@@ -1,4 +1,4 @@
-package com.example.yudongzhou.remoteservice.bean;
+package com.example.aidl.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;

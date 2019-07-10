@@ -10,12 +10,14 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.KeyEventDispatcher;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.aidl.IBookManager;
 import com.example.localuser.retrofittest.MainActivity;
 
 public class ServiceTestActivity extends AppCompatActivity {
@@ -27,7 +29,8 @@ public class ServiceTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"oncreate,threadId = "+Thread.currentThread().getId());
         Log.d("activityB","oncreate");
-        test();
+//        test();
+        testRemoteService();
     }
 
     @Override
@@ -58,6 +61,7 @@ public class ServiceTestActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d("activityB","onStop");
+        unbindService(remoteServiceConnection);
     }
 
     @Override
@@ -122,5 +126,26 @@ public class ServiceTestActivity extends AppCompatActivity {
                 Log.d(TAG,mBindService.getNumber()+"");
             }
         }
+    }
+
+    private ServiceConnection remoteServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.d(TAG,"remoteServiceConnection onServiceConnected");
+            IBookManager bookManager = IBookManager.Stub.asInterface(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
+    public void testRemoteService()
+    {
+        Intent intent = new Intent();
+        ComponentName componentName = new ComponentName("com.example.yudongzhou.remoteservice","com.example.yudongzhou.remoteservice.MyRemoteService");
+        intent.setComponent(componentName);
+        bindService(intent,remoteServiceConnection,BIND_AUTO_CREATE);
     }
 }

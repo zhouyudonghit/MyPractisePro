@@ -1,4 +1,4 @@
-package com.example.localuser.retrofittest.bean;
+package com.example.aidl.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;

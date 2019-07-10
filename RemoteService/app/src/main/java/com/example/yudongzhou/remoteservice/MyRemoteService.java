@@ -6,7 +6,8 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 
-import com.example.yudongzhou.remoteservice.bean.Book;
+import com.example.aidl.IBookManager;
+import com.example.aidl.bean.Book;
 
 import java.util.ArrayList;
 import java.util.List;
