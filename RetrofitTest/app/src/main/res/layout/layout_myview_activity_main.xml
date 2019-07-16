@@ -23,4 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/my_roundrect_view"/>
+
+    <com.example.localuser.retrofittest.View.MyColorRingView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/my_color_ring_view"/>
 </LinearLayout>

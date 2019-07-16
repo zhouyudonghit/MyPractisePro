@@ -29,6 +29,8 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
     private MyView myView;
     private MyAdhesionView myAdhesionView;
     private MyDrawLineView myDrawLineView;
+    private MyColorRingView myColorRingView;
+    private MyRoundRectView myRoundRectView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,6 +65,11 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         myDrawLineView = findViewById(R.id.my_drawline_view);
         myDrawLineView.setOnClickListener(this);
         myDrawLineView.setVisibility(View.GONE);
+
+        myRoundRectView = findViewById(R.id.my_roundrect_view);
+        myRoundRectView.setVisibility(View.GONE);
+
+        myColorRingView = findViewById(R.id.my_color_ring_view);
     }
 
     public void startAnimation()
