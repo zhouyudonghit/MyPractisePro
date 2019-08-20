@@ -9,6 +9,8 @@ import com.example.localuser.retrofittest.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import android.support.v7.app.AppCompatActivity;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,28 +30,7 @@ public class JsonTestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
-        TestBean testBean = new TestBean();
-        testBean.date = new Date();
-        List<TestBean2> list = new ArrayList<>();
-        TestBean2 testBean2 = new TestBean2();
-        testBean2.setStr("dsafds");
-        list.add(testBean2);
-        testBean.setList(list);
-        String json = new Gson().toJson(testBean);
-        Log.d(TAG,json);
-        //Dec 27, 2018 18:33:55
-            //json = "{\"date\":\"Dec 27, 2018 18:33:55 am\"}";
-        String json2 = "[{\"str\":\"dsafds\"}]";
-        try{
-            TestBean testBean1 = new Gson().fromJson(json,TestBean.class);
-            //Log.d(TAG,testBean1.date.toString());
-            List<TestBean2> datas = new Gson().fromJson(json2,new TypeToken<List<TestBean2>>(){}.getType());
-            Log.d(TAG,datas.toString());
-        }catch (Exception e)
-        {
-            Log.d(TAG,"",e);
-        }
-        test4();
+        test6();
     }
 
     public void test1()
@@ -135,5 +116,28 @@ public class JsonTestActivity extends AppCompatActivity {
         String json = "{ \"a\":1 , \"b\":\"Gates\" }";
         TestBean2 testBean2 = new Gson().fromJson(json,TestBean2.class);
         Log.d(TAG,"");
+    }
+
+    public void test5()
+    {
+        List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        list.add("test3");
+        Gson gson = new Gson();
+        Log.d(TAG,"json = "+gson.toJson(list));
+
+        List list2 = gson.fromJson(gson.toJson(list),new TypeToken<List<String>>(){}.getType());
+        Log.d(TAG,"list2 = "+list2);
+    }
+
+    public void test6()
+    {
+        String json = "[{\"applyId\":39,\"custNum\":\"7001977774\",\"nickName\":\"\",\"headImg\":\"http:\\/\\/uimgpre.cnsuning.com\\/uimg\\/cmf\\/cust_headpic\\/5fdf0a15ea2a1ce4cfc0b2a3572c8f2b_00_120x120.jpg?v= 08194559\",\"uSex\":\"\",\"applyTime\":\"2019-08-20 11:00:04\"}]";
+        try {
+            JSONArray jsonArray = new JSONArray(json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

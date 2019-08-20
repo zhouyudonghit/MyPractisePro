@@ -31,4 +31,9 @@ public class HandlerTest {
         mHandler.sendEmptyMessage(0);
         Log.d(TAG,"message send over");
     }
+
+    public void test2()
+    {
+//        Looper.myQueue().
+    }
 }
