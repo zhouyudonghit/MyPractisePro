@@ -47,4 +47,12 @@ public class TestBean implements Parcelable {
     public void setList(List<TestBean2> list) {
         this.list = list;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

@@ -9,4 +9,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_TABLAYOUT = "tablayout--";
     public static String TAG_PREFIX_MYVIEW = "myviewtest--";
     public static String TAG_PREFIX_MEMORY_TEST = "memorytest--";
+    public static String TAG_PREFIX_JSON_TEST = "jsontest--";
 }
