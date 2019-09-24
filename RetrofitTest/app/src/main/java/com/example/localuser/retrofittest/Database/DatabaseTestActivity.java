@@ -11,7 +11,6 @@ public class DatabaseTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this,"test",null,1);
         SQLiteDatabase database = myDatabaseHelper.getReadableDatabase();
-//        database.query()
 //        database.insert();
     }
 }

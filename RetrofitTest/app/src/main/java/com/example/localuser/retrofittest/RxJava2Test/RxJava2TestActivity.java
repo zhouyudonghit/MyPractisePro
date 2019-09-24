@@ -10,8 +10,10 @@ public class RxJava2TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
-        EventBus.getDefault().unregister(this);
-        EventBus.getDefault().post(new Object());
+//        EventBus.getDefault().register(this);
+//        EventBus.getDefault().unregister(this);
+//        EventBus.getDefault().post(new Object());
+        RxJava2Test test = new RxJava2Test();
+        test.test();
 }
 }

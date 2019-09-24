@@ -31,6 +31,7 @@ public class ServiceTestActivity extends AppCompatActivity {
         Log.d("activityB","oncreate");
 //        test();
         testRemoteService();
+        Log.d(TAG,BindService.class.getName());
     }
 
     @Override

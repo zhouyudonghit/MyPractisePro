@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
 
+import java.util.LinkedHashMap;
+
 public class OKHttpTestActivity extends AppCompatActivity {
     private String TAG = LogConfigs.TAG_PREFIX_OKHTTP+getClass().getSimpleName();
     private BaseOkHttpTest mOkHttpTest;

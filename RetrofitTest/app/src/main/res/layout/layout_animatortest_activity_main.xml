@@ -14,6 +14,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/textview"
         android:text="hello world"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        ></TextView>
 
+    <com.example.localuser.retrofittest.AnimatorTest.PressAnimCircleView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:id="@+id/press_anim_view"/>
 </LinearLayout>
