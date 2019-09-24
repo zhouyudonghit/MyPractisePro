@@ -10,18 +10,25 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 
 public class PressAnimCircleView extends AppCompatTextView {
     private String TAG = LogConfigs.TAG_PREFIX_ANIM_TEST + getClass().getSimpleName();
+    public static int STAGE_IDLE = 0;//无动画状态
+    public static int STAGE_FIRST_ANIM = 1;//外层圆环的缩放动画；
+    public static int STAGE_SECOND_ANIM = 2;//环形进度条动画；
+    public static int PERIOD_FIRST_ANIM_MS = 1000;
+    public static int PERIOD_SECOND_ANIM_MS = 3*1000;
     private Paint mPaint;
-    private Bitmap mCachedBitmap;
-    private Canvas mCachedCanvas;
     private int mViewHeight;
     private int mViewWidth;
     private int mLineWidth = 6;
     private String text = "结束";
+    private int mCurStage = STAGE_IDLE;
+    private int mCurMotionType = MotionEvent.ACTION_DOWN;
+    private float mCurArcDegree;
 
     public PressAnimCircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -56,5 +63,39 @@ public class PressAnimCircleView extends AppCompatTextView {
         Log.d(TAG,textRect.toString());
         mPaint.setColor(Color.BLACK);
         canvas.drawText(text,mViewWidth/2-(textRect.right-textRect.left)/2,mViewHeight/2-(textRect.bottom+textRect.top)/2,mPaint);
+
+        drawAnim(canvas);
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction())
+        {
+            case MotionEvent.ACTION_DOWN:
+                handleActionDown();
+                return true;
+            case MotionEvent.ACTION_UP:
+                handleActionUp();
+                return true;
+            default:
+                Log.d(TAG,"evetn = "+event);
+        }
+        return super.onTouchEvent(event);
+    }
+
+    private void drawAnim(Canvas canvas)
+    {
+
+    }
+
+    private void handleActionDown()
+    {
+
+    }
+
+    private void handleActionUp()
+    {
+
     }
 }
