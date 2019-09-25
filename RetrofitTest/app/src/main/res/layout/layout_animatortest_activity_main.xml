@@ -18,7 +18,8 @@
         ></TextView>
 
     <com.example.localuser.retrofittest.AnimatorTest.PressAnimCircleView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:id="@+id/press_anim_view"/>
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:id="@+id/press_anim_view"
+        />
 </LinearLayout>
