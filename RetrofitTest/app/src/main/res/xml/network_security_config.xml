@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--debug-overrides能让app抓debug版本的fiddler包 -->
+    <!--<debug-overrides>-->
+        <!--<trust-anchors>-->
+            <!--&lt;!&ndash; Trust user added CAs while debuggable only &ndash;&gt;-->
+            <!--<certificates src="user" />-->
+        <!--</trust-anchors>-->
+    <!--</debug-overrides>-->
+    <!--base-config能让app抓debug版本或者release版本的fiddler包 -->
+    <base-config>
+        <trust-anchors>
+            <!-- Trust user added CAs while debuggable only -->
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
