@@ -10,8 +10,11 @@
     <!--base-config能让app抓debug版本或者release版本的fiddler包 -->
     <base-config>
         <trust-anchors>
-            <!-- Trust user added CAs while debuggable only -->
-            <certificates src="user" />
+            <!--<certificates src="user" />-->
+            <!-- 经测试，这样的方式可以经过验证，但是证书还是必须打包进apk-->
+            <!-- 12306的证书在手机上安装失败，因此没有验证成功，是否可以信任手机的CA而通过服务器验证-->
+            <certificates src="@raw/my12306"/>
+            <certificates src="system"/>
         </trust-anchors>
     </base-config>
 </network-security-config>

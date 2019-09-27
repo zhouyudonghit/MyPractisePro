@@ -16,7 +16,9 @@ public class OKHttpTestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp_main);
-        mOkHttpTest = new OkHttpTestPost();
-        ((OkHttpTestPost) mOkHttpTest).testPostKeyValue();
+//        mOkHttpTest = new OkHttpTestPost();
+//        ((OkHttpTestPost) mOkHttpTest).testPostKeyValue();
+        mOkHttpTest = new OkHttpTestGet(false);
+        ((OkHttpTestGet) mOkHttpTest).test3();
     }
 }

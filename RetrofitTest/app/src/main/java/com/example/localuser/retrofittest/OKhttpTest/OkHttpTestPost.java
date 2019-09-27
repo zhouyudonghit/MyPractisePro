@@ -19,6 +19,11 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class OkHttpTestPost extends BaseOkHttpTest {
+
+    public OkHttpTestPost(boolean https) {
+        super(https);
+    }
+
     /**
      * 测试提交key-value对
      */
