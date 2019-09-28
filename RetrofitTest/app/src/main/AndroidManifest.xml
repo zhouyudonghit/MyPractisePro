@@ -84,6 +84,8 @@
 
         <activity android:name=".RxJava2Test.RxJava2TestActivity"></activity>
 
+        <activity android:name=".ListViewTest.ListViewTestActivity"></activity>
+
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

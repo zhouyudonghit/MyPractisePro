@@ -12,4 +12,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_JSON_TEST = "jsontest--";
     public static String TAG_PREFIX_RXJAVA_TEST = "rxjavatest--";
     public static String TAG_PREFIX_ANIM_TEST = "animtest--";
+    public static String TAG_PREFIX_LISTVIEW = "listview--";
 }
