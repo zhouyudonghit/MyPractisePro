@@ -46,4 +46,5 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.android.support:design:28.0.0'
+    implementation 'com.googlecode.mp4parser:isoparser:1.1.21'// 录屏所用
 }

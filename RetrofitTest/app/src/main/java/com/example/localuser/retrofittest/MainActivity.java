@@ -31,6 +31,7 @@ import com.example.localuser.retrofittest.OKhttpTest.OKHttpTestActivity;
 import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivity;
 import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
 import com.example.localuser.retrofittest.RxJava2Test.RxJava2TestActivity;
+import com.example.localuser.retrofittest.ScreenRecordTest.ScreenRecordTestActivity;
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
 import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
 import com.example.localuser.retrofittest.SocketTest.SocketTestActivity;
@@ -39,6 +40,10 @@ import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 import com.example.localuser.retrofittest.ViewpagerTest.ViewpagerTestActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -51,7 +56,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33;
+    private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34;
     public static String TAG = "retrofit";
 
     @Override
@@ -331,14 +336,62 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ListViewTestActivity.class));
             }
         });
+
+        tv34 = findViewById(R.id.screenrecord_test_activity);
+        tv34.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ScreenRecordTestActivity.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
 //        registerReceiver(receiver,intentFilter);
-        Exception e = new Exception("test test");
-        e.printStackTrace();
+        hide();
     }
 
+    private void hide()
+    {
+        List<TextView> list = new ArrayList<>();
+        list.add(tv1);
+        list.add(tv2);
+        list.add(tv3);
+        list.add(tv4);
+        list.add(tv5);
+        list.add(tv6);
+        list.add(tv7);
+        list.add(tv8);
+        list.add(tv9);
+        list.add(tv10);
+        list.add(tv11);
+        list.add(tv12);
+        list.add(tv13);
+        list.add(tv14);
+        list.add(tv15);
+        list.add(tv16);
+        list.add(tv17);
+        list.add(tv18);
+        list.add(tv19);
+        list.add(tv20);
+//        list.add(tv21);
+        list.add(tv22);
+        list.add(tv23);
+        list.add(tv24);
+        list.add(tv25);
+        list.add(tv26);
+        list.add(tv27);
+        list.add(tv28);
+        list.add(tv29);
+        list.add(tv30);
+        list.add(tv31);
+        list.add(tv32);
+        list.add(tv33);
+        for(TextView textView :list)
+        {
+            textView.setVisibility(View.GONE);
+        }
+    }
     public void test()
     {
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://baidu.com")

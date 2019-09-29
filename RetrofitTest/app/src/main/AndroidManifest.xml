@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
 
     <application
         android:name=".MyApplication"
@@ -85,6 +88,8 @@
         <activity android:name=".RxJava2Test.RxJava2TestActivity"></activity>
 
         <activity android:name=".ListViewTest.ListViewTestActivity"></activity>
+
+        <activity android:name=".ScreenRecordTest.ScreenRecordTestActivity"></activity>
 
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
