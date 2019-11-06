@@ -10,10 +10,12 @@ import android.widget.Toast;
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
+import com.example.localuser.retrofittest.Configs.AppConfigs;
 import com.example.localuser.retrofittest.DialogView.DialogActivity;
 import com.example.localuser.retrofittest.DragSortListView.DslvTestActivity;
 import com.example.localuser.retrofittest.DrawLayout.DrawLayoutActivity;
 import com.example.localuser.retrofittest.Drawable.DrawableActivity;
+import com.example.localuser.retrofittest.GaoDeMapTest.GaoDeMapTestActivity;
 import com.example.localuser.retrofittest.Glide.GlideTestActivity;
 import com.example.localuser.retrofittest.HandlerTest.HandlerTestActivity;
 import com.example.localuser.retrofittest.JobSchedulerTest.JobSchedulerTestActivity;
@@ -32,7 +34,9 @@ import com.example.localuser.retrofittest.PullRefreshListView.PullRefreshActivit
 import com.example.localuser.retrofittest.PullRefreshRecyclerView.PullRefreshRecyclerViewActivity;
 import com.example.localuser.retrofittest.RxJava2Test.RxJava2TestActivity;
 import com.example.localuser.retrofittest.ScreenRecordTest.ScreenRecordTestActivity;
+import com.example.localuser.retrofittest.SerializeTest.SerializeTestActivity;
 import com.example.localuser.retrofittest.ShareAnimator.ShareAnimatorActivity;
+import com.example.localuser.retrofittest.SharedPreferenceTest.SharedPreferenceTestActivity;
 import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
 import com.example.localuser.retrofittest.SocketTest.SocketTestActivity;
 import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
@@ -56,7 +60,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34;
+    private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36;
     public static String TAG = "retrofit";
 
     @Override
@@ -244,6 +248,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        tv21 = findViewById(R.id.gaode_test_activity);
+        tv21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, GaoDeMapTestActivity.class));
+            }
+        });
+
+
         tv22 = findViewById(R.id.handler_test_activity);
         tv22.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -344,11 +357,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ScreenRecordTestActivity.class));
             }
         });
+
+        tv35 = findViewById(R.id.sp_test_activity);
+        tv35.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SharedPreferenceTestActivity.class));
+            }
+        });
+
+        tv36 = findViewById(R.id.serialize_test_activity);
+        tv36.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SerializeTestActivity.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
 //        registerReceiver(receiver,intentFilter);
-        hide();
+        if(AppConfigs.IS_VISITOR_MODE) {
+            hide();
+        }
     }
 
     private void hide()
@@ -374,7 +405,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv18);
         list.add(tv19);
         list.add(tv20);
-//        list.add(tv21);
+        list.add(tv21);
         list.add(tv22);
         list.add(tv23);
         list.add(tv24);
@@ -387,6 +418,9 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv31);
         list.add(tv32);
         list.add(tv33);
+        list.add(tv34);
+        list.add(tv35);
+//        list.add(tv36);
         for(TextView textView :list)
         {
             textView.setVisibility(View.GONE);

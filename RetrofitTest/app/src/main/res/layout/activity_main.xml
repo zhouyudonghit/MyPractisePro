@@ -187,6 +187,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="gaode_test_activity"
+        android:id="@+id/gaode_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="notifiation_test_activity"
         android:id="@+id/notifiation_test_activity"
         android:textSize="26dp"
@@ -268,6 +275,22 @@
         android:layout_height="wrap_content"
         android:text="screenrecord_test_activity"
         android:id="@+id/screenrecord_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sp_test_activity"
+        android:id="@+id/sp_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="serialize_test_activity"
+        android:id="@+id/serialize_test_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
 </LinearLayout>

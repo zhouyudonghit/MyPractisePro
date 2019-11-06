@@ -9,6 +9,14 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".MyApplication"
@@ -30,7 +38,13 @@
 
         <activity
             android:name=".Toolbar.ToolbarActivity"
-            android:theme="@style/APPNoActionBarTheme"></activity>
+            android:theme="@style/APPNoActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".DrawLayout.DrawLayoutActivity"
@@ -91,6 +105,12 @@
 
         <activity android:name=".ScreenRecordTest.ScreenRecordTestActivity"></activity>
 
+        <activity android:name=".SharedPreferenceTest.SharedPreferenceTestActivity"></activity>
+        <activity android:name=".GaoDeMapTest.GaoDeMapTestActivity"></activity>
+
+        <activity android:name=".SerializeTest.SerializeTestActivity"></activity>
+        <activity android:name=".SerializeTest.JumpActivity"></activity>
+
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -111,6 +131,10 @@
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
 
         <service android:name=".service.BindService"></service>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="d528d1b7aea79460fcdc35dbd6e022ac"/>
     </application>
 
 </manifest>

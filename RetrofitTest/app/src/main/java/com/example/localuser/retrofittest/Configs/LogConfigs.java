@@ -13,4 +13,6 @@ public class LogConfigs {
     public static String TAG_PREFIX_RXJAVA_TEST = "rxjavatest--";
     public static String TAG_PREFIX_ANIM_TEST = "animtest--";
     public static String TAG_PREFIX_LISTVIEW = "listview--";
+    public static String TAG_PREFIX_GAODE = "gaode-test--";
+    public static String TAG_PREFIX_SERIALIZE = "serialize-test--";
 }

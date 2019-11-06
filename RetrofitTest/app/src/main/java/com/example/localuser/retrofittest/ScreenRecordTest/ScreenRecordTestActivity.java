@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.localuser.retrofittest.ListViewTest.ListViewTestActivity;
 import com.example.localuser.retrofittest.R;
 
 public class ScreenRecordTestActivity extends AppCompatActivity
@@ -57,6 +58,8 @@ public class ScreenRecordTestActivity extends AppCompatActivity
         width = outMetrics.widthPixels;
         height = outMetrics.heightPixels;
         dpi = outMetrics.densityDpi;
+        startActivity(new Intent(this, ListViewTestActivity.class));
+        finish();
     }
 
     private void startRecord()

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.amap.api.maps.model.LatLng;
 import com.example.localuser.retrofittest.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -146,7 +147,12 @@ public class JsonTestActivity extends AppCompatActivity {
 
     public void test7()
     {
-        GsonTest.fieldRenameTest();
+        //GsonTest.fieldRenameTest();
         //Time time = TimeUnit.MILLISECONDS.toNanos();
+//        LatLng latLng = new LatLng(102.324324324324,145.23433242343);
+//        Log.d(TAG,new Gson().toJson(latLng));
+//        LatLng latLng1 = new Gson().fromJson("{\"latitude\":90.0,\"longitude\":145.23433242343}",LatLng.class);
+//        Log.d(TAG,"latLng1 = "+latLng1);
+        Log.d(TAG,new Gson().toJson(1));
     }
 }

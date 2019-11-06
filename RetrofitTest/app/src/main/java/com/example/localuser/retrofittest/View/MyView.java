@@ -51,6 +51,7 @@ public class MyView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        Log.d(TAG,"onDraw");
         super.onDraw(canvas);
 //        canvas.drawCircle(300,300,200,mPait);
 //        //canvas.drawColor(Color.parseColor("#88880000"));

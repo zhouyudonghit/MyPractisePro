@@ -1,6 +1,7 @@
 package com.example.localuser.retrofittest.View;
 
 import android.animation.ValueAnimator;
+import android.app.PendingIntent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +38,7 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_myview_activity_main);
         myView = (MyView) findViewById(R.id.myview);
-        myView.setVisibility(View.GONE);
+        myView.setVisibility(View.VISIBLE);
         final Animation animation = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
@@ -53,9 +54,10 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         myView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAnimation();
-//                myView.startAnimation(animation);
-                Toast.makeText(MyViewActivity.this,"click",Toast.LENGTH_LONG).show();
+//                startAnimation();
+////                myView.startAnimation(animation);
+//                Toast.makeText(MyViewActivity.this,"click",Toast.LENGTH_LONG).show();
+                myView.requestLayout();
             }
         });
 
