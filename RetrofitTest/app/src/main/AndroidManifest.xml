@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>-->
     <uses-permission android:name="android.permission.CAMERA"></uses-permission>
     <!--允许程序获取网络状态-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -110,6 +110,9 @@
 
         <activity android:name=".SerializeTest.SerializeTestActivity"></activity>
         <activity android:name=".SerializeTest.JumpActivity"></activity>
+
+        <activity android:name=".FileTest.FileTestActivity"></activity>
+        <activity android:name=".SurfaceViewTest.SurfaceViewTestActivity"></activity>
 
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>

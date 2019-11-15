@@ -32,7 +32,7 @@ public class JsonTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
-        test7();
+        test3();
     }
 
     public void test1()
@@ -110,6 +110,7 @@ public class JsonTestActivity extends AppCompatActivity {
     {
         TestBean2 testBean2 = new TestBean2();
         testBean2.setStr("test haha");
+        testBean2.setId(1);
         new Gson().toJson(testBean2);
     }
 

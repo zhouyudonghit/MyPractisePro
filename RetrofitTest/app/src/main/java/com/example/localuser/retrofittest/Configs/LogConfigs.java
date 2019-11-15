@@ -15,4 +15,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_LISTVIEW = "listview--";
     public static String TAG_PREFIX_GAODE = "gaode-test--";
     public static String TAG_PREFIX_SERIALIZE = "serialize-test--";
+    public static String TAG_PREFIX_FILETEST = "file-test--";
 }
