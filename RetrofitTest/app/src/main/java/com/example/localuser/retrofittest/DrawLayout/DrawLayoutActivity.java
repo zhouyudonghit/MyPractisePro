@@ -22,7 +22,8 @@ import com.example.localuser.retrofittest.R;
 public class DrawLayoutActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private DrawerLayout mDrawLayout;
-    private Toolbar mToolbar;private ActionBarDrawerToggle drawerToggle;
+    private Toolbar mToolbar;
+    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
