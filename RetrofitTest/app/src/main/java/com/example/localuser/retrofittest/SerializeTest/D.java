@@ -8,7 +8,8 @@ import java.util.List;
 
 public class D implements Parcelable {
     private List<String> str;
-    private ArrayList<B> blist;
+    private List<B> blist;
+    private List<Integer> intList;
     private B b;
 
     protected D(Parcel in) {
@@ -28,6 +29,19 @@ public class D implements Parcelable {
             return new D[size];
         }
     };
+
+    public void setBlist(List<B> blist) {
+        this.blist = blist;
+    }
+
+    public List<Integer> getIntList() {
+        return intList;
+    }
+
+    public void setIntList(List<Integer> intList) {
+        this.intList = intList;
+    }
+
 
     public B getB() {
         return b;
@@ -72,11 +86,19 @@ public class D implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+
         dest.writeStringList(str);
         dest.writeTypedList(blist);
-//        dest.writeSerializable(blist);不行
-//        dest.writeList(blist);不行
-//        dest.writeValue(blist);不行
-        dest.writeParcelable(b,0);
+        dest.writeParcelable(b, flags);
     }
+
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeStringList(str);
+//        dest.writeTypedList(blist);
+////        dest.writeSerializable(blist);不行
+////        dest.writeList(blist);不行
+////        dest.writeValue(blist);不行
+//        dest.writeParcelable(b,0);
+//    }
 }
