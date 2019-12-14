@@ -9,6 +9,51 @@ import java.util.List;
 public class TestBean implements Parcelable {
     public transient Date date;
     private List<TestBean2> list;
+    private double[] doubleList;
+    private List<Integer> intlist;
+    private List<Double> doublelist;
+    private List<String> strlist;
+    private List<Object> objlist;
+
+    public List<Object> getObjlist() {
+        return objlist;
+    }
+
+    public void setObjlist(List<Object> objlist) {
+        this.objlist = objlist;
+    }
+
+    public List<String> getStrlist() {
+        return strlist;
+    }
+
+    public void setStrlist(List<String> strlist) {
+        this.strlist = strlist;
+    }
+
+    public List<Double> getDoublelist() {
+        return doublelist;
+    }
+
+    public void setDoublelist(List<Double> doublelist) {
+        this.doublelist = doublelist;
+    }
+
+    public double[] getDoubleList() {
+        return doubleList;
+    }
+
+    public void setDoubleList(double[] doubleList) {
+        this.doubleList = doubleList;
+    }
+
+    public List<Integer> getIntlist() {
+        return intlist;
+    }
+
+    public void setIntlist(List<Integer> intlist) {
+        this.intlist = intlist;
+    }
 
     public TestBean()
     {

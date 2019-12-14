@@ -28,7 +28,8 @@
         android:theme="@style/AppTheme"
         android:largeHeap="true"
         android:networkSecurityConfig="@xml/network_security_config">
-        <activity android:name="com.example.localuser.retrofittest.MainActivity">
+        <activity android:name="com.example.localuser.retrofittest.MainActivity"
+            android:configChanges="orientation|screenSize|fontScale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

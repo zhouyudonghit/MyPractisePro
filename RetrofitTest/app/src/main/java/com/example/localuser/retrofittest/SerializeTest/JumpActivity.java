@@ -15,6 +15,11 @@ public class JumpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        test2();
+    }
+
+    private void test1()
+    {
         Intent intent;
         if((intent = getIntent()) != null)
         {
@@ -24,6 +29,17 @@ public class JumpActivity extends AppCompatActivity {
 
             B c = intent.getParcelableExtra(KEY2);
             Log.d(TAG,"c = "+c);
+        }
+    }
+
+    private void test2()
+    {
+        Intent intent;
+        if((intent = getIntent()) != null)
+        {
+            Log.d(TAG,"get intent");
+            D d = intent.getParcelableExtra(KEY1);
+            Log.d(TAG," b = " + d);
         }
     }
 }

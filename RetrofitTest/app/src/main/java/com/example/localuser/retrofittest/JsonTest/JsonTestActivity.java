@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,7 +33,7 @@ public class JsonTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
-        test3();
+        test7();
     }
 
     public void test1()
@@ -154,6 +155,16 @@ public class JsonTestActivity extends AppCompatActivity {
 //        Log.d(TAG,new Gson().toJson(latLng));
 //        LatLng latLng1 = new Gson().fromJson("{\"latitude\":90.0,\"longitude\":145.23433242343}",LatLng.class);
 //        Log.d(TAG,"latLng1 = "+latLng1);
-        Log.d(TAG,new Gson().toJson(1));
+        int[] a = new int[]{0,1,2,5};
+        double[] intList = new double[]{1,2,3.4,5.6};
+        Gson gson = new Gson();
+        TestBean testBean = new TestBean();
+//        List<Double> list = new ArrayList<>();
+//        list.add(1);
+//        list.add(2);
+        testBean.setDoubleList(intList);
+        String json = "{\"objlist\":[1,2.0,3.4,5.6]}";
+//        String json = "{\"doublelist\":[1,2]}";
+        Log.d(TAG,gson.fromJson(json,TestBean.class).getObjlist().toString());
     }
 }
