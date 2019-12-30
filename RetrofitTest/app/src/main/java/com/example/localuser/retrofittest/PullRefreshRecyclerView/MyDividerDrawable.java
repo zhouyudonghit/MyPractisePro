@@ -18,12 +18,12 @@ public class MyDividerDrawable extends Drawable{
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.RED);
         mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setStrokeWidth(100);
+        //mPaint.setStrokeWidth(40);
     }
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        canvas.drawLine(getBounds().left,getBounds().top,getBounds().right,getBounds().bottom,mPaint);
+        canvas.drawRect(getBounds().left,getBounds().top,getBounds().right,getBounds().bottom,mPaint);
     }
 
     @Override
@@ -43,6 +43,7 @@ public class MyDividerDrawable extends Drawable{
 
     @Override
     public int getIntrinsicHeight() {
-        return 40;
+        //该方法会被DividerItemDecoration里面所调用，因此需要重写，单位为px
+        return 20;
     }
 }

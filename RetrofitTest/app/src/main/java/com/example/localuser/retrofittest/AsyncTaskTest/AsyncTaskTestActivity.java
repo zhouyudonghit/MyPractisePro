@@ -51,5 +51,10 @@ public class AsyncTaskTestActivity extends AppCompatActivity {
             super.onPostExecute(result);
             Log.d(TAG,"result = "+result);
         }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
     }
 }

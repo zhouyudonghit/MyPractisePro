@@ -400,6 +400,10 @@ public class MainActivity extends AppCompatActivity {
         if(AppConfigs.IS_VISITOR_MODE) {
             hide();
         }
+
+        Toast.makeText(this,"1",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"2",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"3",Toast.LENGTH_LONG).show();
     }
 
     private void hide()

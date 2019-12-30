@@ -33,7 +33,7 @@ public class JsonTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
-        test7();
+        test8();
     }
 
     public void test1()
@@ -166,5 +166,20 @@ public class JsonTestActivity extends AppCompatActivity {
         String json = "{\"objlist\":[1,2.0,3.4,5.6]}";
 //        String json = "{\"doublelist\":[1,2]}";
         Log.d(TAG,gson.fromJson(json,TestBean.class).getObjlist().toString());
+    }
+
+    public void test8()
+    {
+        TestBean2 testBean2 = new TestBean2();
+        testBean2.setStr("ha ha");
+        String jsonStr1 = new Gson().toJson(testBean2);
+        Log.d(TAG,"jsonStr1 = "+jsonStr1);
+        String jsonStr2 = "{ \"userAge\":0, \"str\":\"ha  ha\", \"id\":0}";
+        try {
+            TestBean2 testBean21 = new Gson().fromJson(jsonStr2, TestBean2.class);
+        }catch (Exception e)
+        {
+            Log.e(TAG,"",e);
+        }
     }
 }

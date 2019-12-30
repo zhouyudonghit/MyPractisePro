@@ -6,8 +6,10 @@ import android.graphics.Point;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -78,7 +80,7 @@ public class MyPullRefreshRecyclerView extends LinearLayout implements MyHeadVie
         footView.setAnimEndCallback(this);
 
         mListView = rootView.findViewById(R.id.my_listview);
-        linearLayoutManager = new LinearLayoutManager(mContext);
+        linearLayoutManager = new MyLinearLayoutManager(mContext);
         mListView.setLayoutManager(linearLayoutManager);
         mListView.setItemAnimator(new DefaultItemAnimator());
         mDatas = new ArrayList<>();
@@ -94,6 +96,7 @@ public class MyPullRefreshRecyclerView extends LinearLayout implements MyHeadVie
         mNewPint = new Point();
         mStartPoint = new Point();
         mScroller = new Scroller(mContext);
+        mListView.smoothScrollToPosition(20);
     }
 
     @Override
