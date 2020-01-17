@@ -114,7 +114,7 @@
 
         <activity android:name=".FileTest.FileTestActivity"></activity>
         <activity android:name=".SurfaceViewTest.SurfaceViewTestActivity"></activity>
-
+        <activity android:name=".WebViewTest.WebViewTestActivity"></activity>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

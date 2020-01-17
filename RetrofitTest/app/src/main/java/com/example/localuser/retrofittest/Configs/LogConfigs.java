@@ -16,4 +16,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_GAODE = "gaode-test--";
     public static String TAG_PREFIX_SERIALIZE = "serialize-test--";
     public static String TAG_PREFIX_FILETEST = "file-test--";
+    public static String TAG_PREFIX_WEBVIEWTEST = "webview-test--";
 }

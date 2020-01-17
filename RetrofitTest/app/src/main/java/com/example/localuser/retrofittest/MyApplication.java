@@ -3,7 +3,7 @@ package com.example.localuser.retrofittest;
 import android.app.Application;
 
 public class MyApplication extends Application {
-    public static Application mApplication;
+    private static Application mApplication;
     @Override
     public void onCreate() {
         super.onCreate();

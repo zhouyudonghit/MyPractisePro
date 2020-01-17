@@ -4,10 +4,15 @@ import android.util.Log;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.MyApplication;
+import com.example.localuser.retrofittest.OKhttpTest.Cookie.CookiesManager;
+import com.example.localuser.retrofittest.OKhttpTest.Cookie2.CookieJarImpl;
+import com.example.localuser.retrofittest.OKhttpTest.Cookie2.PersistentCookieStore2;
 import com.example.localuser.retrofittest.R;
+import com.example.localuser.retrofittest.Utils.AppUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.CookieHandler;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -69,7 +74,7 @@ public abstract class BaseOkHttpTest {
         if (trustManagers.length != 1 || !(trustManagers[0] instanceof X509TrustManager)) {
             throw new IllegalStateException("Unexpected default trust managers:"
                              + Arrays.toString(trustManagers));
-       }
+        }
         X509TrustManager trustManager = (X509TrustManager) trustManagers[0];
         // 用 TrustManager 初始化一个 SSLContext
         SSLContext sslContext = SSLContext.getInstance("TLS");
@@ -88,6 +93,13 @@ public abstract class BaseOkHttpTest {
     }
 
     private OkHttpClient getHttpOkHttpClient(){
-        return new OkHttpClient.Builder().readTimeout(5000, TimeUnit.MILLISECONDS).build();
+//        return new OkHttpClient.Builder()
+//                .readTimeout(5000, TimeUnit.MILLISECONDS)
+//                .cookieJar(new CookiesManager())
+//                .build();
+        return new OkHttpClient.Builder()
+                .readTimeout(5000, TimeUnit.MILLISECONDS)
+                .cookieJar(new CookieJarImpl(new PersistentCookieStore2(MyApplication.getInstance())))
+                .build();
     }
 }

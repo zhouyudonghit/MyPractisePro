@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -96,7 +97,6 @@ public class ViewpagerTestActivity extends AppCompatActivity {
         public MyViewPageAdatper(FragmentManager fm) {
             super(fm);
         }
-
         public MyViewPageAdatper(FragmentManager fm,List<BaseFragment> fragList)
         {
             super(fm);
