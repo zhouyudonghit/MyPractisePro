@@ -1,8 +1,11 @@
 package com.example.localuser.retrofittest.Utils;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.MyApplication;
@@ -86,5 +89,19 @@ public class AppUtils {
         }
 
         return versionCode;
+    }
+
+    /**
+     * judge whether the netWork is avaliable
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isNetworkConnected(Context context) {
+        NetworkInfo networkinfo = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE))
+                .getActiveNetworkInfo();
+        boolean flag;
+        flag = networkinfo != null && networkinfo.isAvailable();
+        return flag;
     }
 }

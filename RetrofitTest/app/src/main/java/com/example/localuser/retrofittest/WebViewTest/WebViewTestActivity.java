@@ -13,12 +13,14 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
+import com.example.localuser.retrofittest.Utils.AppUtils;
 
 public class WebViewTestActivity extends AppCompatActivity {
     private static final String SIT_DEFAULT_MALL_URL = "https://oss.suning.com/ottshms/specify/biu/sit/biu.html";
@@ -34,7 +36,14 @@ public class WebViewTestActivity extends AppCompatActivity {
         mWebView.setWebViewClient(mWebViewClient);
         mWebView.setWebChromeClient(mWebChromeClient);
         initCommonWebViewSettings();
-
+        WebSettings webSettings = mWebView.getSettings();
+        if (!AppUtils.isNetworkConnected(this)) {
+            webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        } else {
+            webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        }
+//        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        mWebView.loadUrl(SIT_DEFAULT_MALL_URL);
     }
 
     private WebViewClient mWebViewClient = new WebViewClient(){
@@ -58,8 +67,15 @@ public class WebViewTestActivity extends AppCompatActivity {
 
         @Override
         public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-            Log.d(TAG,"onReceivedError");
+            //该api只有在api level >= 23，才可以有回调
+            Log.d(TAG,"onReceivedError,request = "+request.getUrl()+",error = "+error.getDescription());
             super.onReceivedError(view, request, error);
+        }
+
+        @Override
+        public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+            Log.d(TAG,"onReceivedHttpError");
+            super.onReceivedHttpError(view, request, errorResponse);
         }
     };
 
@@ -78,6 +94,7 @@ public class WebViewTestActivity extends AppCompatActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
+        webSettings.setDatabaseEnabled(true);
         webSettings.setAppCacheMaxSize(1024 * 1024 * 8);
         String appCachePath = getApplicationContext().getCacheDir().getAbsolutePath();
         webSettings.setAppCachePath(appCachePath);

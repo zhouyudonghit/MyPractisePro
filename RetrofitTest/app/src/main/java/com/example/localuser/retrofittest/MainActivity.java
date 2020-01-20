@@ -455,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv36);
         list.add(tv37);
         list.add(tv38);
-        list.add(tv39);
+//        list.add(tv39);
         for(TextView textView :list)
         {
             textView.setVisibility(View.GONE);
