@@ -10,10 +10,14 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.PullRefreshListView.Configs;
 import com.example.localuser.retrofittest.R;
+import com.example.localuser.retrofittest.Utils.AppUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,7 @@ public class ViewpagerTestActivity extends AppCompatActivity {
     private List<BaseFragment> mFragmentList;
     private FragmentPagerAdapter mViewPagerAdapter;
     private List<String> mTitleList;
+    private RelativeLayout rootView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class ViewpagerTestActivity extends AppCompatActivity {
         setContentView(R.layout.layout_viewpager_test_main);
         mViewpager = findViewById(R.id.my_viewpager);
         mTabLayout = findViewById(R.id.my_tablayout);
+        rootView = findViewById(R.id.root_view);
 //        mTabLayout.addTab(mTabLayout.newTab().setText("选项卡一").setIcon(R.mipmap.ic_launcher));
 //        mTabLayout.addTab(mTabLayout.newTab().setText("选项卡二").setIcon(R.mipmap.ic_launcher));
 //        mTabLayout.addTab(mTabLayout.newTab().setText("选项卡三").setIcon(R.mipmap.ic_launcher));
@@ -70,8 +76,10 @@ public class ViewpagerTestActivity extends AppCompatActivity {
 
         mViewPagerAdapter = new MyViewPageAdatper(getSupportFragmentManager(),mFragmentList);
         mViewpager.setAdapter(mViewPagerAdapter);
-        mViewpager.setOffscreenPageLimit(2);//预加载
+        mViewpager.setOffscreenPageLimit(4);//预加载
+        mViewpager.setPageMargin(AppUtils.dip2px(this,20));
         mTabLayout.setupWithViewPager(mViewpager);
+//        mViewpager.setCurrentItem(1);
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
@@ -87,6 +95,13 @@ public class ViewpagerTestActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
                 Log.d(TAG,"onTabReselected");
+            }
+        });
+
+        rootView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return mViewpager.dispatchTouchEvent(event);
             }
         });
     }
@@ -117,5 +132,10 @@ public class ViewpagerTestActivity extends AppCompatActivity {
         public int getCount() {
             return mFragList == null ? 0 : mFragList.size();
         }
+
+//        @Override
+//        public float getPageWidth(int position) {
+//            return 0.8f;
+//        }
     }
 }

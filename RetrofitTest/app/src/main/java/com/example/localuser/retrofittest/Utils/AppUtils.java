@@ -1,5 +1,6 @@
 package com.example.localuser.retrofittest.Utils;
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -9,6 +10,8 @@ import android.net.NetworkInfo;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.MyApplication;
+
+import java.util.List;
 
 public class AppUtils {
     private static Application mApplicationContext = MyApplication.getInstance();
@@ -104,4 +107,39 @@ public class AppUtils {
         flag = networkinfo != null && networkinfo.isAvailable();
         return flag;
     }
+
+    // 判断服务是否正在运行
+    public static boolean isServiceWork(Context mContext, String serviceName) {
+        boolean isWork = false;
+        ActivityManager myAM = (ActivityManager) mContext
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningServiceInfo> myList = myAM.getRunningServices(100);
+        if (myList.size() <= 0) {
+            return false;
+        }
+        for (int i = 0; i < myList.size(); i++) {
+            String mName = myList.get(i).service.getClassName().toString();
+            if (mName.equals(serviceName)) {
+                isWork = true;
+                break;
+            }
+        }
+        return isWork;
+    }
+
+     /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+      public static int dip2px(Context context, float dpValue) {
+          final float scale = context.getResources().getDisplayMetrics().density;
+          return (int) (dpValue * scale + 0.5f);
+      }
+
+      /**
+       * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+       */
+      public static int px2dip(Context context, float pxValue) {
+          final float scale = context.getResources().getDisplayMetrics().density;
+          return (int) (pxValue / scale + 0.5f);
+      }
 }

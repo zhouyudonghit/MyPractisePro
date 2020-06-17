@@ -40,11 +40,6 @@
         <activity
             android:name=".Toolbar.ToolbarActivity"
             android:theme="@style/APPNoActionBarTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -132,9 +127,13 @@
         <service android:name=".service.ThreadService"></service>
 
         <service android:name=".JobSchedulerTest.MyJobSchedulerService"
+            android:enabled="true"
+            android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
 
         <service android:name=".service.BindService"></service>
+
+        <service android:name=".JobSchedulerTest.MyService"></service>
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
