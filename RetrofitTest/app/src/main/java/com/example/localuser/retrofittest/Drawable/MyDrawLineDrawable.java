@@ -16,11 +16,13 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.Toast;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
+
 /**
  * 动态绘制轨迹的drawable
  */
 public class MyDrawLineDrawable extends Drawable{
-    private String TAG = DrawableActivity.TAG_PREX+getClass().getSimpleName();
+    private String TAG = LogConfigs.TAG_PREFIX_DRAWABLE_TEST +getClass().getSimpleName();
     public static int POINTS_NUMBER = 4;
     public static int TOTAL_DURATION = 3000;
     private Paint mPaint;
@@ -28,7 +30,6 @@ public class MyDrawLineDrawable extends Drawable{
     private int currentIndex;
     private Animation drawLineAnimation;
     private View mView;
-
 
     public MyDrawLineDrawable(View view)
     {

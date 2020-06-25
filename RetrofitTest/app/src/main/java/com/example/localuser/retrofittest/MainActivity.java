@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
+import com.example.localuser.retrofittest.AudioManagerTest.AudioManagerTestActivity;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.Configs.AppConfigs;
 import com.example.localuser.retrofittest.DialogView.DialogActivity;
@@ -22,10 +23,10 @@ import com.example.localuser.retrofittest.Glide.GlideTestActivity;
 import com.example.localuser.retrofittest.HandlerTest.HandlerTestActivity;
 import com.example.localuser.retrofittest.JobSchedulerTest.JobSchedulerTestActivity;
 import com.example.localuser.retrofittest.JsonTest.JsonTestActivity;
+import com.example.localuser.retrofittest.LifeCycleTest.LifeCycleTestActivity;
 import com.example.localuser.retrofittest.ListViewTest.ListViewTestActivity;
 import com.example.localuser.retrofittest.MdnsTest.MdnsTestActivity;
 import com.example.localuser.retrofittest.MemoryLeak.MemoryLeakActivity;
-import com.example.localuser.retrofittest.MemoryTest.MemoryTest;
 import com.example.localuser.retrofittest.MemoryTest.MemoryTestActivity;
 import com.example.localuser.retrofittest.MergeTest.MergeTestActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
@@ -64,7 +65,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
-    private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39;
+    private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41;
     public static String TAG = "retrofit";
 
     @Override
@@ -401,6 +402,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, WebViewTestActivity.class));
             }
         });
+
+        tv40 = findViewById(R.id.audiomanager_test_activity);
+        tv40.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AudioManagerTestActivity.class));
+            }
+        });
+
+        tv41 = findViewById(R.id.lifecycle_test_activity);
+        tv41.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LifeCycleTestActivity.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
@@ -456,6 +473,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv37);
         list.add(tv38);
         list.add(tv39);
+        list.add(tv40);
+//        list.add(tv41);
         for(TextView textView :list)
         {
             textView.setVisibility(View.GONE);

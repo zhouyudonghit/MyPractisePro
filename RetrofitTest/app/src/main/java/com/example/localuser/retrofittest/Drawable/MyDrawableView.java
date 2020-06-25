@@ -7,8 +7,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
+
 public class MyDrawableView extends android.support.v7.widget.AppCompatImageView {
-    private String TAG = DrawableActivity.TAG_PREX+getClass().getSimpleName();
+    private String TAG = LogConfigs.TAG_PREFIX_DRAWABLE_TEST +getClass().getSimpleName();
     public MyDrawableView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
@@ -18,6 +20,7 @@ public class MyDrawableView extends android.support.v7.widget.AppCompatImageView
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         Log.d(TAG,"onMeasure()");
         Log.d(TAG,""+getMeasuredWidth()+","+getMeasuredHeight());
+        Log.e(TAG,"",new Exception());
     }
 
     @Override
