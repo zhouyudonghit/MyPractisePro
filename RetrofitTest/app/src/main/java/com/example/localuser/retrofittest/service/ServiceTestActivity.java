@@ -29,8 +29,8 @@ public class ServiceTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"oncreate,threadId = "+Thread.currentThread().getId());
         Log.d("activityB","oncreate");
-//        test();
-        testRemoteService();
+        test();
+//        testRemoteService();
         Log.d(TAG,BindService.class.getName());
     }
 
@@ -62,7 +62,8 @@ public class ServiceTestActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d("activityB","onStop");
-        unbindService(remoteServiceConnection);
+//        unbindService(remoteServiceConnection);
+        unbindService(serviceConnection);
     }
 
     @Override
@@ -119,6 +120,7 @@ public class ServiceTestActivity extends AppCompatActivity {
     public void test()
     {
         Intent intent = new Intent(this,BindService.class);
+        startService(intent);
         bindService(intent,serviceConnection,BIND_AUTO_CREATE);
         if(mBindService != null)
         {

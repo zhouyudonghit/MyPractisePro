@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class TestBean2 extends AbstractTestBean{
     private String str;
     @SerializedName("userAge")
-    private int age;
+    private Integer age;
 
     public int getAge() {
         return age;

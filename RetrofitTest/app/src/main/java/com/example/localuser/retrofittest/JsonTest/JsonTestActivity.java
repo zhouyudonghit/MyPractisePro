@@ -9,6 +9,7 @@ import com.example.localuser.retrofittest.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,22 +34,30 @@ public class JsonTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
-        test8();
+//        test8();
+        test1();
     }
 
     public void test1()
     {
-        String json = "{ \"firstName\":1 , \"lastName\":\"Gates\" }";
-        TestBean2 testBean2 = new TestBean2();
-        testBean2.setStr(json);
-        try {
-            JSONObject jsonObject = new JSONObject(json);
-            Map map = transferJsonToMap(json);
-            String json2 = transferMapToJsonString(map);
-            Log.d(TAG,"");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        String json = "{ \"firstName\":1 , \"lastName\":\"Gates\",\"age\":null }";
+        String json = "{ \"userAge\":null }";
+        TestBean2 testBean2 = new Gson().fromJson(json,TestBean2.class);
+        Toast.makeText(this,"age = "+testBean2.getAge(),Toast.LENGTH_LONG).show();
+        Integer a = 2;
+        int b = 1;
+        b = a;
+        Toast.makeText(this,"b = "+b,Toast.LENGTH_LONG).show();
+//        TestBean2 testBean2 = new TestBean2();
+//        testBean2.setStr(json);
+//        try {
+//            JSONObject jsonObject = new JSONObject(json);
+//            Map map = transferJsonToMap(json);
+//            String json2 = transferMapToJsonString(map);
+//            Log.d(TAG,"");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public Map<String,Object> transferJsonToMap(String json)
