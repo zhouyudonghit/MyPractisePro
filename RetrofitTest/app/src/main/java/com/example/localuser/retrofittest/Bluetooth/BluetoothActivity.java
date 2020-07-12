@@ -90,6 +90,7 @@ public class BluetoothActivity extends AppCompatActivity {
             }
         });
         EventBus.getDefault().register(this);
+        Integer i = new Integer(0);
     }
 
     @Override

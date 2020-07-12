@@ -13,7 +13,8 @@ public class StatusbarTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        method4();
+        getSupportActionBar().hide();
+        method5();
         setContentView(R.layout.activity_statusbar_test_main);
         initView();
     }
@@ -31,8 +32,8 @@ public class StatusbarTestActivity extends AppCompatActivity {
 
     private void method1()
     {
-        //无效
         //设置状态栏和导航栏中的图标变小，变模糊或者弱化其效果。这个标志一般用于游戏，电子书，视频，或者不需要去分散用户注意力的应用软件
+        //有效，状态栏电池、网络图标会消失，导航栏没什么变化，下拉状态栏图标会出现
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
     }
 
@@ -52,6 +53,14 @@ public class StatusbarTestActivity extends AppCompatActivity {
 
     private void method4()
     {
+        //将布局内容拓展到导航栏的后面
+        //无效
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+    }
+
+    private void method5()
+    {
+        //将布局内容拓展到状态的后面
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
     }
 }

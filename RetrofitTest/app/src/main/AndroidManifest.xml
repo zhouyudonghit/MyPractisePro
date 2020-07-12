@@ -115,6 +115,9 @@
         <activity android:name=".AudioManagerTest.AudioManagerTestActivity"/>
         <activity android:name=".LifeCycleTest.LifeCycleTestActivity"/>
         <activity android:name=".statusbartest.StatusbarTestActivity"/>
+        <activity android:name=".MaterialDesignTest.MaterialDesignTestActivity"></activity>
+        <activity android:name=".MaterialDesignTest.FloatingActionButtonTestActivity"/>
+        <activity android:name=".MaterialDesignTest.CoordinatorLayoutTestActivity"/>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
