@@ -2,6 +2,8 @@ package com.example.localuser.retrofittest.MPAndroidChartTest;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -34,9 +36,12 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         mLineChart.setDrawBorders(true);
         //设置数据
         List<Entry> entries = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            entries.add(new Entry(i, (float) (Math.random()) * 80));
+        for (int i = 0; i < 20; i++) {
+            if(i != 10) {
+                entries.add(new Entry(i, (float) (Math.random()) * 80));
+            }
         }
+//        entries.add(new Entry(10,40));
         //一个LineDataSet就是一条线
         LineDataSet lineDataSet = new LineDataSet(entries, "温度");
         lineDataSet.setValueFormatter(new IValueFormatter() {
@@ -52,14 +57,18 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         lineDataSet.setValueTextSize(9f);
         //线模式为圆滑曲线（默认折线）
         lineDataSet.setMode(LineDataSet.Mode.HORIZONTAL_BEZIER);
-//        List<Entry> entries2 = new ArrayList<>();
+
+        List<Entry> entries2 = new ArrayList<>();
+        entries.add(new Entry(10,40));
 //        for (int i = 0; i < 10; i++) {
 //            entries2.add(new Entry(i, (float) (Math.random()) * 80));
 //        }
 //        LineDataSet lineDataSet2 = new LineDataSet(entries2, "温度2");
 //        data.addDataSet(lineDataSet2);
-        mLineChart.setData(data);
         test();
+        mLineChart.setData(data);
+//        mLineChart.setVisibleXRange(10,19);
+        mLineChart.moveViewToX(10);
     }
 
     private void test()
@@ -69,7 +78,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);//上下都有横坐标
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);//坐标的值在视图内部，即坐标系里面。默认是在坐标系外面。
 //        xAxis.setGranularity(1);
-//        xAxis.setLabelCount(12,true);
+        xAxis.setLabelCount(10,true);
 //        xAxis.setAxisMinimum(0f);
 //        xAxis.setAxisMaximum(20f);
 

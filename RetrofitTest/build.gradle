@@ -4,7 +4,7 @@ def supportVersion = "26.1.0"
 buildscript {
     repositories {
         maven{ url'https://maven.aliyun.com/repository/public' }
-        jcenter()
+//        jcenter()
         google()
     }
     dependencies {
@@ -22,7 +22,7 @@ allprojects {
 //        maven {
 //            url 'http://10.24.11.32:8081/nexus/content/groups/public/'
 //        }
-        jcenter()
+//        jcenter()
         maven { url "https://jitpack.io" }
     }
 }
