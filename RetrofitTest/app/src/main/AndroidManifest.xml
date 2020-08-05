@@ -118,6 +118,7 @@
         <activity android:name=".MaterialDesignTest.MaterialDesignTestActivity"></activity>
         <activity android:name=".MaterialDesignTest.FloatingActionButtonTestActivity"/>
         <activity android:name=".MaterialDesignTest.CoordinatorLayoutTestActivity"/>
+        <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
