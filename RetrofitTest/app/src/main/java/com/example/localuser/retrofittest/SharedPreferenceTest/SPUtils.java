@@ -25,4 +25,14 @@ public class SPUtils {
             editor.commit();
         }
     }
+
+    public static boolean contains(Context context,String key)
+    {
+        if(context != null)
+        {
+            SharedPreferences sp = context.getSharedPreferences(SP_FILE_NAME,Context.MODE_PRIVATE);
+            sp.contains(key);
+        }
+        return false;
+    }
 }

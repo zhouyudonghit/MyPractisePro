@@ -20,4 +20,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_DRAWABLE_TEST = "drawable-test--";
     public static String TAG_PREFIX_AUDIOMANAGER_TEST = "audio-manager-test--";
     public static String TAG_PREFIX_LIFECYCLE_TEST = "lifecycle-test--";
+    public static String TAG_PREFIX_SHARED_PREFERENCE = "sp_test--";
 }

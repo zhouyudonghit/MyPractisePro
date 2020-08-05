@@ -7,7 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
+
 public class SharedPreferenceTestActivity extends AppCompatActivity {
+    private String TAG = LogConfigs.TAG_PREFIX_SHARED_PREFERENCE +getClass().getSimpleName();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,5 +19,7 @@ public class SharedPreferenceTestActivity extends AppCompatActivity {
         Uri uri = Uri.parse(action);
         Intent intent = new Intent(Intent.ACTION_VIEW,uri);
         Log.d("zhouyudong","uri = "+uri);
+        Log.d(TAG,SPUtils.contains(this,"v")+"");
+        Log.d(TAG,SPUtils.contains(this,"v%s")+"");
     }
 }
