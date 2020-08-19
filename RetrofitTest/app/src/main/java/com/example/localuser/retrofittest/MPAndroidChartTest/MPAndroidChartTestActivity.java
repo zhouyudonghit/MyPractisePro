@@ -4,8 +4,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.localuser.retrofittest.R;
 import com.github.mikephil.charting.charts.LineChart;
@@ -20,6 +24,8 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.listener.ChartTouchListener;
+import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
@@ -27,21 +33,32 @@ import java.util.List;
 
 public class MPAndroidChartTestActivity extends AppCompatActivity {
     private LineChart mLineChart;
+    private Button button;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mpchart_test_main);
         mLineChart = (LineChart) findViewById(R.id.lineChart);
+        button = findViewById(R.id.test);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testButton();
+            }
+        });
         //显示边界
         mLineChart.setDrawBorders(true);
         //设置数据
         List<Entry> entries = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            if(i != 10) {
-                entries.add(new Entry(i, (float) (Math.random()) * 80));
-            }
-        }
-//        entries.add(new Entry(10,40));
+//        for (int i = 0; i < 20; i++) {
+//            if(i != 10) {
+//                entries.add(new Entry(i, (float) (Math.random()) * 80));
+//            }
+//        }
+        entries.add(new Entry(5,40));
+        entries.add(new Entry(6,40));
+        entries.add(new Entry(7,40));
+        entries.add(new Entry(8,40));
         //一个LineDataSet就是一条线
         LineDataSet lineDataSet = new LineDataSet(entries, "温度");
         lineDataSet.setValueFormatter(new IValueFormatter() {
@@ -56,19 +73,88 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         //设置显示值的字体大小
         lineDataSet.setValueTextSize(9f);
         //线模式为圆滑曲线（默认折线）
-        lineDataSet.setMode(LineDataSet.Mode.HORIZONTAL_BEZIER);
+        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        lineDataSet.setDrawFilled(true);
+        lineDataSet.setDrawValues(false);
+        lineDataSet.setFillColor(Color.RED);
+        lineDataSet.setColor(Color.RED);
 
         List<Entry> entries2 = new ArrayList<>();
-        entries.add(new Entry(10,40));
+//        entries2.add(new Entry(10,40));
 //        for (int i = 0; i < 10; i++) {
 //            entries2.add(new Entry(i, (float) (Math.random()) * 80));
 //        }
-//        LineDataSet lineDataSet2 = new LineDataSet(entries2, "温度2");
+        LineDataSet lineDataSet2 = new LineDataSet(entries2, "温度2");
 //        data.addDataSet(lineDataSet2);
+//        data.notifyDataChanged();
         test();
         mLineChart.setData(data);
-//        mLineChart.setVisibleXRange(10,19);
-        mLineChart.moveViewToX(10);
+        //调用这个方法才能使moveViewTo有效
+        mLineChart.setVisibleXRange(5f,5f);
+    }
+
+    private void testButton()
+    {
+        mLineChart.setVisibleXRange(1f,1f);
+        mLineChart.invalidate();
+    }
+
+    private void addGestureListener()
+    {
+        mLineChart.setOnChartGestureListener(new OnChartGestureListener() {
+            @Override
+            public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartLongPressed(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartDoubleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartSingleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
+
+            }
+
+            @Override
+            public void onChartScale(MotionEvent me, float scaleX, float scaleY) {
+
+            }
+
+            @Override
+            public void onChartTranslate(MotionEvent me, float dX, float dY) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mLineChart.moveViewToX(3);
+        mLineChart.post(new Runnable() {
+            @Override
+            public void run() {
+                mLineChart.notifyDataSetChanged();
+                mLineChart.invalidate();
+            }
+        });
     }
 
     private void test()
@@ -77,10 +163,10 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);//上下都有横坐标
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);//坐标的值在视图内部，即坐标系里面。默认是在坐标系外面。
-//        xAxis.setGranularity(1);
+        xAxis.setGranularity(1);
         xAxis.setLabelCount(10,true);
-//        xAxis.setAxisMinimum(0f);
-//        xAxis.setAxisMaximum(20f);
+        xAxis.setAxisMinimum(1f);
+        xAxis.setAxisMaximum(10f);
 
         YAxis leftYAxis = mLineChart.getAxisLeft();
         YAxis rightYAxis = mLineChart.getAxisRight();

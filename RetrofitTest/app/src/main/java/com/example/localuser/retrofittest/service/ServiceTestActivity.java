@@ -64,6 +64,12 @@ public class ServiceTestActivity extends AppCompatActivity {
         Log.d("activityB","onStop");
 //        unbindService(remoteServiceConnection);
         unbindService(serviceConnection);
+        Intent intent = new Intent(this,BindService.class);
+        stopService(intent);
+//        startService(intent);
+//        bindService(intent,serviceConnection,BIND_AUTO_CREATE);
+//        unbindService(serviceConnection);
+
     }
 
     @Override
@@ -120,8 +126,10 @@ public class ServiceTestActivity extends AppCompatActivity {
     public void test()
     {
         Intent intent = new Intent(this,BindService.class);
-        startService(intent);
+//        startService(intent);
         bindService(intent,serviceConnection,BIND_AUTO_CREATE);
+        startService(intent);
+        //下面这段代码不会执行，因为mBindService=null
         if(mBindService != null)
         {
             for(int i = 0;i< 10;i++)
