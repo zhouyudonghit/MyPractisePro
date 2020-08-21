@@ -16,9 +16,8 @@ public class MyMarkerView extends MarkerView {
     private DecimalFormat format = new DecimalFormat("##0");
 
     public MyMarkerView(Context context) {
-        super(context,0);
-//        super(context, R.layout.layout_markerview);
-//        tvContent = (TextView) findViewById(R.id.tvContent);
+        super(context, R.layout.layout_markerview);
+        tvContent = (TextView) findViewById(R.id.tvContent);
     }
 
     @Override

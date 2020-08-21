@@ -1,16 +1,20 @@
 package com.example.localuser.retrofittest.MPAndroidChartTest;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -32,6 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MPAndroidChartTestActivity extends AppCompatActivity {
+    private String TAG = LogConfigs.TAG_PREFIX_MPANDROIDCHART + getClass().getSimpleName();
     private LineChart mLineChart;
     private Button button;
     @Override
@@ -46,9 +51,52 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
                 testButton();
             }
         });
-        //显示边界
+        testData();
+        testAxis();
+        testLineChart();
+        testLegend();
+        testDescription();
+        testMarkerView();
+    }
+
+    private void testButton()
+    {
+        mLineChart.setVisibleXRange(1f,1f);
+        mLineChart.invalidate();
+    }
+
+    private void testLineChart()
+    {
+        //设置整个view的背景
+//        mLineChart.setBackgroundColor(Color.YELLOW);
+        //如果启用，chart 绘图区后面的背景矩形将绘制
+        mLineChart.setDrawGridBackground(false);
+        mLineChart.setGridBackgroundColor(Color.BLUE);
         mLineChart.setDrawBorders(true);
-        //设置数据
+        mLineChart.setBorderColor(Color.YELLOW);
+        mLineChart.setBorderWidth(10);
+        //设置最大可见绘制的 chart count 的数量。 只在 LineData.setDrawValues() 设置为 true 时有效
+        /**
+         * the maximum number of entries to which values will be drawn
+         * (entry numbers greater than this value will cause value-labels to disappear)
+         */
+        mLineChart.setMaxVisibleValueCount(1);
+//        //调用这个方法才能使moveViewTo有效
+        mLineChart.setVisibleXRange(6f,6f);
+        //        mLineChart.setVisibleXRangeMaximum(18);
+//        mLineChart.setVisibleXRangeMinimum(5);
+        //        mLineChart.moveViewToX(3);
+//        mLineChart.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                mLineChart.notifyDataSetChanged();
+//                mLineChart.invalidate();
+//            }
+//        });
+    }
+
+    private void testData()
+    {
         List<Entry> entries = new ArrayList<>();
 //        for (int i = 0; i < 20; i++) {
 //            if(i != 10) {
@@ -76,7 +124,11 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         lineDataSet.setDrawFilled(true);
         lineDataSet.setDrawValues(false);
-        lineDataSet.setFillColor(Color.RED);
+        //Sets the color that is used for filling the area below the line.
+//        lineDataSet.setFillColor(Color.RED);
+        //下面可以设置填充颜色为渐变
+        Drawable fillDrawable = ContextCompat.getDrawable(this, R.drawable.chartlib_fade_accent);
+        lineDataSet.setFillDrawable(fillDrawable);
         lineDataSet.setColor(Color.RED);
 
         List<Entry> entries2 = new ArrayList<>();
@@ -87,16 +139,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         LineDataSet lineDataSet2 = new LineDataSet(entries2, "温度2");
 //        data.addDataSet(lineDataSet2);
 //        data.notifyDataChanged();
-        test();
         mLineChart.setData(data);
-        //调用这个方法才能使moveViewTo有效
-        mLineChart.setVisibleXRange(5f,5f);
-    }
-
-    private void testButton()
-    {
-        mLineChart.setVisibleXRange(1f,1f);
-        mLineChart.invalidate();
     }
 
     private void addGestureListener()
@@ -147,17 +190,9 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mLineChart.moveViewToX(3);
-        mLineChart.post(new Runnable() {
-            @Override
-            public void run() {
-                mLineChart.notifyDataSetChanged();
-                mLineChart.invalidate();
-            }
-        });
     }
 
-    private void test()
+    private void testAxis()
     {
         XAxis xAxis = mLineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -166,7 +201,8 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         xAxis.setGranularity(1);
         xAxis.setLabelCount(10,true);
         xAxis.setAxisMinimum(1f);
-        xAxis.setAxisMaximum(10f);
+        xAxis.setAxisMaximum(20f);
+        Log.d(TAG,"mLineChart.getXRange() = "+mLineChart.getXRange());
 
         YAxis leftYAxis = mLineChart.getAxisLeft();
         YAxis rightYAxis = mLineChart.getAxisRight();
@@ -196,7 +232,10 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         limitLine.setTextColor(Color.RED);  //颜色
         limitLine.setLineColor(Color.BLUE);
         rightYAxis.addLimitLine(limitLine); //Y轴添加限制线
+    }
 
+    private void testLegend()
+    {
         Legend legend = mLineChart.getLegend();
         legend.setTextColor(Color.CYAN); //设置Legend 文本颜色
         legend.setVerticalAlignment(Legend.LegendVerticalAlignment.CENTER);
@@ -204,14 +243,20 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         legend.setOrientation(Legend.LegendOrientation.VERTICAL);
 //        legend.setEnabled(false);//是否显示
         legend.setWordWrapEnabled(true);//设置标签是否换行（当多条标签时 需要换行显示、如上右图）true：可换行。false：不换行
+    }
 
+    private void testDescription()
+    {
         Description description = new Description();
 //        description.setEnabled(false);
         description.setText("X轴描述");
         description.setTextColor(Color.RED);
         mLineChart.setDescription(description);
+    }
 
-//        MyMarkerView mv = new MyMarkerView(this);
-//        mLineChart.setMarkerView(mv);
+    private void testMarkerView()
+    {
+        MyMarkerView mv = new MyMarkerView(this);
+        mLineChart.setMarkerView(mv);
     }
 }
