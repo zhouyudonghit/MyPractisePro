@@ -65,7 +65,7 @@ public class MyTextView extends AppCompatTextView {
 //        matrix.setTranslate(20,0);
 //        canvas.setMatrix(matrix);
 //        setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        super.onDraw(canvas);
+//        super.onDraw(canvas);
 //        canvas.translate(20,0);
 //        canvas.drawText("ggg",0,0,mPaint);
 //        canvas.save();
@@ -85,7 +85,7 @@ public class MyTextView extends AppCompatTextView {
 //        testPath(canvas);
 //        testCircle(canvas);
         testShader(canvas);
-        exercise(canvas);
+//        exercise(canvas);
     }
 
     public void move()
@@ -155,7 +155,7 @@ public class MyTextView extends AppCompatTextView {
 
     public void testShader(Canvas canvas) {
         BaseTest test = new ShaderTest(this);
-        ((ShaderTest) test).testShader4(canvas,getContext());
+        ((ShaderTest) test).testShader1(canvas);
     }
 
     public void exercise(Canvas canvas)

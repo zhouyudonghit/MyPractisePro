@@ -8,8 +8,7 @@
         android:layout_height="200dp"
         android:text="hello world"
         android:textSize="20dp"
-        android:id="@+id/text_view"
-        android:background="@android:color/holo_blue_bright" />
+        android:id="@+id/text_view" />
 
     <Button
         android:layout_width="200dp"
