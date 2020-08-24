@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/myview"
-        />
+        android:background="@android:color/holo_blue_bright"/>
 
     <com.example.localuser.retrofittest.View.MyAdhesionView
         android:layout_width="wrap_content"

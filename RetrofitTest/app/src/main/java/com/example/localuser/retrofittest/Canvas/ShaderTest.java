@@ -24,8 +24,8 @@ public class ShaderTest extends BaseTest {
     //测试线性渐变
     public void testShader1(Canvas canvas)
     {
-        Shader shader = new LinearGradient(0,mViewHeight/2,mViewWidth,mViewHeight/2,Color.parseColor("#ffffff"),
-                Color.parseColor("#000000"), Shader.TileMode.CLAMP);
+        Shader shader = new LinearGradient(mViewHeight/2,0,mViewWidth/2,mViewHeight,Color.parseColor("#ffffff"),
+                Color.parseColor("#00000000"), Shader.TileMode.CLAMP);
         mPaint.setShader(shader);
 //        canvas.drawCircle(mViewWidth/2,mViewHeight/4,mViewHeight/4,mPaint);
 //        mPaint.setStrokeWidth(mViewWidth);

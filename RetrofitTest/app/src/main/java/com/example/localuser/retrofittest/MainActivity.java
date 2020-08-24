@@ -462,7 +462,7 @@ public class MainActivity extends AppCompatActivity {
         List<TextView> list = new ArrayList<>();
         list.add(tv1);
         list.add(tv2);
-//        list.add(tv3);
+        list.add(tv3);
         list.add(tv4);
         list.add(tv5);
         list.add(tv6);
@@ -473,7 +473,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv11);
         list.add(tv12);
         list.add(tv13);
-//        list.add(tv14);
+        list.add(tv14);
         list.add(tv15);
         list.add(tv16);
         list.add(tv17);
