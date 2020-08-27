@@ -1,6 +1,7 @@
 package com.example.localuser.retrofittest.MPAndroidChartTest;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.widget.TextView;
 
 import com.example.localuser.retrofittest.R;
@@ -23,6 +24,7 @@ public class MyMarkerView extends MarkerView {
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
         tvContent.setText(format.format(e.getY()));
+        tvContent.setTextColor(Color.RED);
         super.refreshContent(e, highlight);
     }
 

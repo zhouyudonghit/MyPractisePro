@@ -85,7 +85,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
          */
 //        mLineChart.setMaxVisibleValueCount(8);
 //        //调用这个方法才能使moveViewTo有效
-//        mLineChart.setVisibleXRange(7f,7f);
+        mLineChart.setVisibleXRange(7f,7f);
         //        mLineChart.setVisibleXRangeMaximum(18);
 //        mLineChart.setVisibleXRangeMinimum(5);
         //        mLineChart.moveViewToX(3);
@@ -186,7 +186,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
     private void testData()
     {
         List<Entry> entries = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 60; i++) {
             if(i % 2 == 0) {
                 entries.add(new Entry(i, (float) (Math.random()) * 80));
             }
@@ -217,9 +217,10 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         //下面可以设置填充颜色为渐变
         Drawable fillDrawable = ContextCompat.getDrawable(this, R.drawable.chartlib_fade_accent);
         lineDataSet.setFillDrawable(fillDrawable);
-        lineDataSet.setColor(Color.RED);
+//        lineDataSet.setColor(Color.GREEN);
+        lineDataSet.setColors(Color.GREEN,Color.RED,Color.BLACK);
         //是否允许高亮，如果设置为false，
-        lineDataSet.setHighlightEnabled(false);
+        lineDataSet.setHighlightEnabled(true);
         lineDataSet.setHighLightColor(Color.RED);
         lineDataSet.setHighlightLineWidth(5);
 
@@ -296,9 +297,9 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);//上下都有横坐标
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);//坐标的值在视图内部，即坐标系里面。默认是在坐标系外面。
         xAxis.setGranularity(1);
-        xAxis.setLabelCount(10,true);
-        xAxis.setAxisMinimum(0f);
-        xAxis.setAxisMaximum(20f);
+        xAxis.setLabelCount(10,false);
+//        xAxis.setAxisMinimum(0f);
+//        xAxis.setAxisMaximum(20f);
         xAxis.setEnabled(true);//如果设置为false，不会画横坐标轴那条线，也不会画垂直于坐标轴的网络线
         xAxis.setDrawAxisLine(false);//不会画横坐标那条线
         xAxis.setDrawGridLines(false);//不会画垂直于坐标轴的网络线
@@ -308,7 +309,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
 
         YAxis leftYAxis = mLineChart.getAxisLeft();
         YAxis rightYAxis = mLineChart.getAxisRight();
-//        leftYAxis.setAxisMinimum(0f);
+        leftYAxis.setAxisMinimum(0f);
 //        leftYAxis.setAxisMaximum(100f);
         //设置图表中的最高值的顶部间距占最高值的值的百分比（设置的百分比 = 最高柱顶部间距/最高柱的值）。默认值是10f，即10%
         //该方法想要生效，必须是能够自动计算y轴的最大值，即不设置最大值，即不调用setAxisMaximum
@@ -351,7 +352,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         legend.setVerticalAlignment(Legend.LegendVerticalAlignment.CENTER);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
         legend.setOrientation(Legend.LegendOrientation.VERTICAL);
-//        legend.setEnabled(false);//是否显示
+        legend.setEnabled(false);//是否显示
         legend.setWordWrapEnabled(true);//设置标签是否换行（当多条标签时 需要换行显示、如上右图）true：可换行。false：不换行
     }
 
