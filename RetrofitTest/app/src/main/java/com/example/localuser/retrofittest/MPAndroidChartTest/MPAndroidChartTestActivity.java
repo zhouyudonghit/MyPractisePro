@@ -187,7 +187,9 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
     {
         List<Entry> entries = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            entries.add(new Entry(i, (float) (Math.random()) * 80));
+            if(i % 2 == 0) {
+                entries.add(new Entry(i, (float) (Math.random()) * 80));
+            }
         }
 //        entries.add(new Entry(5,40));
 //        entries.add(new Entry(6,40));
@@ -216,6 +218,10 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         Drawable fillDrawable = ContextCompat.getDrawable(this, R.drawable.chartlib_fade_accent);
         lineDataSet.setFillDrawable(fillDrawable);
         lineDataSet.setColor(Color.RED);
+        //是否允许高亮，如果设置为false，
+        lineDataSet.setHighlightEnabled(false);
+        lineDataSet.setHighLightColor(Color.RED);
+        lineDataSet.setHighlightLineWidth(5);
 
         List<Entry> entries2 = new ArrayList<>();
         entries2.add(new Entry(10,40));
@@ -225,6 +231,11 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         LineDataSet lineDataSet2 = new LineDataSet(entries2, "温度2");
 //        data.addDataSet(lineDataSet2);
 //        data.notifyDataChanged();
+//        data.getDataSetByIndex(0);//返回第几个数据集合
+        //检查此数据对象是否包含指定的Entry 。 注：这个相当影响性能，性能严峻情况下，不要过度使用。
+//        lineDataSet.contains(new Entry());
+        //清除所有 DataSet 对象和所有 Entries 的数据 。 不会删除所提供的 x-values 。
+//        data.clearValues();
         mLineChart.setData(data);
     }
 
