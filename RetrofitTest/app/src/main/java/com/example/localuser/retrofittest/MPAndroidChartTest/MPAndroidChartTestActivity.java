@@ -28,8 +28,10 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
@@ -81,7 +83,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
          * (entry numbers greater than this value will cause value-labels to disappear)
          * 还需要看一下DataRenderer的isDrawingValuesAllowed(ChartInterface chart)方法，这里面才能真正理解该方法的用法
          */
-        mLineChart.setMaxVisibleValueCount(8);
+//        mLineChart.setMaxVisibleValueCount(8);
 //        //调用这个方法才能使moveViewTo有效
 //        mLineChart.setVisibleXRange(7f,7f);
         //        mLineChart.setVisibleXRangeMaximum(18);
@@ -121,15 +123,71 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
 //        mLineChart.setDragDecelerationEnabled(false);
         //减速的摩擦系数在[0; 1]区间，数值越高表示速度会缓慢下降，例如，如果将其设置为0，将立即停止。 1是一个无效的值，会自动转换至0.9999。
 //        mLineChart.setDragDecelerationFrictionCoef(0.3f);
+        //下面代码会高亮x坐标为4的值，高亮就是显示y坐标值
+        Highlight[] highlights = new Highlight[1];
+        Highlight highlight1 = new Highlight(4.0f,30.0f,0);
+        highlights[0] = highlight1;
+        mLineChart.highlightValues(highlights);
+        mLineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                Log.d(TAG,"onValueSelected, e = "+e + ",h = "+h);
+            }
+
+            @Override
+            public void onNothingSelected() {
+                Log.d(TAG,"onNothingSelected");
+            }
+        });
+
+        mLineChart.setOnChartGestureListener(new OnChartGestureListener() {
+            @Override
+            public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+
+            }
+
+            @Override
+            public void onChartLongPressed(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartDoubleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartSingleTapped(MotionEvent me) {
+
+            }
+
+            @Override
+            public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
+
+            }
+
+            @Override
+            public void onChartScale(MotionEvent me, float scaleX, float scaleY) {
+
+            }
+
+            @Override
+            public void onChartTranslate(MotionEvent me, float dX, float dY) {
+
+            }
+        });
     }
 
     private void testData()
     {
         List<Entry> entries = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            if(i != 10) {
-                entries.add(new Entry(i, (float) (Math.random()) * 80));
-            }
+            entries.add(new Entry(i, (float) (Math.random()) * 80));
         }
 //        entries.add(new Entry(5,40));
 //        entries.add(new Entry(6,40));
@@ -151,7 +209,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         //线模式为圆滑曲线（默认折线）
         lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         lineDataSet.setDrawFilled(true);
-        lineDataSet.setDrawValues(true);
+        lineDataSet.setDrawValues(false);//是否默认显示y坐标
         //Sets the color that is used for filling the area below the line.
 //        lineDataSet.setFillColor(Color.RED);
         //下面可以设置填充颜色为渐变
@@ -165,7 +223,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
 //            entries2.add(new Entry(i, (float) (Math.random()) * 80));
 //        }
         LineDataSet lineDataSet2 = new LineDataSet(entries2, "温度2");
-        data.addDataSet(lineDataSet2);
+//        data.addDataSet(lineDataSet2);
 //        data.notifyDataChanged();
         mLineChart.setData(data);
     }
@@ -228,38 +286,51 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);//坐标的值在视图内部，即坐标系里面。默认是在坐标系外面。
         xAxis.setGranularity(1);
         xAxis.setLabelCount(10,true);
-        xAxis.setAxisMinimum(1f);
+        xAxis.setAxisMinimum(0f);
         xAxis.setAxisMaximum(20f);
+        xAxis.setEnabled(true);//如果设置为false，不会画横坐标轴那条线，也不会画垂直于坐标轴的网络线
+        xAxis.setDrawAxisLine(false);//不会画横坐标那条线
+        xAxis.setDrawGridLines(false);//不会画垂直于坐标轴的网络线
+        xAxis.setDrawLabels(true);//是否显示横坐标轴的值，即x坐标轴的标签
+        xAxis.setAvoidFirstLastClipping(true);
         Log.d(TAG,"mLineChart.getXRange() = "+mLineChart.getXRange());
 
         YAxis leftYAxis = mLineChart.getAxisLeft();
         YAxis rightYAxis = mLineChart.getAxisRight();
-        leftYAxis.setAxisMinimum(0f);
-        leftYAxis.setAxisMaximum(100f);
-
-        rightYAxis.setAxisMinimum(0f);
-        rightYAxis.setAxisMaximum(100f);
-
+//        leftYAxis.setAxisMinimum(0f);
+//        leftYAxis.setAxisMaximum(100f);
+        //设置图表中的最高值的顶部间距占最高值的值的百分比（设置的百分比 = 最高柱顶部间距/最高柱的值）。默认值是10f，即10%
+        //该方法想要生效，必须是能够自动计算y轴的最大值，即不设置最大值，即不调用setAxisMaximum
+//        leftYAxis.setSpaceTop(100f);
+        //设置图表中的最小值的底部间距占最高值的值的百分比（设置的百分比 = 最低柱底部间距/最高柱的值）。默认值是10f，即10%
+        //该方法想要生效，必须是能够自动计算y轴的最小值，即不设置最小值，即不调用setAxisMinimum
+        leftYAxis.setSpaceBottom(100f);
         leftYAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
                 return (int) value + "%";
             }
         });
-//        rightYAxis.setEnabled(false);
+//        leftYAxis.setInverted(true);
+        LimitLine limitLine = new LimitLine(30,"限制线"); //得到限制线
+        limitLine.setLineWidth(4f); //宽度
+        limitLine.setTextSize(10f);
+        limitLine.setTextColor(Color.RED);  //颜色
+        limitLine.setLineColor(Color.BLUE);
+        leftYAxis.addLimitLine(limitLine); //Y轴添加限制线
+        leftYAxis.setDrawLimitLinesBehindData(true);//限制线是画在图表前面，还是图表后面
+        leftYAxis.setEnabled(true);
+
+        rightYAxis.setAxisMinimum(0f);
+        rightYAxis.setAxisMaximum(100f);
+
+        rightYAxis.setEnabled(false);
 
         rightYAxis.setGranularity(1f);
         rightYAxis.setLabelCount(11,false);
         rightYAxis.setTextColor(Color.BLUE); //文字颜色
         rightYAxis.setGridColor(Color.RED); //网格线颜色
         rightYAxis.setAxisLineColor(Color.GREEN); //Y轴颜色
-
-        LimitLine limitLine = new LimitLine(95,"高限制性"); //得到限制线
-        limitLine.setLineWidth(4f); //宽度
-        limitLine.setTextSize(10f);
-        limitLine.setTextColor(Color.RED);  //颜色
-        limitLine.setLineColor(Color.BLUE);
-        rightYAxis.addLimitLine(limitLine); //Y轴添加限制线
     }
 
     private void testLegend()
