@@ -117,7 +117,8 @@
         <activity android:name=".statusbartest.StatusbarTestActivity"/>
         <activity android:name=".MaterialDesignTest.MaterialDesignTestActivity"></activity>
         <activity android:name=".MaterialDesignTest.FloatingActionButtonTestActivity"/>
-        <activity android:name=".MaterialDesignTest.CoordinatorLayoutTestActivity"/>
+        <activity android:name=".MaterialDesignTest.CoordinatorLayoutRecyclerViewTestActivity" android:theme="@style/APPNoActionBarTheme"/>
+        <activity android:name=".MaterialDesignTest.CoordinatorLayoutViewPagerTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>

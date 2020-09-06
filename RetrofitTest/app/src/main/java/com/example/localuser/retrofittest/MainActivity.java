@@ -502,7 +502,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv40);
         list.add(tv41);
         list.add(tv42);
-        list.add(tv43);
+//        list.add(tv43);
 //        list.add(tv44);
         for(TextView textView :list)
         {

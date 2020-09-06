@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.example.localuser.retrofittest.R;
 
 public class MaterialDesignTestActivity extends AppCompatActivity {
-    private TextView textView1;
+    private TextView textView1,textView2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +26,15 @@ public class MaterialDesignTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MaterialDesignTestActivity.this,FloatingActionButtonTestActivity.class));
+            }
+        });
+
+        textView2 = findViewById(R.id.coordinatorlayout_test_test);
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(MaterialDesignTestActivity.this,CoordinatorLayoutRecyclerViewTestActivity.class));
+                startActivity(new Intent(MaterialDesignTestActivity.this,CoordinatorLayoutViewPagerTestActivity.class));
             }
         });
     }

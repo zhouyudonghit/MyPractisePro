@@ -12,5 +12,13 @@
         android:id="@+id/floating_action_button_test"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="coordinatorlayout_test"
+        android:id="@+id/coordinatorlayout_test_test"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
 </LinearLayout>
 </ScrollView>
