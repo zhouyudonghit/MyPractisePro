@@ -33,8 +33,8 @@ public class MaterialDesignTestActivity extends AppCompatActivity {
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(MaterialDesignTestActivity.this,CoordinatorLayoutRecyclerViewTestActivity.class));
-                startActivity(new Intent(MaterialDesignTestActivity.this,CoordinatorLayoutViewPagerTestActivity.class));
+                startActivity(new Intent(MaterialDesignTestActivity.this,CoordinatorLayoutRecyclerViewTestActivity.class));
+//                startActivity(new Intent(MaterialDesignTestActivity.this,CoordinatorLayoutViewPagerTestActivity.class));
             }
         });
     }
