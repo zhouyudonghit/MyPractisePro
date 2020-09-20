@@ -32,13 +32,14 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
     private MyDrawLineView myDrawLineView;
     private MyColorRingView myColorRingView;
     private MyRoundRectView myRoundRectView;
+    private MessageCenterUnreadTipView messageCenterUnreadTipView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_myview_activity_main);
         myView = (MyView) findViewById(R.id.myview);
-        myView.setVisibility(View.VISIBLE);
+        myView.setVisibility(View.GONE);
         final Animation animation = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
@@ -72,6 +73,10 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         myRoundRectView.setVisibility(View.GONE);
 
         myColorRingView = findViewById(R.id.my_color_ring_view);
+        myColorRingView.setVisibility(View.GONE);
+
+        messageCenterUnreadTipView = findViewById(R.id.message_view);
+        messageCenterUnreadTipView.setVisibility(View.VISIBLE);
     }
 
     public void startAnimation()

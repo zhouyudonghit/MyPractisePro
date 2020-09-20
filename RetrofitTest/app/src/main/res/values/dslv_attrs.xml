@@ -27,4 +27,13 @@
     <attr name="click_remove_id" format="integer" />
     <attr name="use_default_controller" format="boolean" />
   </declare-styleable>
+
+  <declare-styleable name="MessageCenterUnreadTipView">
+    <attr name="background_color" format="color"></attr>
+    <attr name="text_color" format="color"></attr>
+    <attr name="text_size" format="dimension"></attr>
+    <attr name="circle_witdh" format="dimension"></attr>
+    <attr name="round_rect_width" format="dimension"></attr>
+    <attr name="round_rect_radio" format="dimension"></attr>
+  </declare-styleable>
 </resources>

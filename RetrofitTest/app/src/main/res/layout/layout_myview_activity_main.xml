@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:messageview="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,12 +21,25 @@
         android:id="@+id/my_drawline_view"/>
 
     <com.example.localuser.retrofittest.View.MyRoundRectView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/my_roundrect_view"/>
 
     <com.example.localuser.retrofittest.View.MyColorRingView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/my_color_ring_view"/>
+
+    <com.example.localuser.retrofittest.View.MessageCenterUnreadTipView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/message_view"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        messageview:text_size="11sp"
+        messageview:background_color="#EA3F28"
+        messageview:circle_witdh="12dp"
+        messageview:round_rect_width="18dp"
+        messageview:text_color="#ffffff"
+        messageview:round_rect_radio="7.5dp"/>
 </LinearLayout>

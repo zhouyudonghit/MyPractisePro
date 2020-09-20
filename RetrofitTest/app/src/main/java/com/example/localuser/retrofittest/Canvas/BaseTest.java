@@ -7,7 +7,7 @@ import android.view.View;
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 
 public abstract class BaseTest {
-    private String TAG = LogConfigs.TAG_PREFIX_CANVAS+getClass().getSimpleName();
+    protected String TAG = LogConfigs.TAG_PREFIX_CANVAS+getClass().getSimpleName();
     protected View mView;
     protected int mViewWidth;
     protected int mViewHeight;
