@@ -120,6 +120,7 @@
         <activity android:name=".MaterialDesignTest.CoordinatorLayoutRecyclerViewTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MaterialDesignTest.CoordinatorLayoutViewPagerTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
+        <activity android:name=".uiutils.UIUtilsActivity"></activity>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

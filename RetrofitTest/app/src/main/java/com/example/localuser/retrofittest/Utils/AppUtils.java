@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
@@ -142,4 +143,21 @@ public class AppUtils {
          final float scale = context.getResources().getDisplayMetrics().density;
          return (int) (pxValue / scale + 0.5f);
      }
+
+    public static int dp2px(float dp) {
+        float density = Resources.getSystem().getDisplayMetrics().density;
+        return (int) (dp * density + 0.5f);
+    }
+
+    /**
+     * 将sp转换为px
+     *
+     * @param context
+     * @param spValue
+     * @return
+     */
+    public static int sp2px(Context context, float spValue) {
+        float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
 }
