@@ -6,14 +6,19 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
+import com.example.localuser.retrofittest.Utils.ScreenUtils;
 
 public class DialogActivity extends AppCompatActivity {
+    private String TAG = LogConfigs.TAG_PREFIX_DIALOG + getClass().getSimpleName();
     private Button button;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,5 +53,16 @@ public class DialogActivity extends AppCompatActivity {
                     }
                 }).setMessage("fdsfadsfds").setView(R.layout.layout_dialog_view).create();
         myDialog.show();
+        WindowManager.LayoutParams lp = myDialog.getWindow().getAttributes();
+        Log.d(TAG,"dialog window = "+myDialog.getWindow());
+        Log.d(TAG,"dialog lp.type = "+lp.type);
+        Log.d(TAG,"activity window = "+getWindow());
+        Log.d(TAG,"activity lp.type = "+getWindow().getAttributes().type);
+
+        Log.d(TAG,"dialog window,width = "+myDialog.getWindow().getAttributes().width+",height = "+myDialog.getWindow().getAttributes().height);
+        Log.d(TAG,"activity window,width = "+getWindow().getAttributes().width+",height = "+getWindow().getAttributes().height);
+
+        ScreenUtils.getWindowSizeMethod1(myDialog.getWindow());
+        ScreenUtils.getWindowSizeMethod1(getWindow());
     }
 }

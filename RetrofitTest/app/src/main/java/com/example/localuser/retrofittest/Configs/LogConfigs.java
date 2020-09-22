@@ -23,4 +23,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_SHARED_PREFERENCE = "sp_test--";
     public static String TAG_PREFIX_MPANDROIDCHART = "chart-test--";
     public static String TAG_PREFIX_UIUTILS = "uiutils--";
+    public static String TAG_PREFIX_DIALOG = "dialog-test--";
 }
