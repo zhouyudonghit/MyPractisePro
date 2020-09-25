@@ -15,6 +15,9 @@ import android.view.View;
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
 
+/**
+ *参考TextTest类
+ */
 public class MessageCenterUnreadTipView extends View {
     private String TAG = LogConfigs.TAG_PREFIX_MYVIEW + getClass().getSimpleName();
     public static int DEFAULT_BACKGROUND_COLOR = 0xEA3F28;
@@ -170,5 +173,17 @@ public class MessageCenterUnreadTipView extends View {
     private void drawText2(Canvas canvas)
     {
 
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.d(TAG,"onAttachedToWindow");
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.d(TAG,"onDetachedFromWindow");
     }
 }

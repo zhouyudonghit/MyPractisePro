@@ -117,4 +117,22 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
 //        myDrawLineView.invalidate();
         myDrawLineView.startAnimation();
     }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.d(TAG,"onAttachedToWindow");
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.d(TAG,"onDetachedFromWindow");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"onDestroy");
+    }
 }
