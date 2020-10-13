@@ -511,7 +511,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv40);
         list.add(tv41);
         list.add(tv42);
-        list.add(tv43);
+//        list.add(tv43);
         list.add(tv44);
         list.add(tv45);
         for(TextView textView :list)

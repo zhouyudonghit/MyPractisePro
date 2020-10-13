@@ -8,11 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.ArrayMap;
 import android.util.SparseArray;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.example.localuser.retrofittest.R;
-
 import java.io.File;
 
 public class GlideTestActivity extends AppCompatActivity {

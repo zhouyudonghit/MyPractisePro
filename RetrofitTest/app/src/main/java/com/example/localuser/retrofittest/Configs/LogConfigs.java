@@ -24,4 +24,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_MPANDROIDCHART = "chart-test--";
     public static String TAG_PREFIX_UIUTILS = "uiutils--";
     public static String TAG_PREFIX_DIALOG = "dialog-test--";
+    public static String TAG_PREFIX_MATERIAL_DESIGN = "material-design-test--";
 }

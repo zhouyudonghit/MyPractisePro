@@ -17,7 +17,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="coordinatorlayout_test"
-        android:id="@+id/coordinatorlayout_test_test"
+        android:id="@+id/coordinatorlayout_test"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CollapsingToolbarLayout_test"
+        android:id="@+id/CollapsingToolbarLayout_test"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="myfree_collapsingToolbarLayout_test"
+        android:id="@+id/myfree_collapsingToolbarLayout_test"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bottom_sheet_test"
+        android:id="@+id/bottom_sheet_test"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
 </LinearLayout>

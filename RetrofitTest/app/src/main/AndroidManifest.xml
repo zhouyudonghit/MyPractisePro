@@ -119,6 +119,9 @@
         <activity android:name=".MaterialDesignTest.FloatingActionButtonTestActivity"/>
         <activity android:name=".MaterialDesignTest.CoordinatorLayoutRecyclerViewTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MaterialDesignTest.CoordinatorLayoutViewPagerTestActivity" android:theme="@style/APPNoActionBarTheme"/>
+        <activity android:name=".MaterialDesignTest.CoordinatorLayoutCollapsingToolbarLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
+        <activity android:name=".MaterialDesignTest.MyFreeCoordinatorLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
+        <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.BottomSheetBehaviorTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
