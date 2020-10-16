@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.TabLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +25,8 @@ public class CopyMeiTuanBottomSheetTestActivity extends AppCompatActivity {
     private int offsetDistance = 0;
     private Handler mHandler;
     private NestedScrollView nestedScrollView;
+    private View maskView;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,7 +35,13 @@ public class CopyMeiTuanBottomSheetTestActivity extends AppCompatActivity {
         //初始屏幕相关的参数
         initSystem();
         initView();
-        initBehavior()
+        initBehavior();
+    }
+
+    private void initView()
+    {
+        maskView = findViewById(R.id.maskView);
+        tabLayout = findViewById(R.id.);
     }
 
     private void initBehavior()
@@ -53,6 +62,7 @@ public class CopyMeiTuanBottomSheetTestActivity extends AppCompatActivity {
 
             @Override
             public void onSlide(@NonNull View view, float v) {
+                float distance = 0;
 
             }
         });
