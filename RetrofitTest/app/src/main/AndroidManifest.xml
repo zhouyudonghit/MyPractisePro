@@ -122,6 +122,7 @@
         <activity android:name=".MaterialDesignTest.CoordinatorLayoutCollapsingToolbarLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MaterialDesignTest.MyFreeCoordinatorLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.BottomSheetBehaviorTestActivity" android:theme="@style/APPNoActionBarTheme"/>
+        <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.CopyMeiTuanBottomSheetTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">

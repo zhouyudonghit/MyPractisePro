@@ -1,18 +1,27 @@
 package com.example.localuser.retrofittest.MaterialDesignTest.BottomSheetBehaviorTest;
 
+import android.animation.ObjectAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
+import com.example.localuser.retrofittest.Utils.AppUtils;
 
 /**
  * 参考链接 https://www.jianshu.com/p/04711494868e
@@ -27,94 +36,154 @@ public class CopyMeiTuanBottomSheetTestActivity extends AppCompatActivity {
     private NestedScrollView nestedScrollView;
     private View maskView;
     private TabLayout tabLayout;
+    private ConstraintLayout constraint;
+    private FrameLayout frameLayout;
+    private ImageView imageView;
+    private ImageView imageView2;
+    private ImageView imageView3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_copymeituan_bottom_sheet_test);
+        initView();
         //初始屏幕相关的参数
         initSystem();
-        initView();
         initBehavior();
     }
 
     private void initView()
     {
+        nestedScrollView = findViewById(R.id.nestedScrollView);
         maskView = findViewById(R.id.maskView);
-        tabLayout = findViewById(R.id.);
+        tabLayout = findViewById(R.id.tabLayout);
+        constraint = findViewById(R.id.constraint);
+        frameLayout = findViewById(R.id.frameLayout);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.addTab(tabLayout.newTab().setText("费用说明"));
+        tabLayout.addTab(tabLayout.newTab().setText("预定须知"));
+        tabLayout.addTab(tabLayout.newTab().setText("退款政策"));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                if(tab.getPosition() == 0)
+                {
+                    frameLayout.setBackgroundColor(Color.parseColor("#ff0000"));
+                }else if(tab.getPosition() == 1)
+                {
+                    frameLayout.setBackgroundColor(Color.parseColor("#0000ff"));
+                }else{
+                    frameLayout.setBackgroundColor(Color.parseColor("#00ff00"));
+                }
+            }
+        });
+        imageView = findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        imageView2 = findViewById(R.id.imageView2);
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CopyMeiTuanBottomSheetTestActivity.this, "转发", Toast.LENGTH_SHORT).show();
+            }
+        });
+        imageView3 = findViewById(R.id.imageView3);
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CopyMeiTuanBottomSheetTestActivity.this, "收藏", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mHandler = new Handler();
     }
+
+    private void initSystem() {
+        //获取屏幕高度
+        heightPixels = getResources().getDisplayMetrics().heightPixels;
+        Log.i(TAG, "heightPixels: "+heightPixels);
+
+        float behaviorHeight = AppUtils.px2dip(this, (heightPixels / 2));
+        peekHeight = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, behaviorHeight, getResources().getDisplayMetrics());
+        Log.i(TAG, "peekHeight: "+peekHeight);
+
+        imageView.post(new Runnable() {
+            @Override
+            public void run() {
+                ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
+                //获取状态栏高度
+                int statusBarHeight = 0;
+                int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+                if (resourceId > 0) {
+                    statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+                }
+                //返回按钮至屏幕顶部的高度
+                marginTop = imageView.getHeight() + lp.topMargin + lp.bottomMargin / 2 + statusBarHeight;
+                Log.d(TAG,"marginTop = "+marginTop);
+                //返回按钮至根布局的距离
+                offsetDistance = lp.topMargin;
+                Log.d(TAG,"offsetDistance = "+offsetDistance);
+                ViewGroup.LayoutParams layoutParams = nestedScrollView.getLayoutParams();
+                //如果控件本身的Height值就小于返回按钮的高度，就不用做处理
+                Log.d(TAG,"nestedScrollView.getHeight() = "+nestedScrollView.getHeight());
+                if(nestedScrollView.getHeight() > heightPixels - marginTop)
+                {
+                    layoutParams.height = heightPixels - marginTop;
+                    Log.d(TAG,"layoutParams.height = "+layoutParams.height);
+                    nestedScrollView.setLayoutParams(layoutParams);
+                }
+            }
+        });
+    }
+
 
     private void initBehavior()
     {
-        BottomSheetBehavior behavior = BottomSheetBehavior.from(nestedScrollView)
+        final BottomSheetBehavior behavior = BottomSheetBehavior.from(nestedScrollView);
         behavior.setHideable(true);
         behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View view, int i) {
-                ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-                //如果控件本身的Height值就小于返回按钮的高度，就不用做处理
-                if(view.getHeight() > heightPixels - marginTop)
-                {
-                    layoutParams.height = heightPixels - marginTop;
-                }
+
             }
 
             @Override
             public void onSlide(@NonNull View view, float v) {
                 float distance = 0;
-
+                maskView.setAlpha(v);
+                distance = offsetDistance*v;
+                if(distance > 0)
+                {
+                    constraint.setTranslationY(-distance);
+                    constraint.scrollTo(0,(int)-distance);
+                }
+                Log.i(TAG,String.format("onSlide,slideOffset -->>> %s bottomSheet.getHeight() -->>> %s heightPixels -->>> %s",v,view.getHeight(),heightPixels));
+                Log.i(TAG, String.format("distance -->>> %s", distance));
             }
         });
-        behavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
 
-        override fun onStateChanged(bottomSheet: View, newState: Int) {
-            val layoutParams = bottomSheet.layoutParams
-            //如果控件本身的Height值就小于返回按钮的高度，就不用做处理
-            if (bottomSheet.height > heightPixels - marginTop) {
-                //屏幕高度减去marinTop作为控件的Height
-                layoutParams.height = heightPixels - marginTop
-                bottomSheet.layoutParams = layoutParams
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                behavior.setHideable(false);
+                behavior.setPeekHeight(peekHeight);
+                behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                ObjectAnimator.ofFloat(nestedScrollView, "alpha", 0f, 1f).setDuration(500).start();
             }
-        }
-
-        override fun onSlide(bottomSheet: View, slideOffset: Float) {
-            var distance: Float = 0F;
-            /**
-             * slideOffset为底部的新偏移量，值在[-1,1]范围内。当BottomSheetBehavior处于折叠(STATE_COLLAPSED)和
-             * 展开(STATE_EXPANDED)状态之间时,它的值始终在[0,1]范围内，向上移动趋近于1，向下区间于0。[-1,0]处于
-             * 隐藏状态(STATE_HIDDEN)和折叠状态(STATE_COLLAPSED)之间。
-             */
-
-            //这里的BottomSheetBehavior初始化完成后，界面设置始终可见，所以不用考虑[-1,0]区间
-            //色差值变化->其实是遮罩的透明度变化，拖拽至最高，顶部成半透明色
-            maskView.alpha = slideOffset
-            //offsetDistance是initSystem()中获得的，是返回按钮至根布局的距离
-            distance = offsetDistance * slideOffset
-            //当BottomSheetBehavior由隐藏状态变为折叠状态(即gif图开始的由底部滑出至设置的最小高度)
-            //slide在[-1,0]的区间内，不加判断会出现顶部布局向下偏移的情况。
-            if (distance > 0) {
-                constraint.translationY = -distance
-            }
-
-            Log.i(
-                    TAG,
-                    String.format(
-                            "slideOffset -->>> %s bottomSheet.getHeight() -->>> %s heightPixels -->>> %s",
-                            slideOffset,
-                            bottomSheet.height,
-                            heightPixels
-                    )
-            )
-            Log.i(TAG, String.format("distance -->>> %s", distance))
-        }
-
-    })
-        mHandler.postDelayed({
-                behavior.isHideable = false
-                behavior.state = BottomSheetBehavior.STATE_COLLAPSED
-                behavior.peekHeight = peekHeight
-                ObjectAnimator.ofFloat(nestedScrollView, "alpha", 0f, 1f).setDuration(500).start()
-        }, 200)
+        }, 200);
     }
 }

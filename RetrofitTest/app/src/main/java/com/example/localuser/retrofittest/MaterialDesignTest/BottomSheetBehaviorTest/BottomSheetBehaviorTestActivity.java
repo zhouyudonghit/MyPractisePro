@@ -27,13 +27,13 @@ public class BottomSheetBehaviorTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //根据状态不同显示隐藏
-//                if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_HIDDEN) {
-//                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//                } else if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
-//                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-//                }
-                BottomSheetDialogTestFragment bottomSheetDialogFragmenttest=new BottomSheetDialogTestFragment();
-                bottomSheetDialogFragmenttest.show(getSupportFragmentManager(),BottomSheetDialogTestFragment.class.getSimpleName());
+                if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_HIDDEN) {
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                } else if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                }
+//                BottomSheetDialogTestFragment bottomSheetDialogFragmenttest=new BottomSheetDialogTestFragment();
+//                bottomSheetDialogFragmenttest.show(getSupportFragmentManager(),BottomSheetDialogTestFragment.class.getSimpleName());
             }
         });
         //设置监听事件

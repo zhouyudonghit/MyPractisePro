@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.localuser.retrofittest.MaterialDesignTest.BottomSheetBehaviorTest.BottomSheetBehaviorTestActivity;
+import com.example.localuser.retrofittest.MaterialDesignTest.BottomSheetBehaviorTest.CopyMeiTuanBottomSheetTestActivity;
 import com.example.localuser.retrofittest.R;
 
 public class MaterialDesignTestActivity extends AppCompatActivity {
@@ -59,7 +60,8 @@ public class MaterialDesignTestActivity extends AppCompatActivity {
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MaterialDesignTestActivity.this, BottomSheetBehaviorTestActivity.class));
+                startActivity(new Intent(MaterialDesignTestActivity.this, CopyMeiTuanBottomSheetTestActivity.class));
+//                startActivity(new Intent(MaterialDesignTestActivity.this, BottomSheetBehaviorTestActivity.class));
             }
         });
     }

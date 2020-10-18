@@ -40,7 +40,7 @@ public class UIUtilsActivity extends AppCompatActivity {
                 {
                     try {
                         float value = Float.valueOf(dp);
-                        pxEt.setText(AppUtils.dip2px(UIUtilsActivity.this,value));
+                        pxEt.setText(AppUtils.dip2px(UIUtilsActivity.this,value)+"");
                     }catch (Exception e)
                     {
                         Log.d(TAG,"",e);
