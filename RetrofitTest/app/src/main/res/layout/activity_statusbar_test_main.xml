@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button style="@style/MyTextViewTheme"
+        android:id="@+id/SYSTEM_UI_FLAG_LOW_PROFILE"
+        android:text="SYSTEM_UI_FLAG_LOW_PROFILE"/>
+    <Button style="@style/MyTextViewTheme"
+        android:id="@+id/haha"
+        android:text="haha"
+        android:layout_gravity="center|bottom"/>
+</FrameLayout>
