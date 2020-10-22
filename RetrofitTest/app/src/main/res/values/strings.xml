@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">RetrofitTest</string>
-    <string name="draw_open">open</string>
-    <string name="draw_close">close</string>
-    <string name="share_pic_str">share_pic</string>
-</resources>
