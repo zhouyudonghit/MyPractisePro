@@ -35,7 +35,7 @@ public class JsonTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
 //        test8();
-        test1();
+        test9();
     }
 
     public void test1()
@@ -190,5 +190,17 @@ public class JsonTestActivity extends AppCompatActivity {
         {
             Log.e(TAG,"",e);
         }
+    }
+
+    public void test9()
+    {
+        Father<String> father = new Gson().fromJson("",new TypeToken<Father<String>>(){}.getType());
+        Log.d(TAG,"father = "+father);
+
+        Father<String> father3 = new Gson().fromJson("null",new TypeToken<Father<String>>(){}.getType());
+        Log.d(TAG,"father3 = "+father3);
+
+        Father father1 = null;
+        Log.d(TAG,"new Gson().toJson(father1) = "+new Gson().toJson(father1).equalsIgnoreCase("null"));
     }
 }
