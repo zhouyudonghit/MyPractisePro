@@ -1,7 +1,0 @@
-rootProject.name='ModularizationTest'
-include ':app'
-include ':commonlib'
-include ':chat'
-include ':find'
-include ':mine'
-include ':home'
