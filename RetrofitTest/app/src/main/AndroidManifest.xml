@@ -125,6 +125,7 @@
         <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.CopyMeiTuanBottomSheetTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
+        <activity android:name=".stepcounter.StepCounterTestActivity"/>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
