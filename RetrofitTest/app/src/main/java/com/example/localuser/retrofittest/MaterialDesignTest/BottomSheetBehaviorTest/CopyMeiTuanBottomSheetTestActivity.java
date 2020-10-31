@@ -169,7 +169,7 @@ public class CopyMeiTuanBottomSheetTestActivity extends AppCompatActivity {
                 if(distance > 0)
                 {
                     constraint.setTranslationY(-distance);
-                    constraint.scrollTo(0,(int)-distance);
+//                    constraint.scrollTo(0,(int)-distance);
                 }
                 Log.i(TAG,String.format("onSlide,slideOffset -->>> %s bottomSheet.getHeight() -->>> %s heightPixels -->>> %s",v,view.getHeight(),heightPixels));
                 Log.i(TAG, String.format("distance -->>> %s", distance));

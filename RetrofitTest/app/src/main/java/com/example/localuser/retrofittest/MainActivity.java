@@ -2,6 +2,7 @@ package com.example.localuser.retrofittest;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -460,7 +461,11 @@ public class MainActivity extends AppCompatActivity {
         tv46.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, StepCounterTestActivity.class));
+//                startActivity(new Intent(MainActivity.this, StepCounterTestActivity.class));
+                //这里小测一下利用data启动某个activity
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("snhealth://sportsmeeting/list/snmeeting"));
+                Log.d(TAG,"StepCounterTestActivity.class.getName() = "+StepCounterTestActivity.class.getName());
+                startActivity(intent);
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();

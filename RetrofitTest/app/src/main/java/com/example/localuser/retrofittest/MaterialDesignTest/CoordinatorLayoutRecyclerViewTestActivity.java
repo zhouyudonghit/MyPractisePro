@@ -3,6 +3,7 @@ package com.example.localuser.retrofittest.MaterialDesignTest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +31,7 @@ public class CoordinatorLayoutRecyclerViewTestActivity extends AppCompatActivity
     private ViewPager mViewPager;
     private List<String> mDatas;
     private Toolbar mToolbar;
+    private AppBarLayout.ScrollingViewBehavior behavior;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

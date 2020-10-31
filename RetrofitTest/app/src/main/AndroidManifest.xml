@@ -125,7 +125,16 @@
         <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.CopyMeiTuanBottomSheetTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
-        <activity android:name=".stepcounter.StepCounterTestActivity"/>
+        <activity android:name=".stepcounter.StepCounterTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:host="sportsmeeting"
+                    android:scheme="snhealth"
+                    android:path="/list/snmeeting" />
+            </intent-filter>
+        </activity>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
