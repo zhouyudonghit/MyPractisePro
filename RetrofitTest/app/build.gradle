@@ -74,4 +74,12 @@ dependencies {
     implementation files('libs/httpcore-4.4.12.jar')
     api 'org.greenrobot:greendao-generator:3.2.2'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    //AndroidUtilCode导入，是一个强大易用的安卓工具类库
+    //学习链接：https://blog.csdn.net/yhd007/article/details/88015556
+    //https://blankj.com/2016/07/31/android-utils-code/
+    //https://github.com/Blankj/AndroidUtilCode
+    implementation 'com.blankj:utilcode:1.30.1'
+// if u use AndroidX, use the following
+//    implementation 'com.blankj:utilcodex:1.30.1'
 }
