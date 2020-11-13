@@ -124,6 +124,8 @@
         <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.BottomSheetBehaviorTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.CopyMeiTuanBottomSheetTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
+        <activity android:name=".edittext.EditTextTestActivity"/>
+        <activity android:name=".ConstraintLayout.ConstraintLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
         <activity android:name=".stepcounter.StepCounterTestActivity">
             <intent-filter>

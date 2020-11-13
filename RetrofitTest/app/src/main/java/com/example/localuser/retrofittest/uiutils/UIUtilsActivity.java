@@ -19,11 +19,13 @@ public class UIUtilsActivity extends AppCompatActivity {
     private EditText dpEt;
     private EditText pxEt;
     private TextView dp_pxTv;
+    private static int NUMBER = 0;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_uiutil_activity);
         initView();
+        Log.d(TAG,"onCreate,NUMBER = "+NUMBER);
     }
 
     private void initView()
@@ -57,5 +59,25 @@ public class UIUtilsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TAG,"change NUMBER = 3");
+                NUMBER = 3;
+            }
+        }).start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NUMBER = 0;
+        Log.d(TAG,"onDestroy(),NUMBER = "+NUMBER);
     }
 }

@@ -14,6 +14,7 @@ import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
 import com.example.localuser.retrofittest.AudioManagerTest.AudioManagerTestActivity;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.Configs.AppConfigs;
+import com.example.localuser.retrofittest.ConstraintLayout.ConstraintLayoutTestActivity;
 import com.example.localuser.retrofittest.DialogView.DialogActivity;
 import com.example.localuser.retrofittest.DragSortListView.DslvTestActivity;
 import com.example.localuser.retrofittest.DrawLayout.DrawLayoutActivity;
@@ -51,6 +52,7 @@ import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 import com.example.localuser.retrofittest.ViewpagerTest.ViewpagerTestActivity;
 import com.example.localuser.retrofittest.WebViewTest.WebViewTestActivity;
+import com.example.localuser.retrofittest.edittext.EditTextTestActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
 import com.example.localuser.retrofittest.statusbartest.StatusbarTestActivity;
 import com.example.localuser.retrofittest.stepcounter.StepCounterTestActivity;
@@ -72,7 +74,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41,tv42,tv43,tv44,tv45;
-    private TextView tv46;
+    private TextView tv46,tv47,tv48;
     public static String TAG = "retrofit";
 
     @Override
@@ -468,6 +470,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        tv47 = findViewById(R.id.edittext_test_activity);
+        tv47.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, EditTextTestActivity.class));
+            }
+        });
+
+        tv48 = findViewById(R.id.constraintlayout_test_activity);
+        tv48.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ConstraintLayoutTestActivity.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
@@ -525,7 +543,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv39);
         list.add(tv40);
         list.add(tv41);
-        list.add(tv42);
+//        list.add(tv42);
 //        list.add(tv43);
         list.add(tv44);
 //        list.add(tv45);

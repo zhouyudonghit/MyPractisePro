@@ -14,7 +14,7 @@ public class StatusbarTestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        method5();
+        method1();
         setContentView(R.layout.activity_statusbar_test_main);
         initView();
     }

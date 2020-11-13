@@ -3,4 +3,15 @@
     <string name="draw_open">open</string>
     <string name="draw_close">close</string>
     <string name="share_pic_str">share_pic</string>
+
+    <string name="caloriesrace_starttime_endtime">活动时间 : %1$s-%2%s</string>
+    <string name="caloriesrace_countdown_unit">天</string>
+    <string name="caloriesrace_countdown_hint">距活动开始</string>
+    <string name="signup_cloriesrace_info_title">填写报名基本信息</string>
+    <string name="realname_edittext_hint">请填写真实姓名</string>
+    <string name="workno_edittext_hint">请填写工号 (豆芽号)</string>
+    <string name="signup_caloiresrace_btn_text">立即报名</string>
+    <string name="look_over_caloriesrace_rules">查看详细活动规则</string>
+    <string name="caloriesrace_sponsor">主办方 : C2M集团小Biu智能</string>
+    <string name="has_signed_up_caloriesrace">已报名</string>
 </resources>
