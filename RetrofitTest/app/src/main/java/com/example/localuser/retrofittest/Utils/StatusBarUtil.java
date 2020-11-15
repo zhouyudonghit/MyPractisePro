@@ -30,10 +30,10 @@ public class StatusBarUtil {
                 option |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
             }
 
-            if (!showNavigation) {
-                option |= View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
-                option |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-            }
+//            if (!showNavigation) {
+//                option |= View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+//                option |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+//            }
             decorView.setSystemUiVisibility(option);
             if (SystemUtil.isMeizu()){
                 //魅族手机设置

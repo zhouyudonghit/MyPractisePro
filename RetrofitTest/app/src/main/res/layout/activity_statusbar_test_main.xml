@@ -5,9 +5,6 @@
     android:background="@color/black">
     <Button style="@style/MyTextViewTheme"
         android:id="@+id/SYSTEM_UI_FLAG_LOW_PROFILE"
-        android:text="SYSTEM_UI_FLAG_LOW_PROFILE"/>
-    <Button style="@style/MyTextViewTheme"
-        android:id="@+id/haha"
-        android:text="haha"
-        android:layout_gravity="center|bottom"/>
+        android:text="text"
+        android:layout_marginTop="40dp"/>
 </FrameLayout>
