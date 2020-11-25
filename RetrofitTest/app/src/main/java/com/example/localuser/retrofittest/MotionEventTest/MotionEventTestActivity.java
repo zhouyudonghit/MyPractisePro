@@ -28,7 +28,19 @@ public class MotionEventTestActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.fragment_container,myFragment).commit();
         MyView myView = (MyView) findViewById(R.id.MyView1);
-        myView.isClickable();
+        myView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Log.d(TAG,"myView onClick");
+            }
+        });
+        MyViewGroup myViewGroup = findViewById(R.id.MyViewGroup);
+        myViewGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"myViewGroup onClick");
+            }
+        });
 //        myView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -72,4 +84,6 @@ public class MotionEventTestActivity extends AppCompatActivity {
         Log.d(TAG,"onTouchEvent"+event.toString());
         return super.onTouchEvent(event);
     }
+
+
 }

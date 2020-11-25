@@ -37,24 +37,25 @@ public class StatusbarTestActivity extends AppCompatActivity {
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_statusbar_test_main);
         initView();
-//        StatusBarUtil.setStatusBarDarkIcon(this, true, true);
-//        statusBarColor();
-        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
-            @Override
-            public boolean queueIdle() {
-                if (isStatusBar()) {
-                    initStatusBar();
-                    getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-                        @Override
-                        public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                            initStatusBar();
-                        }
-                    });
-                }
-                //只走一次
-                return false;
-            }
-        });
+        StatusBarUtil.setStatusBarDarkIcon(this, true, true);
+        statusBarColor();
+        getWindowManager();
+//        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
+//            @Override
+//            public boolean queueIdle() {
+//                if (isStatusBar()) {
+//                    initStatusBar();
+//                    getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+//                        @Override
+//                        public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+//                            initStatusBar();
+//                        }
+//                    });
+//                }
+//                //只走一次
+//                return false;
+//            }
+//        });
         //这里调用无效
 //        method1();
         //这里调用无效
