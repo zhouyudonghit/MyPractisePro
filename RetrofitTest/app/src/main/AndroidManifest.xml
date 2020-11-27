@@ -137,6 +137,7 @@
                     android:path="/list/snmeeting" />
             </intent-filter>
         </activity>
+        <activity android:name=".textviewtest.TextViewTestActivity"/>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

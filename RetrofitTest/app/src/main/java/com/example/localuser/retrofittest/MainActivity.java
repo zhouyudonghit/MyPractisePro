@@ -56,6 +56,7 @@ import com.example.localuser.retrofittest.edittext.EditTextTestActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
 import com.example.localuser.retrofittest.statusbartest.StatusbarTestActivity;
 import com.example.localuser.retrofittest.stepcounter.StepCounterTestActivity;
+import com.example.localuser.retrofittest.textviewtest.TextViewTestActivity;
 import com.example.localuser.retrofittest.uiutils.UIUtilsActivity;
 
 import java.util.ArrayList;
@@ -74,7 +75,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41,tv42,tv43,tv44,tv45;
-    private TextView tv46,tv47,tv48;
+    private TextView tv46,tv47,tv48,tv49;
     public static String TAG = "retrofit";
 
     @Override
@@ -484,6 +485,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ConstraintLayoutTestActivity.class));
+            }
+        });
+
+        tv49 = findViewById(R.id.textview_test_activity);
+        tv49.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TextViewTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();

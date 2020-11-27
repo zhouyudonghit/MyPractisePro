@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
@@ -43,7 +44,7 @@ public class DialogActivity extends AppCompatActivity {
         Dialog myDialog = new AlertDialog.Builder(this).setTitle("dailog").setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Toast.makeText(DialogActivity.this,"haha",Toast.LENGTH_LONG).show();
             }
         })
                 .setNegativeButton("close", new DialogInterface.OnClickListener() {

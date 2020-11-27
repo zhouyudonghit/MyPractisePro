@@ -10,16 +10,8 @@ public class B extends A implements Parcelable {
     {
 
     }
-    public int getB() {
-        return b;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
 
     protected B(Parcel in) {
-        a = in.readInt();
         b = in.readInt();
     }
 
@@ -34,6 +26,16 @@ public class B extends A implements Parcelable {
             return new B[size];
         }
     };
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+
 
     @Override
     public int describeContents() {
