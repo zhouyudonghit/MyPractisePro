@@ -33,6 +33,8 @@ public class MyView extends View {
 //            case MotionEvent.ACTION_MOVE:
 //                return true;
 //        }
-        return super.onTouchEvent(event);
+        boolean handled = super.onTouchEvent(event);
+        Log.d(TAG,"onTouchEvent,return "+handled);
+        return false;
     }
 }
