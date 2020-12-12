@@ -27,4 +27,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_MATERIAL_DESIGN = "material-design-test--";
     public static String TAG_PREFIX_EDITTEXT_TEST = "edittext-test--";
     public static String TAG_PREFIX_TEXTVIEW_TEST = "textview-test--";
+    public static String TAG_PREFIX_MASKVIEW_TEST = "maskview-test";
 }

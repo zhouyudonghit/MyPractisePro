@@ -127,6 +127,7 @@
         <activity android:name=".edittext.EditTextTestActivity"/>
         <activity android:name=".ConstraintLayout.ConstraintLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
+        <activity android:name=".MaskViewTest.MaskViewTestActivity"/>
         <activity android:name=".stepcounter.StepCounterTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
