@@ -45,7 +45,7 @@ public class MaskLayout extends FrameLayout {
         newView = new TextView(getContext());
         newView.setText("maskview");
         newView.setTextSize(20);
-        newView.setBackgroundColor(Color.WHITE);
+        newView.setBackgroundColor(Color.parseColor("#00ffffff"));
 //        newView.setAlpha(1);
         newView.setTextColor(Color.RED);
         int[] oldViewLocation = new int[2];

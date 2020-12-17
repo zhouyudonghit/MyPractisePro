@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.example.localuser.retrofittest.MaskViewTest.masklayout2.MaskLayout2;
 import com.example.localuser.retrofittest.R;
 
 public class MaskViewTestActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class MaskViewTestActivity extends AppCompatActivity {
     {
         FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         FrameLayout decorView = (FrameLayout) getWindow().getDecorView();
-        MaskLayout maskLayout = new MaskLayout(this);
+        MaskLayout2 maskLayout = new MaskLayout2(this);
         decorView.addView(maskLayout, lp);
 //        addContentView(maskLayout, lp);
 
