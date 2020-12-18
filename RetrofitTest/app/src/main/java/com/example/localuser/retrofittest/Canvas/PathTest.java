@@ -30,7 +30,7 @@ public class PathTest extends BaseTest {
         mPath.reset();
         mPath.addCircle(mViewWidth/4,mViewHeight/2,mViewHeight/4,Path.Direction.CW);
         mPath.addCircle(mViewWidth/2,mViewHeight/2,mViewHeight/4,Path.Direction.CCW);
-        mPath.setFillType(Path.FillType.INVERSE_WINDING);
+        mPath.setFillType(Path.FillType.EVEN_ODD);
         canvas.drawPath(mPath,mPaint);
     }
 
@@ -79,6 +79,17 @@ public class PathTest extends BaseTest {
         mPath.op(newPath,Path.Op.INTERSECT);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(20);
+        canvas.drawPath(mPath,mPaint);
+    }
+
+    public void drawPath7(Canvas canvas)
+    {
+        mPath.reset();
+        //画矩形的时候，两个线的方向相同，没有效果
+        mPath.addRect(0,0,mViewWidth*3/4,mViewHeight,Path.Direction.CCW);
+        mPath.addRect(mViewWidth*2/4,0,mViewWidth,mViewHeight,Path.Direction.CW);
+        mPath.setFillType(Path.FillType.INVERSE_EVEN_ODD);
+        mPaint.setStyle(Paint.Style.FILL);
         canvas.drawPath(mPath,mPaint);
     }
 }

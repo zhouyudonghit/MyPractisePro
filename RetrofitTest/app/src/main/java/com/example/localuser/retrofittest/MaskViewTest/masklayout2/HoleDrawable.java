@@ -30,6 +30,7 @@ public class HoleDrawable extends Drawable {
     @Override
     public void draw(@NonNull Canvas canvas) {
         drawViewBackground(Color.parseColor("#99000000"),canvas);
+//        drawViewBackground(Color.RED,canvas);
     }
 
     @Override
@@ -49,9 +50,8 @@ public class HoleDrawable extends Drawable {
 
     private void drawViewBackground(int color,Canvas canvas)
     {
-        mPaint.setColor(Color.RED);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(20);
+        mPaint.setColor(color);
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         int[] position = new int[2];
         mAttachedView.getLocationOnScreen(position);
         Log.d(TAG,"position[0] = "+position[0]+",position[1] = "+position[1]);
@@ -59,15 +59,14 @@ public class HoleDrawable extends Drawable {
         int height = mAttachedView.getHeight();
         Log.d(TAG,"width = "+width+",height ="+height);
         Path path1 = new Path();
-//        path1.addRect(0,0,width,height,Path.Direction.CW);
+        path1.setFillType(Path.FillType.EVEN_ODD);
+        path1.addRect(0,0,width,height,Path.Direction.CCW);
         mHighLightView.getLocationOnScreen(position);
         Log.d(TAG,"position[0] = "+position[0]+",position[1] = "+position[1]);
         width = mHighLightView.getWidth();
         height = mHighLightView.getHeight();
         Log.d(TAG,"width = "+width+",heiht = "+height);
-//        path1.addRect(position[0],position[1],position[0]+width,position[1]+height,Path.Direction.CW);
-        path1.addRect(100,100,300,300,Path.Direction.CW);
-        path1.setFillType(Path.FillType.EVEN_ODD);
-        canvas.drawPaint(mPaint);
+        path1.addRect(position[0],position[1],position[0]+width,position[1]+height,Path.Direction.CW);
+        canvas.drawPath(path1,mPaint);
     }
 }
