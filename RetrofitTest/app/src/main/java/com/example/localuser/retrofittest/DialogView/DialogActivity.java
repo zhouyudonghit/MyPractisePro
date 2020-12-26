@@ -53,6 +53,8 @@ public class DialogActivity extends AppCompatActivity {
 
                     }
                 }).setMessage("fdsfadsfds").setView(R.layout.layout_dialog_view).create();
+        myDialog.setCanceledOnTouchOutside(false);
+        myDialog.setCancelable(true);
         myDialog.show();
         WindowManager.LayoutParams lp = myDialog.getWindow().getAttributes();
         Log.d(TAG,"dialog window = "+myDialog.getWindow());
