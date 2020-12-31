@@ -17,6 +17,7 @@ import com.example.localuser.retrofittest.R;
 public class CanvasActivity extends AppCompatActivity {
     private Button moveBtn;
     private MyTextView myTextView;
+    private RoundRectImageView mRoundRectImageView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,5 +38,7 @@ public class CanvasActivity extends AppCompatActivity {
                 Toast.makeText(CanvasActivity.this,"click",Toast.LENGTH_LONG).show();
             }
         });
+        mRoundRectImageView = findViewById(R.id.RoundRectImageView);
+        mRoundRectImageView.setImageResource(R.mipmap.content_films);
     }
 }
