@@ -23,4 +23,8 @@
     <com.example.localuser.retrofittest.Canvas.RoundRectImageView android:id="@+id/RoundRectImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"/>
+
+    <com.example.localuser.retrofittest.Canvas.CustomCircleImageView android:id="@+id/CustomCircleImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
 </LinearLayout>

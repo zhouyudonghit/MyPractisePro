@@ -5,9 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Scroller;
 import android.widget.Toast;
-
 import com.example.localuser.retrofittest.R;
 
 /**
@@ -18,6 +16,7 @@ public class CanvasActivity extends AppCompatActivity {
     private Button moveBtn;
     private MyTextView myTextView;
     private RoundRectImageView mRoundRectImageView;
+    private CustomCircleImageView mCustomCircleImageView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,5 +39,8 @@ public class CanvasActivity extends AppCompatActivity {
         });
         mRoundRectImageView = findViewById(R.id.RoundRectImageView);
         mRoundRectImageView.setImageResource(R.mipmap.content_films);
+
+        mCustomCircleImageView = findViewById(R.id.CustomCircleImageView);
+        mCustomCircleImageView.setImageResource(R.mipmap.content_films);
     }
 }

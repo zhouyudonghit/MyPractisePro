@@ -79,7 +79,7 @@ public class RoundRectImageView extends android.support.v7.widget.AppCompatImage
             if (drawable instanceof ColorDrawable) {
                 bitmap = Bitmap.createBitmap(COLORDRAWABLE_DIMENSION, COLORDRAWABLE_DIMENSION, BITMAP_CONFIG);
             } else {
-                bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), BITMAP_CONFIG);
+                bitmap = Bitmap.createBitmap(getWidth(), getHeight(), BITMAP_CONFIG);
             }
 
             Canvas canvas = new Canvas(bitmap);
