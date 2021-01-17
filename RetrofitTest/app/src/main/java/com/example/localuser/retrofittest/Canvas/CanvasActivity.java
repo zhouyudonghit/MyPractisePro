@@ -1,8 +1,10 @@
 package com.example.localuser.retrofittest.Canvas;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,6 +15,7 @@ import com.example.localuser.retrofittest.R;
  */
 
 public class CanvasActivity extends AppCompatActivity {
+    private String TAG = getClass().getSimpleName();
     private Button moveBtn;
     private MyTextView myTextView;
     private RoundRectImageView mRoundRectImageView;
@@ -42,5 +45,8 @@ public class CanvasActivity extends AppCompatActivity {
 
         mCustomCircleImageView = findViewById(R.id.CustomCircleImageView);
         mCustomCircleImageView.setImageResource(R.mipmap.content_films);
+
+        Drawable drawable = getDrawable(R.mipmap.content_films);
+        Log.d(TAG,"height = "+drawable.getIntrinsicHeight()+",width = "+drawable.getIntrinsicWidth());
     }
 }

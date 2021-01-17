@@ -1,30 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp">
 
-    <com.example.localuser.retrofittest.Canvas.MyTextView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:text="hello world"
-        android:textSize="20dp"
-        android:id="@+id/text_view" />
+        <com.example.localuser.retrofittest.Canvas.MyTextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:text="hello world"
+            android:textSize="20dp"
+            android:id="@+id/text_view" />
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="move dsfdsf fdsaaf"
-        android:id="@+id/move"
-        android:ellipsize="marquee"
-        android:singleLine="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="move dsfdsf fdsaaf"
+            android:id="@+id/move"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
-    <com.example.localuser.retrofittest.Canvas.RoundRectImageView android:id="@+id/RoundRectImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        <com.example.localuser.retrofittest.Canvas.RoundRectImageView android:id="@+id/RoundRectImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
 
-    <com.example.localuser.retrofittest.Canvas.CustomCircleImageView android:id="@+id/CustomCircleImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-</LinearLayout>
+        <com.example.localuser.retrofittest.Canvas.CustomCircleImageView android:id="@+id/CustomCircleImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:id="@+id/image1"
+            android:scaleType="center"
+            android:src="@mipmap/content_films"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:id="@+id/image2"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/content_films"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="420dp"
+            android:id="@+id/image3"
+            android:scaleType="centerInside"
+            android:src="@mipmap/content_films"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="420dp"
+            android:id="@+id/image5"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/content_films"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="420dp"
+            android:id="@+id/image6"
+            android:scaleType="fitStart"
+            android:src="@mipmap/content_films"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image4"
+            android:scaleType="center"
+            android:src="@mipmap/content_films"/>
+    </LinearLayout>
+</ScrollView>
