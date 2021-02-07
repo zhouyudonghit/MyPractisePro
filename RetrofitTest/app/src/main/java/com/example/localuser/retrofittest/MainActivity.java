@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.localuser.retrofittest.AddressPickerTest.AddressPickerTest1Activity;
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
 import com.example.localuser.retrofittest.AudioManagerTest.AudioManagerTestActivity;
@@ -30,6 +32,8 @@ import com.example.localuser.retrofittest.ListViewTest.ListViewTestActivity;
 import com.example.localuser.retrofittest.MPAndroidChartTest.MPAndroidChartTestActivity;
 import com.example.localuser.retrofittest.MaskViewTest.MaskViewTestActivity;
 import com.example.localuser.retrofittest.MaterialDesignTest.MaterialDesignTestActivity;
+import com.example.localuser.retrofittest.MatrixTest.MatrixTest;
+import com.example.localuser.retrofittest.MatrixTest.MatrixTestActivity;
 import com.example.localuser.retrofittest.MdnsTest.MdnsTestActivity;
 import com.example.localuser.retrofittest.MemoryLeak.MemoryLeakActivity;
 import com.example.localuser.retrofittest.MemoryTest.MemoryTestActivity;
@@ -76,7 +80,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41,tv42,tv43,tv44,tv45;
-    private TextView tv46,tv47,tv48,tv49,tv50;
+    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52;
     public static String TAG = "retrofit";
 
     @Override
@@ -504,6 +508,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MaskViewTestActivity.class));
             }
         });
+
+        tv51 = findViewById(R.id.matrix_test_activity);
+        tv51.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MatrixTestActivity.class));
+            }
+        });
+
+        tv52 = findViewById(R.id.address_picker_test_activity);
+        tv52.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddressPickerTest1Activity.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
@@ -567,6 +587,8 @@ public class MainActivity extends AppCompatActivity {
 //        list.add(tv45);
 //        list.add(tv46);
 //        list.add(tv50);
+//        list.add(tv51);
+//        list.add(tv52);
         for(TextView textView :list)
         {
             textView.setVisibility(View.GONE);

@@ -2,12 +2,15 @@ package com.example.localuser.retrofittest.Utils;
 
 import android.app.ActivityManager;
 import android.app.Application;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.MyApplication;
@@ -159,5 +162,47 @@ public class AppUtils {
     public static int sp2px(Context context, float spValue) {
         float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
+    }
+
+    public static String getClipboardContent(Context context)
+    {
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        if (cm != null) {
+            ClipData data = cm.getPrimaryClip();
+            if (data != null && data.getItemCount() > 0) {
+                ClipData.Item item = data.getItemAt(0);
+                if (item != null) {
+                    CharSequence sequence = item.coerceToText(context);
+                    if (sequence != null) {
+                        return sequence.toString();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    public static void setClipboardContent(Context context,String content)
+    {
+        //获取剪贴板管理器：
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        // 创建普通字符型ClipData
+        ClipData mClipData = ClipData.newPlainText("Label", content);
+        // 将ClipData内容放到系统剪贴板里。
+        cm.setPrimaryClip(mClipData);
+    }
+
+    public static void clearClipboard(Context context)
+    {
+        //获取剪贴板管理器：
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            //这种写法也会报空指针异常，不可取
+            cm.clearPrimaryClip();
+        }else {
+            //这种写法会报空指针异常，不可取
+            cm.setPrimaryClip(null);
+        }
     }
 }
