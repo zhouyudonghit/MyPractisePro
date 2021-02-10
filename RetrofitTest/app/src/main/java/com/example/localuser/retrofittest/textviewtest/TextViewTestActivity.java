@@ -1,17 +1,20 @@
 package com.example.localuser.retrofittest.textviewtest;
 
+import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.text.style.TextAppearanceSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,7 +30,8 @@ public class TextViewTestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_textview_test_activity);
-        test1();
+        textView = findViewById(R.id.textview1);
+        test2();
     }
 
     private void test1()
@@ -114,5 +118,15 @@ public class TextViewTestActivity extends AppCompatActivity {
         public void updateDrawState(TextPaint ds) {
             // ds.setColor(mContext.getResources().getColor(R.color.pub_color_twenty));
         }
+    }
+
+    private void test2()
+    {
+        ColorStateList redColors = ColorStateList.valueOf(0xffff0000);
+        SpannableStringBuilder spanBuilder = new SpannableStringBuilder("这是一个测试");
+        //style 为0 即是正常的，还有Typeface.BOLD(粗体) Typeface.ITALIC(斜体)等
+        //size  为0 即采用原始的正常的 size大小
+        spanBuilder.setSpan(new TextAppearanceSpan(null, 0, 60, redColors, null), 0, 3, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+        textView.setText(spanBuilder);
     }
 }
