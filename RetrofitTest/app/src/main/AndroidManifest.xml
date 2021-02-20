@@ -131,6 +131,7 @@
 
         <activity android:name=".MatrixTest.MatrixTestActivity"/>
         <activity android:name=".AddressPickerTest.AddressPickerTest1Activity"/>
+        <activity android:name=".AddressPickerTest.AddressPickerTest2Activity"/>
         <activity android:name=".stepcounter.StepCounterTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>

@@ -83,4 +83,8 @@ dependencies {
 // if u use AndroidX, use the following
 //    implementation 'com.blankj:utilcodex:1.30.1'
     implementation('com.contrarywind:Android-PickerView:4.1.6')
+    implementation ('com.github.paomian2:AddressPicker:v1.0.0'){
+        exclude group:'com.android.support',module:'appcompat-v7'
+        exclude group:'com.android.support',module:'recyclerview-v7'
+    }
 }

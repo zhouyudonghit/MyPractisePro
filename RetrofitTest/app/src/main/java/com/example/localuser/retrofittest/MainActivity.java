@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.localuser.retrofittest.AddressPickerTest.AddressPickerTest1Activity;
+import com.example.localuser.retrofittest.AddressPickerTest.AddressPickerTest2Activity;
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
 import com.example.localuser.retrofittest.AudioManagerTest.AudioManagerTestActivity;
@@ -521,7 +522,7 @@ public class MainActivity extends AppCompatActivity {
         tv52.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AddressPickerTest1Activity.class));
+                startActivity(new Intent(MainActivity.this, AddressPickerTest2Activity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
@@ -569,7 +570,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv27);
         list.add(tv28);
         list.add(tv29);
-        list.add(tv30);
+//        list.add(tv30);
         list.add(tv31);
         list.add(tv32);
         list.add(tv33);

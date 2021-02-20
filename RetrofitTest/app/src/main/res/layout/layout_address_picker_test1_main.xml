@@ -3,9 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:id="@+id/show_data"
         android:textSize="30sp"
-        android:text="选择地址"/>
+        android:text="asdfghhjersdfgert"
+        android:maxEms="7"
+        android:singleLine="true"
+        android:ellipsize="end"/>
 </LinearLayout>
