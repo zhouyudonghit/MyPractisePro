@@ -38,3 +38,4 @@ public class MyView extends View {
         return handled;
     }
 }
+

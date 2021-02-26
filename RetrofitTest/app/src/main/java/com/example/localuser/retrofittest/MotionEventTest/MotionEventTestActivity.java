@@ -84,6 +84,4 @@ public class MotionEventTestActivity extends AppCompatActivity {
         Log.d(TAG,"onTouchEvent"+event.toString());
         return super.onTouchEvent(event);
     }
-
-
 }
