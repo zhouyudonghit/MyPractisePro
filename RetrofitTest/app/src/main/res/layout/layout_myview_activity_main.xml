@@ -42,4 +42,19 @@
         messageview:round_rect_width="18dp"
         messageview:text_color="#ffffff"
         messageview:round_rect_radio="7.5dp"/>
+
+    <com.example.localuser.retrofittest.View.RoundRectImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/round_rect_imageview"/>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/gray"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/round_rect_imageview_2"
+        android:src="@mipmap/content_films"/>
 </LinearLayout>

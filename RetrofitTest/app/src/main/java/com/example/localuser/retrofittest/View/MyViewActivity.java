@@ -33,6 +33,7 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
     private MyColorRingView myColorRingView;
     private MyRoundRectView myRoundRectView;
     private MessageCenterUnreadTipView messageCenterUnreadTipView;
+    private RoundRectImageView mRoundRectImageView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,6 +78,10 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
 
         messageCenterUnreadTipView = findViewById(R.id.message_view);
         messageCenterUnreadTipView.setVisibility(View.VISIBLE);
+        messageCenterUnreadTipView.setVisibility(View.GONE);
+
+        mRoundRectImageView  = findViewById(R.id.round_rect_imageview);
+        mRoundRectImageView.setImageResource(R.mipmap.content_films);
     }
 
     public void startAnimation()

@@ -1,4 +1,4 @@
-package com.example.localuser.retrofittest.Canvas;
+package com.example.localuser.retrofittest.View;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -24,7 +24,8 @@
             android:focusable="true"
             android:focusableInTouchMode="true"/>
 
-        <com.example.localuser.retrofittest.Canvas.RoundRectImageView android:id="@+id/RoundRectImageView"
+        <com.example.localuser.retrofittest.View.RoundRectImageView
+            android:id="@+id/RoundRectImageView"
             android:layout_width="100dp"
             android:layout_height="100dp"/>
 
