@@ -31,7 +31,7 @@ public class MotionEventTestActivity extends AppCompatActivity {
         myView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Log.d(TAG,"myView onClick");
+                Log.d(TAG,"myView onClick");
             }
         });
         MyViewGroup myViewGroup = findViewById(R.id.MyViewGroup);

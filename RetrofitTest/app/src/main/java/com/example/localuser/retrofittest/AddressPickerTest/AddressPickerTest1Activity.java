@@ -5,14 +5,17 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.example.localuser.retrofittest.MyApplication;
 import com.example.localuser.retrofittest.R;
 import com.example.localuser.retrofittest.Utils.AppUtils;
 import com.google.gson.Gson;
@@ -25,6 +28,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class AddressPickerTest1Activity extends AppCompatActivity {
+    private String TAG = getClass().getSimpleName();
     private TextView mTvAddress;
     private ArrayList<ProvinceJsonBean> options1Items = new ArrayList<>(); //省
     private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();//市
@@ -35,10 +39,11 @@ public class AddressPickerTest1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_address_picker_test1_main);
         mTvAddress = findViewById(R.id.show_data);
-        AppUtils.getClipboardContent(this);
+//        AppUtils.getClipboardContent(this);
 //        AppUtils.setClipboardContent(this,"");
-        AppUtils.clearClipboard(this);
-        AppUtils.getClipboardContent(this);
+//        AppUtils.clearClipboard(this);
+//        AppUtils.getClipboardContent(this);
+        Log.d(TAG,"AppUtils.getClipboardContent(this) = "+AppUtils.getClipboardContent(MyApplication.getInstance()));
         initJsonData();
         mTvAddress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +51,30 @@ public class AddressPickerTest1Activity extends AppCompatActivity {
                 showPickerView();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Log.d(TAG,"AppUtils.getClipboardContent(this) = "+AppUtils.getClipboardContent2());
+//            }
+//        });
+//        Log.d(TAG,"AppUtils.getClipboardContent(this) = "+AppUtils.getClipboardContent2());
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG,"AppUtils.getClipboardContent(this) = "+AppUtils.getClipboardContent(MyApplication.getInstance()));
+                AppUtils.setClipboardContent(AddressPickerTest1Activity.this,"");
+            }
+        },1000);
+
+        String str1 = "我的口令是：$dmsv0hgs$";
+        String str2 = "我的口令是：$dmsv0hgs$";
+        str1.split("$");
     }
 
     private void showPickerView() {// 弹出选择器（省市区三级联动）

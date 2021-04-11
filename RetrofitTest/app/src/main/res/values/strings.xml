@@ -14,4 +14,13 @@
     <string name="look_over_caloriesrace_rules">查看详细活动规则</string>
     <string name="caloriesrace_sponsor">主办方 : C2M集团小Biu智能</string>
     <string name="has_signed_up_caloriesrace">已报名</string>
+
+    <string name="receiver">收货人</string>
+    <string name="receiver_input_hint">请填写收货人姓名</string>
+    <string name="telephone">手机号码</string>
+    <string name="telephone_input_hint">请填写收货人手机号</string>
+    <string name="locate_zone">所在地区</string>
+    <string name="locate_zone_hint">省/市/区/县</string>
+    <string name="detail_address">详细地址</string>
+    <string name="detail_address_input_hint">街道、楼牌号等</string>
 </resources>

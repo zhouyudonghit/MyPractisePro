@@ -184,4 +184,9 @@ public class DateUtil {
         }
         return false;
     }
+
+    public static long getCurrentTimeMillis()
+    {
+        return new Date().getTime();
+    }
 }

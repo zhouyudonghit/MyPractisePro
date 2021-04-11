@@ -47,7 +47,7 @@ public class StatusBarUtil {
             if (!showNavigation){
                 activity.getWindow().setNavigationBarColor(Color.TRANSPARENT);
             }
-            activity.getWindow().setStatusBarColor(Color.RED);
+            activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
     }
 

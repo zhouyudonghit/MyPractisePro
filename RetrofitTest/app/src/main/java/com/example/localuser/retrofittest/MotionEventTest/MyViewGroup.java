@@ -41,6 +41,6 @@ public class MyViewGroup extends LinearLayout {
         Log.d(TAG,"onTouchEvent"+event.toString());
         boolean handled = super.onTouchEvent(event);
         Log.d(TAG,"onTouchEvent return "+handled);
-        return false;
+        return handled;
     }
 }

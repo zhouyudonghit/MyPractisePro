@@ -28,7 +28,7 @@ public class ItemDecor extends RecyclerView.ItemDecoration {
         final int left = parent.getPaddingLeft();
         final int right = parent.getWidth() - parent.getPaddingRight();
         final int childCount = parent.getChildCount();
-        for (int i = 1; i < childCount; i++) {
+        for (int i = 0; i < childCount-1; i++) {
             final View child = parent.getChildAt(i);
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child
                     .getLayoutParams();
@@ -41,6 +41,7 @@ public class ItemDecor extends RecyclerView.ItemDecoration {
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
         int itemPosition = parent.getChildAdapterPosition(view);
         Log.d(TAG,"itemPosition = "+itemPosition);
         if(itemPosition != 0)

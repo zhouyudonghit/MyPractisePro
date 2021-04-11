@@ -1,5 +1,6 @@
 package com.example.localuser.retrofittest.Drawable;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,15 +8,19 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
+import com.example.localuser.retrofittest.Utils.AppUtils;
 
 public class DrawableActivity extends AppCompatActivity {
     private String TAG = LogConfigs.TAG_PREFIX_DRAWABLE_TEST +getClass().getSimpleName();
     private MyDrawableView myDrawableView;
     private MyDrawLineDrawable myDrawable;
     private View drawableTest;
+    private ImageView mImageView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d(TAG,"onCreate");
@@ -41,8 +46,14 @@ public class DrawableActivity extends AppCompatActivity {
 
         drawableTest = findViewById(R.id.drawable_test);
         MyDrawable1 drawable1 = new MyDrawable1();
-        drawableTest.setBackground(drawable1);
+        RoundRectDrawable drawable2 = new RoundRectDrawable(AppUtils.dp2px(16),true,true,Color.parseColor("#FFC434"),Color.parseColor("#FF820B"));
+        drawableTest.setBackground(drawable2);
+        drawableTest.setVisibility(View.GONE);
         Log.d(TAG,"drawable1.getMinimumHeight() = "+drawable1.getMinimumHeight());
+
+        mImageView = findViewById(R.id.image_view_test);
+        mImageView.setBackground(drawable2);
+        mImageView.setImageResource(R.mipmap.content_films);
     }
 
     @Override

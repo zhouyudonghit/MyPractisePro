@@ -53,7 +53,7 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
                 testButton();
             }
         });
-        testData();
+        testLineData();
         testAxis();
         testLineChart();
         testLegend();
@@ -183,13 +183,16 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
         });
     }
 
-    private void testData()
+    private void testLineData()
     {
         List<Entry> entries = new ArrayList<>();
-        for (int i = 0; i < 60; i++) {
-            if(i % 2 == 0) {
-                entries.add(new Entry(i, (float) (Math.random()) * 80));
-            }
+//        for (int i = 0; i < 60; i++) {
+//            if(i % 2 == 0) {
+//                entries.add(new Entry(i, (float) (Math.random()) * 80));
+//            }
+//        }
+        for (int i = 0; i < 7; i++) {
+            entries.add(new Entry(i, (float) (Math.random()) * 80));
         }
 //        entries.add(new Entry(5,40));
 //        entries.add(new Entry(6,40));
@@ -293,7 +296,8 @@ public class MPAndroidChartTestActivity extends AppCompatActivity {
     private void testAxis()
     {
         XAxis xAxis = mLineChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+//        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setPosition(XAxis.XAxisPosition.TOP);
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);//上下都有横坐标
 //        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);//坐标的值在视图内部，即坐标系里面。默认是在坐标系外面。
         xAxis.setGranularity(1);

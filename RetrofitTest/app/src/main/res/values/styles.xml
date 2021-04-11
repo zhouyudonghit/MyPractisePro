@@ -11,7 +11,7 @@
     <style name="APPNoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/transparent</item>
     </style>
 
     <style name="MyTextViewTheme">
@@ -33,5 +33,49 @@
         <item name="android:windowTranslucentNavigation">false</item>
         <!--Android 5.x开始需要把颜色设置为程序的主题色白色，否则导航栏会呈现系统默认的浅灰色-->
         <item name="android:statusBarColor">@android:color/white</item>
+    </style>
+
+    <style name="add_address_edit_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FF625852</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">96dp</item>
+        <item name="android:layout_marginRight">48dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">#C0B5AB</item>
+        <item name="android:textCursorDrawable">@drawable/bg_common_text_cursor</item>
+    </style>
+
+    <style name="add_address_textview_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#CC625852</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginTop">19dp</item>
+        <item name="android:layout_marginBottom">19dp</item>
+    </style>
+
+    <style name="address_clear_input_imageview_style">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:src">@drawable/close</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginTop">21dp</item>
+    </style>
+
+    <style name="address_divideline_view_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#F5F5F5</item>
+    </style>
+
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/anim_popupwindow_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_popupwindow_exit</item>
     </style>
 </resources>

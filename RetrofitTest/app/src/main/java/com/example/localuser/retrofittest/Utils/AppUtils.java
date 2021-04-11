@@ -5,15 +5,19 @@ import android.app.Application;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.MyApplication;
+import com.example.localuser.retrofittest.edittext.EditTextTestActivity;
 
 import java.util.List;
 
@@ -182,6 +186,21 @@ public class AppUtils {
         return null;
     }
 
+    public static String getClipboardContent2()
+    {
+        ClipboardManager manager = (ClipboardManager) MyApplication.getInstance().getSystemService(Context.CLIPBOARD_SERVICE);
+        if (manager != null) {
+            if (manager.hasPrimaryClip() && manager.getPrimaryClip().getItemCount() > 0) {
+                CharSequence addedText = manager.getPrimaryClip().getItemAt(0).getText();
+                String addedTextString = String.valueOf(addedText);
+                if (!TextUtils.isEmpty(addedTextString)) {
+                    return addedTextString;
+                }
+            }
+        }
+        return "";
+    }
+
     public static void setClipboardContent(Context context,String content)
     {
         //获取剪贴板管理器：
@@ -204,5 +223,12 @@ public class AppUtils {
             //这种写法会报空指针异常，不可取
             cm.setPrimaryClip(null);
         }
+    }
+
+    public static void startActivity()
+    {
+        Intent intent = new Intent(MyApplication.getInstance(), EditTextTestActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ActivityCompat.startActivity(MyApplication.getInstance(),intent,null);
     }
 }

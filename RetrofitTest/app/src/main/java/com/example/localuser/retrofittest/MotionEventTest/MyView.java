@@ -35,6 +35,6 @@ public class MyView extends View {
 //        }
         boolean handled = super.onTouchEvent(event);
         Log.d(TAG,"onTouchEvent,return "+handled);
-        return false;
+        return handled;
     }
 }

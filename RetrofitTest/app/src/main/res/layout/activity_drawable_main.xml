@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="11dp">
 
     <com.example.localuser.retrofittest.Drawable.MyDrawableView
         android:layout_width="400dp"
@@ -11,7 +12,13 @@
         android:background="@android:color/darker_gray"
         android:visibility="visible"/>
 
-    <View android:layout_height="30dp"
-        android:layout_width="wrap_content"
+    <View android:layout_height="100dp"
+        android:layout_width="100dp"
         android:id="@+id/drawable_test"/>
+
+    <ImageView
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:id="@+id/image_view_test"
+        android:src="@mipmap/content_films"/>
 </LinearLayout>

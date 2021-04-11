@@ -1,18 +1,14 @@
 package com.example.localuser.retrofittest.ListViewTest;
 
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.ListViewTest.listview.BaseCommonAdapter;
 import com.example.localuser.retrofittest.ListViewTest.listview.CommonViewHolder;
@@ -22,10 +18,10 @@ import com.example.localuser.retrofittest.ListViewTest.recyclelistview.CommonRec
 import com.example.localuser.retrofittest.ListViewTest.recyclelistview.ItemDecor;
 import com.example.localuser.retrofittest.ListViewTest.recyclelistview.MyRecycleAdapter;
 import com.example.localuser.retrofittest.R;
-import com.example.localuser.retrofittest.Utils.AppUtils;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.view.View.OVER_SCROLL_NEVER;
 
 public class ListViewTestActivity extends AppCompatActivity {
     private String TAG = LogConfigs.TAG_PREFIX_LISTVIEW + getClass().getSimpleName();
@@ -37,6 +33,7 @@ public class ListViewTestActivity extends AppCompatActivity {
     private MyRecycleAdapter<String> myRecycleAdapter;
     private BaseCommonRecycleAdapter mBaseCommonRecycleAdapter;
     private Button mChangeData;
+    private LinearLayoutManager mLinearLayoutManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,9 +47,10 @@ public class ListViewTestActivity extends AppCompatActivity {
         mChangeData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatas.add("new data");
+//                mDatas.add("new data");
 //                mBaseCommonAdapter.updateDatas(mDatas);
-                mBaseCommonRecycleAdapter.updateDatas(mDatas);
+//                mBaseCommonRecycleAdapter.updateDatas(mDatas);
+                testMoveToCertainPosition();
             }
         });
         initDatas();
@@ -75,8 +73,8 @@ public class ListViewTestActivity extends AppCompatActivity {
 
     private void initRecycleListView()
     {
-        mRecycleView.setLayoutManager(new LinearLayoutManager(this));
-//        mRecycleView.addItemDecoration(new RecyclerView.ItemDecoration() {
+        mLinearLayoutManager = new LinearLayoutManager(this);
+        mRecycleView.setLayoutManager(mLinearLayoutManager);//        mRecycleView.addItemDecoration(new RecyclerView.ItemDecoration() {
 //            @Override
 //            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
 //                super.getItemOffsets(outRect, view, parent, state);
@@ -91,6 +89,7 @@ public class ListViewTestActivity extends AppCompatActivity {
 //            }
 //        });
         mRecycleView.addItemDecoration(new ItemDecor());
+        mRecycleView.setOverScrollMode(OVER_SCROLL_NEVER);
 //        myRecycleAdapter = new MyRecycleAdapter<>(mDatas,this);
         mBaseCommonRecycleAdapter = new BaseCommonRecycleAdapter<String>(R.layout.layout_dslv_item,mDatas,this) {
             @Override
@@ -112,5 +111,30 @@ public class ListViewTestActivity extends AppCompatActivity {
         mDatas.add("5");
         mDatas.add("6");
         mDatas.add("7");
+        mDatas.add("8");
+        mDatas.add("9");
+        mDatas.add("10");
+        mDatas.add("11");
+        mDatas.add("12");
+        mDatas.add("13");
+        mDatas.add("14");
+        mDatas.add("15");
+        mDatas.add("16");
+        mDatas.add("17");
+        mDatas.add("18");
+        mDatas.add("19");
+        mDatas.add("20");
+        mDatas.add("21");
+    }
+
+    private void testMoveToCertainPosition()
+    {
+        //当滑动到最后一项，下句代码有效，且有平滑效果
+//        mRecycleView.smoothScrollToPosition(0);
+        //当跳转位置在第一个可见项之后，最后一个可见项之前smoothScrollToPosition()不会滚动
+//        mRecycleView.smoothScrollToPosition(10);
+        //如果要跳转的位置在最后可见项之后，会平滑滚动，直至出现在最后一项可见位置
+//        mRecycleView.smoothScrollToPosition(13);
+        mLinearLayoutManager.scrollToPositionWithOffset(0,0);
     }
 }

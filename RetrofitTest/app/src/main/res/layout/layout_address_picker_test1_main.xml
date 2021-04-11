@@ -10,5 +10,6 @@
         android:text="asdfghhjersdfgert"
         android:maxEms="7"
         android:singleLine="true"
-        android:ellipsize="end"/>
+        android:ellipsize="end"
+        android:layout_gravity="bottom"/>
 </LinearLayout>

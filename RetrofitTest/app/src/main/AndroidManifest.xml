@@ -7,7 +7,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
-    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
     <uses-permission android:name="android.permission.CAMERA"></uses-permission>
     <!--允许程序获取网络状态-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -124,13 +125,21 @@
         <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.BottomSheetBehaviorTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MaterialDesignTest.BottomSheetBehaviorTest.CopyMeiTuanBottomSheetTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity"/>
-        <activity android:name=".edittext.EditTextTestActivity"/>
+        <activity android:name=".MPAndroidChartTest.MPAndroidChartTestActivity2"/>
+        <activity android:name=".edittext.EditTextTestActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".edittext.EditTextTestActivity2"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
+        <activity android:name=".edittext.EditTextTestActivity3"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".edittext.EditTextMainActivity"/>
         <activity android:name=".ConstraintLayout.ConstraintLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
         <activity android:name=".MaskViewTest.MaskViewTestActivity"/>
 
         <activity android:name=".MatrixTest.MatrixTestActivity"/>
-        <activity android:name=".AddressPickerTest.AddressPickerTest1Activity"/>
+        <activity android:name=".AddressPickerTest.AddressPickerTest1Activity" />
         <activity android:name=".AddressPickerTest.AddressPickerTest2Activity"/>
         <activity android:name=".stepcounter.StepCounterTestActivity">
             <intent-filter>
@@ -143,9 +152,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".textviewtest.TextViewTestActivity"/>
+        <activity android:name=".popupwindow.PopupWindowTestActivity"/>
+        <activity android:name=".SurfaceViewTest.customcamera.CustomCameraActivity"
+            android:theme="@style/APPNoActionBarTheme"/>
+        <activity android:name=".autosleep.SleepWatcherTestActivity"/>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver">
+            <intent-filter>
+                <action android:name="sleepwatcher.beginwork" />
             </intent-filter>
         </receiver>
 
@@ -168,6 +187,7 @@
 
         <service android:name=".JobSchedulerTest.MyService"></service>
 
+        <service android:name=".autosleep.SleepWatcherService"></service>
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="d528d1b7aea79460fcdc35dbd6e022ac"/>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:id="@+id/scrollview">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/content_layout">
+
+    <TextView style="@style/add_address_textview_style"
+        android:id="@+id/receiver_tip"
+        android:text="@string/receiver"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <EditText style="@style/add_address_edit_text_style"
+        android:id="@+id/receiver_input"
+        android:layout_alignBaseline="@+id/receiver_tip"
+        android:maxLines="1"
+        android:maxLength="25"
+        android:hint="@string/receiver_input_hint"
+        tools:text="填写"/>
+
+    <ImageView
+        style="@style/address_clear_input_imageview_style"
+        android:id="@+id/clear_receiver"
+        android:visibility="gone"/>
+
+    <View style="@style/address_divideline_view_style"
+        android:id="@+id/divide_line1"
+        android:layout_below="@+id/receiver_tip" />
+
+    <TextView
+        android:id="@+id/telephone_tip"
+        android:layout_below="@+id/divide_line1"
+        style="@style/add_address_textview_style"
+        android:text="@string/telephone" />
+
+    <EditText
+        android:id="@+id/telephone_input"
+        android:layout_alignBaseline="@+id/telephone_tip"
+        style="@style/add_address_edit_text_style"
+        android:maxLines="1"
+        android:maxLength="11"
+        android:inputType="number"
+        tools:text=""/>
+
+    <ImageView style="@style/address_clear_input_imageview_style"
+        android:id="@+id/clear_telephone"
+        android:layout_below="@+id/divide_line1"
+        android:visibility="gone"/>
+
+    <View style="@style/address_divideline_view_style"
+        android:id="@+id/divide_line2"
+        android:layout_below="@+id/telephone_tip" />
+
+    <TextView style="@style/add_address_textview_style"
+        android:id="@+id/area_tip"
+        android:layout_below="@+id/divide_line2"
+        android:text="@string/locate_zone"/>
+
+    <EditText style="@style/add_address_edit_text_style"
+        android:id="@+id/area_input"
+        android:layout_alignBaseline="@+id/area_tip"
+        android:hint="@string/locate_zone_hint"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:maxLength="15"
+        android:inputType="none"
+        android:focusable="false"
+        android:cursorVisible="false"/>
+
+    <View style="@style/address_divideline_view_style"
+        android:id="@+id/divide_line3"
+        android:layout_below="@+id/area_tip" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divide_line3"
+        android:id="@+id/detail_address_layout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_address_tip"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="#CC625852"
+            android:textSize="16sp"
+            android:text="@string/detail_address"/>
+
+        <EditText style="@style/add_address_edit_text_style"
+            android:id="@+id/detail_address_input"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="19dp"
+            android:maxLength="50"
+            android:hint="@string/detail_address_input_hint"
+            tools:text="慈云寺北里118号苏宁中心写寺写北里背锅"
+            android:textStyle="normal"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:id="@+id/clear_detail_address"
+            android:src="@drawable/close"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <View style="@style/address_divideline_view_style"
+        android:id="@+id/divide_line4"
+        android:layout_below="@+id/detail_address_layout" />
+
+    <TextView
+        android:layout_width="281dp"
+        android:layout_height="44dp"
+        android:id="@+id/save"
+        android:layout_marginTop="200dp"
+        android:layout_below="@+id/divide_line4"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FF625852"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="地址管理" />
+
+    <TextView
+        android:layout_width="281dp"
+        android:layout_height="44dp"
+        android:id="@+id/save2"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/save"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FF625852"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="地址管理" />
+
+    <Button
+        android:layout_width="281dp"
+        android:layout_height="44dp"
+        android:id="@+id/save3"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/save2"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FF625852"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="地址管理" />
+
+    <Button
+        android:layout_width="281dp"
+        android:layout_height="44dp"
+        android:id="@+id/save4"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/save3"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FF625852"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="地址管理"
+        android:textStyle="bold"/>
+</RelativeLayout>
+</ScrollView>

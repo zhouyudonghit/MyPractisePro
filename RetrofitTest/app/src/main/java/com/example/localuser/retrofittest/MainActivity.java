@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ import com.example.localuser.retrofittest.JsonTest.JsonTestActivity;
 import com.example.localuser.retrofittest.LifeCycleTest.LifeCycleTestActivity;
 import com.example.localuser.retrofittest.ListViewTest.ListViewTestActivity;
 import com.example.localuser.retrofittest.MPAndroidChartTest.MPAndroidChartTestActivity;
+import com.example.localuser.retrofittest.MPAndroidChartTest.MPAndroidChartTestActivity2;
 import com.example.localuser.retrofittest.MaskViewTest.MaskViewTestActivity;
 import com.example.localuser.retrofittest.MaterialDesignTest.MaterialDesignTestActivity;
 import com.example.localuser.retrofittest.MatrixTest.MatrixTest;
@@ -53,12 +55,19 @@ import com.example.localuser.retrofittest.SharedPreferenceTest.SharedPreferenceT
 import com.example.localuser.retrofittest.SmallMethodTest.SmallMethodTestActivity;
 import com.example.localuser.retrofittest.SocketTest.SocketTestActivity;
 import com.example.localuser.retrofittest.SurfaceViewTest.SurfaceViewTestActivity;
+import com.example.localuser.retrofittest.SurfaceViewTest.customcamera.CustomCameraActivity;
 import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
+import com.example.localuser.retrofittest.Utils.AppUtils;
 import com.example.localuser.retrofittest.View.MyViewActivity;
 import com.example.localuser.retrofittest.ViewpagerTest.ViewpagerTestActivity;
 import com.example.localuser.retrofittest.WebViewTest.WebViewTestActivity;
+import com.example.localuser.retrofittest.autosleep.SleepWatcherTestActivity;
+import com.example.localuser.retrofittest.edittext.EditTextMainActivity;
 import com.example.localuser.retrofittest.edittext.EditTextTestActivity;
+import com.example.localuser.retrofittest.edittext.EditTextTestActivity2;
+import com.example.localuser.retrofittest.edittext.EditTextTestActivity3;
+import com.example.localuser.retrofittest.popupwindow.PopupWindowTestActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
 import com.example.localuser.retrofittest.statusbartest.StatusbarTestActivity;
 import com.example.localuser.retrofittest.stepcounter.StepCounterTestActivity;
@@ -81,7 +90,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41,tv42,tv43,tv44,tv45;
-    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52;
+    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52,tv53,tv54;
     public static String TAG = "retrofit";
 
     @Override
@@ -90,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("activityA","onCreate");
         //test3();
+//        startActivity(new Intent(MainActivity.this, SleepWatcherTestActivity.class));
     }
 
     @Override
@@ -407,7 +417,7 @@ public class MainActivity extends AppCompatActivity {
         tv38.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SurfaceViewTestActivity.class));
+                startActivity(new Intent(MainActivity.this, CustomCameraActivity.class));
             }
         });
 
@@ -454,7 +464,8 @@ public class MainActivity extends AppCompatActivity {
         tv44.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MPAndroidChartTestActivity.class));
+//                startActivity(new Intent(MainActivity.this, MPAndroidChartTestActivity.class));
+                startActivity(new Intent(MainActivity.this, MPAndroidChartTestActivity2.class));
             }
         });
 
@@ -482,7 +493,7 @@ public class MainActivity extends AppCompatActivity {
         tv47.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, EditTextTestActivity.class));
+                startActivity(new Intent(MainActivity.this, EditTextMainActivity.class));
             }
         });
 
@@ -522,7 +533,23 @@ public class MainActivity extends AppCompatActivity {
         tv52.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AddressPickerTest2Activity.class));
+                startActivity(new Intent(MainActivity.this, AddressPickerTest1Activity.class));
+            }
+        });
+
+        tv53 = findViewById(R.id.popupwindow_test_activity);
+        tv53.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PopupWindowTestActivity.class));
+            }
+        });
+
+        tv54 = findViewById(R.id.sleepwatcher__test_activity);
+        tv54.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SleepWatcherTestActivity.class));
             }
         });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
@@ -532,10 +559,7 @@ public class MainActivity extends AppCompatActivity {
         if(AppConfigs.IS_VISITOR_MODE) {
             hide();
         }
-
-        Toast.makeText(this,"1",Toast.LENGTH_LONG).show();
-        Toast.makeText(this,"2",Toast.LENGTH_LONG).show();
-        Toast.makeText(this,"3",Toast.LENGTH_LONG).show();
+//        AppUtils.startActivity();
     }
 
     private void hide()
@@ -543,12 +567,12 @@ public class MainActivity extends AppCompatActivity {
         List<TextView> list = new ArrayList<>();
         list.add(tv1);
         list.add(tv2);
-//        list.add(tv3);
-//        list.add(tv4);
-//        list.add(tv5);
+        list.add(tv3);
+        list.add(tv4);
+        list.add(tv5);
         list.add(tv6);
-//        list.add(tv7);
-//        list.add(tv8);
+        list.add(tv7);
+        list.add(tv8);
         list.add(tv9);
         list.add(tv10);
         list.add(tv11);
@@ -570,26 +594,31 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv27);
         list.add(tv28);
         list.add(tv29);
-//        list.add(tv30);
+        list.add(tv30);
         list.add(tv31);
         list.add(tv32);
-//        list.add(tv33);
+        list.add(tv33);
         list.add(tv34);
         list.add(tv35);
         list.add(tv36);
-//        list.add(tv37);
+        list.add(tv37);
         list.add(tv38);
         list.add(tv39);
         list.add(tv40);
         list.add(tv41);
-//        list.add(tv42);
-//        list.add(tv43);
-        list.add(tv44);
-//        list.add(tv45);
-//        list.add(tv46);
-//        list.add(tv50);
-//        list.add(tv51);
-//        list.add(tv52);
+        list.add(tv42);
+        list.add(tv43);
+//        list.add(tv44);
+        list.add(tv45);
+        list.add(tv46);
+        list.add(tv47);
+        list.add(tv48);
+        list.add(tv49);
+        list.add(tv50);
+        list.add(tv51);
+        list.add(tv52);
+        list.add(tv53);
+//        list.add(tv54);
         for(TextView textView :list)
         {
             textView.setVisibility(View.GONE);
@@ -916,4 +945,15 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         Log.d("activityA","onConfigurationChanged");
     }
+
+    //禁用返回键，有效
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK ) {
+//            //do something.
+//            return true;
+//        } else {
+//            return super.dispatchKeyEvent(event);
+//        }
+//    }
 }

@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="100dp"
-        android:id="@+id/edittext"/>
-</android.support.constraint.ConstraintLayout>
+        android:id="@+id/edittext"
+        android:background="@null"
+        android:hint="hint1"
+        android:textCursorDrawable="@drawable/bg_common_text_cursor"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:maxLength="10" />
+
+
+    <TextView
+        android:layout_width="281dp"
+        android:layout_height="44dp"
+        android:id="@+id/save"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="46dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="save"/>
+</RelativeLayout>
