@@ -27,19 +27,19 @@ public class MotionEventTestActivity extends AppCompatActivity {
         myFragment = MyFragment.getInstance();
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.fragment_container,myFragment).commit();
+        final MyViewGroup myViewGroup = findViewById(R.id.MyViewGroup);
+        myViewGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"myViewGroup onClick");
+            }
+        });
         final MyView myView = (MyView) findViewById(R.id.MyView1);
         myView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"myView onClick");
-                myView.requestLayout();
-            }
-        });
-        MyViewGroup myViewGroup = findViewById(R.id.MyViewGroup);
-        myViewGroup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG,"myViewGroup onClick");
+                myViewGroup.requestLayout();
             }
         });
 //        myView.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.example.localuser.retrofittest.ListViewTest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,7 @@ public class ListViewTestActivity extends AppCompatActivity {
         mListView.setVisibility(View.GONE);
         mRecycleView = findViewById(R.id.recycle_list_view);
 //        mRecycleView.setVisibility(View.GONE);
+        mRecycleView.getWidth()
         mChangeData = findViewById(R.id.change_data);
         mChangeData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,12 @@ public class ListViewTestActivity extends AppCompatActivity {
         initDatas();
 //        initListView();
         initRecycleListView();
+        testSystemDemoActivity();
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
     }
 
     private void initListView()
@@ -136,5 +144,10 @@ public class ListViewTestActivity extends AppCompatActivity {
         //如果要跳转的位置在最后可见项之后，会平滑滚动，直至出现在最后一项可见位置
 //        mRecycleView.smoothScrollToPosition(13);
         mLinearLayoutManager.scrollToPositionWithOffset(0,0);
+    }
+
+    private void testSystemDemoActivity()
+    {
+
     }
 }

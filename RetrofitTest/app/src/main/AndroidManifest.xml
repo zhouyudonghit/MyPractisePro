@@ -156,6 +156,7 @@
         <activity android:name=".SurfaceViewTest.customcamera.CustomCameraActivity"
             android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".autosleep.SleepWatcherTestActivity"/>
+        <activity android:name=".drawprocesstest.DrawProcessTestActivity"/>
         <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

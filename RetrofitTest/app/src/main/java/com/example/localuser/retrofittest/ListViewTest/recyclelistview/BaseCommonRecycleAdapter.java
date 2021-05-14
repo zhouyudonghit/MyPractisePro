@@ -3,13 +3,16 @@ package com.example.localuser.retrofittest.ListViewTest.recyclelistview;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.ViewGroup;
 
+import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.ListViewTest.listview.CommonViewHolder;
 
 import java.util.List;
 
 public abstract class BaseCommonRecycleAdapter<T> extends RecyclerView.Adapter<CommonRecycleViewHolder> {
+    private String TAG = LogConfigs.TAG_PREFIX_LISTVIEW + getClass().getSimpleName();
     private List<T> mDatas;
     private Context mContext;
     private int mLayoutId;
@@ -29,6 +32,7 @@ public abstract class BaseCommonRecycleAdapter<T> extends RecyclerView.Adapter<C
 
     @Override
     public void onBindViewHolder(@NonNull CommonRecycleViewHolder commonRecycleViewHolder, int i) {
+        Log.d(TAG,commonRecycleViewHolder.getLayoutPosition()+"");
         convertView(commonRecycleViewHolder,mDatas.get(i),i);
     }
 

@@ -436,5 +436,13 @@
         android:id="@+id/sleepwatcher__test_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="绘制流程测试"
+        android:id="@+id/drawprocess__test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
 </LinearLayout>
 </ScrollView>
