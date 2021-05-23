@@ -8,11 +8,14 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.Transformation;
 import android.widget.LinearLayout;
-
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 
+/**
+ * Animation实现的
+ */
 public class VerticalMarqueeView2 extends LinearLayout {
     private String TAG = LogConfigs.TAG_PREFIX_MYVIEW +getClass().getSimpleName();
     public static final int ANIM_DUARATION = 1500;
@@ -95,6 +98,7 @@ public class VerticalMarqueeView2 extends LinearLayout {
     {
         Log.d(TAG,"handleChildren()");
 //        scrollTo(0,0);
+        //之所以放在post方法里面执行，是因为如果scrollTo(0,0)放在外面，动画的applyTransformation会在该句代码之后有执行，造成对scrollTo(0,0)的覆盖，导致无效
         post(new Runnable() {
             @Override
             public void run() {
