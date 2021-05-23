@@ -2,6 +2,7 @@ package com.example.localuser.retrofittest.View;
 
 import android.animation.ValueAnimator;
 import android.app.PendingIntent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -82,6 +84,42 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
 
         mRoundRectImageView  = findViewById(R.id.round_rect_imageview);
         mRoundRectImageView.setImageResource(R.mipmap.content_films);
+
+        mRoundRectImageView.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG,"mRoundRectImageView.getWidth() = " + mRoundRectImageView.getWidth());
+//                LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mRoundRectImageView.getLayoutParams();
+//                lp.width = 5.76;
+            }
+        });
+        mRoundRectImageView.setVisibility(View.GONE);
+
+        AnimRingWithGradientView view = findViewById(R.id.animRingWithGradientView);
+        view.setDefaultRingColor(Color.parseColor("#B3DCE4EF"));
+        view.setStartColor(Color.parseColor("#7FACFF"));
+        view.setEndColor(Color.parseColor("#607DFE"));
+        view.setRingStrokeWidth(12);
+        view.startForwardAnim();
+
+//        DivideLineLoadingView divideLineLoadingView = findViewById(R.id.divideLineLoadingView);
+//        divideLineLoadingView.setDimention(2,8,false);
+//        divideLineLoadingView.setColors(Color.parseColor("#D6E0EA"),Color.parseColor("#6686FE"));
+//        divideLineLoadingView.setLineTotalNum(4);
+//        divideLineLoadingView.startLoading();
+
+        final VerticalMarqueeView verticalMarqueeView = findViewById(R.id.verticalMarqueeView);
+        verticalMarqueeView.initView();
+        verticalMarqueeView.post(new Runnable() {
+            @Override
+            public void run() {
+//                verticalMarqueeView.getHeight();
+                findViewById(R.id.root).getHeight();
+            }
+        });
+
+        final VerticalMarqueeView2 verticalMarqueeView2 = findViewById(R.id.verticalMarqueeView2);
+        verticalMarqueeView2.startScrolling();
     }
 
     public void startAnimation()

@@ -52,8 +52,7 @@ public class DrawableActivity extends AppCompatActivity {
         Log.d(TAG,"drawable1.getMinimumHeight() = "+drawable1.getMinimumHeight());
 
         mImageView = findViewById(R.id.image_view_test);
-        mImageView.setBackground(drawable2);
-        mImageView.setImageResource(R.mipmap.content_films);
+//        mImageView.setImageResource(R.mipmap.content_films);
     }
 
     @Override

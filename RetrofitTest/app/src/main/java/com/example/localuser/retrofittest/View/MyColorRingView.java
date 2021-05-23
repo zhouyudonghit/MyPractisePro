@@ -33,13 +33,14 @@ public class MyColorRingView extends BaseView {
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         int[] color = {Color.GREEN,Color.RED};
         float[] position = {0,1};
-//        canvas.rotate(-90,600,600);
+        canvas.rotate(-90,600,600);
         mPaint.setShader(new SweepGradient(600,600,Color.GREEN,Color.RED));
         double radians = Math.asin(50.0/250);
         double degree = Math.toDegrees(radians);
         float degreeFloat = Float.valueOf(degree+"");
         //这里需要做一下小处理，对两头的角度做一下处理，否则显示会有问题
         canvas.drawArc(350,350,850,850,degreeFloat,360-2*degreeFloat,false,mPaint);
+//        canvas.drawArc(350,350,850,850,-90,90,false,mPaint);
 
         mPaint.setShader(new LinearGradient(300,1200,900,1200,color,position,Shader.TileMode.CLAMP));
         canvas.drawLine(300,1200,900,1200,mPaint);

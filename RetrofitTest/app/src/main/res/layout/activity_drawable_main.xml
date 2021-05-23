@@ -17,8 +17,7 @@
         android:id="@+id/drawable_test"/>
 
     <ImageView
-        android:layout_height="100dp"
-        android:layout_width="100dp"
-        android:id="@+id/image_view_test"
-        android:src="@mipmap/content_films"/>
+        android:layout_height="204dp"
+        android:layout_width="204dp"
+        android:id="@+id/image_view_test" />
 </LinearLayout>

@@ -577,13 +577,13 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv1);
         list.add(tv2);
         list.add(tv3);
-        list.add(tv4);
+//        list.add(tv4);
         list.add(tv5);
         list.add(tv6);
 //        list.add(tv7);
         list.add(tv8);
         list.add(tv9);
-        list.add(tv10);
+//        list.add(tv10);
         list.add(tv11);
         list.add(tv12);
         list.add(tv13);
@@ -610,7 +610,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv34);
         list.add(tv35);
         list.add(tv36);
-        list.add(tv37);
+//        list.add(tv37);
         list.add(tv38);
         list.add(tv39);
         list.add(tv40);
@@ -618,7 +618,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv42);
         list.add(tv43);
 //        list.add(tv44);
-        list.add(tv45);
+//        list.add(tv45);
         list.add(tv46);
         list.add(tv47);
         list.add(tv48);

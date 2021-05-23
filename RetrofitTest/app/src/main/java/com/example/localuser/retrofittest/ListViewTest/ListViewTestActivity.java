@@ -1,11 +1,15 @@
 package com.example.localuser.retrofittest.ListViewTest;
 
-import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.system.Os;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -44,7 +48,6 @@ public class ListViewTestActivity extends AppCompatActivity {
         mListView.setVisibility(View.GONE);
         mRecycleView = findViewById(R.id.recycle_list_view);
 //        mRecycleView.setVisibility(View.GONE);
-        mRecycleView.getWidth()
         mChangeData = findViewById(R.id.change_data);
         mChangeData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +110,19 @@ public class ListViewTestActivity extends AppCompatActivity {
             }
         };
         mRecycleView.setAdapter(mBaseCommonRecycleAdapter);
+        mRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                Log.d(TAG,"onScrolled,mRecycleView.getChildCount() = "+mRecycleView.getChildCount());
+            }
+        });
+        Log.d(TAG,"mRecycleView.getChildCount() = "+mRecycleView.getChildCount());
     }
 
     private void initDatas()

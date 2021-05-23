@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
+import com.example.localuser.retrofittest.Utils.FileStorageUtil;
 
 import java.io.File;
 
@@ -29,5 +30,9 @@ public class FileTestActivity extends AppCompatActivity {
         File dataDir2 = new File(new File(Environment.getExternalStorageDirectory(), "health"), "data/");
         Log.d(TAG,dataDir2.getPath());
         dataDir2.mkdir();
+
+//        String path = "/storage/emulated/0/bluetooth/pic.jpeg";
+        String path = "/storage/emulated/0/Android/data/com.suning.health/cache/upload_img_disk_cache/1621325081887344.png";
+        Log.d(TAG, FileStorageUtil.getFileType(path));
     }
 }

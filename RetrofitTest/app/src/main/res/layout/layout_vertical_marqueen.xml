@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_flipper"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:autoStart="true"
+    android:flipInterval="3000"
+    android:inAnimation="@anim/slide_in_bottom"
+    android:outAnimation="@anim/slide_out_top">
+
+    <TextView
+        android:id="@+id/tv_warning_content1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="请将秤放在坚硬平坦的地面上，光脚上秤测量"
+        android:textColor="#FFFFFFFF"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_warning_content2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="请注意孕妇、心脏介入手术者切勿使用体脂秤"
+        android:textColor="#FFFFFFFF"
+        android:textSize="14sp"/>
+</ViewFlipper>

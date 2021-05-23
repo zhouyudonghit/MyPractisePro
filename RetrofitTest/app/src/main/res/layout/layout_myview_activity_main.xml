@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:messageview="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="2600dp"
+    android:id="@+id/root">
 
     <com.example.localuser.retrofittest.View.MyView
         android:layout_width="wrap_content"
@@ -57,4 +58,46 @@
         android:layout_height="100dp"
         android:id="@+id/round_rect_imageview_2"
         android:src="@mipmap/content_films"/>
+
+    <com.example.localuser.retrofittest.View.AnimRingWithGradientView
+        android:layout_width="204dp"
+        android:layout_height="204dp"
+        android:id="@+id/animRingWithGradientView"/>
+    
+    <com.example.localuser.retrofittest.View.DivideLineLoadingView
+        android:layout_width="120dp"
+        android:layout_height="4dp"
+        android:id="@+id/divideLineLoadingView"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <com.example.localuser.retrofittest.View.VerticalMarqueeView
+        android:layout_width="120dp"
+        android:layout_height="8dp"
+        android:id="@+id/verticalMarqueeView"/>
+    </RelativeLayout>
+
+    <com.example.localuser.retrofittest.View.VerticalMarqueeView2
+        android:layout_width="120dp"
+        android:layout_height="16dp"
+        android:orientation="vertical"
+        android:id="@+id/verticalMarqueeView2"
+        android:background="@android:color/darker_gray">
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="16dp"
+            android:text="test1"
+            android:background="@android:color/holo_red_light"/>
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="16dp"
+            android:text="test2"
+            android:background="@android:color/holo_green_dark"/>
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="16dp"
+            android:text="test3"
+            android:background="@android:color/holo_orange_dark"/>
+    </com.example.localuser.retrofittest.View.VerticalMarqueeView2>
 </LinearLayout>
