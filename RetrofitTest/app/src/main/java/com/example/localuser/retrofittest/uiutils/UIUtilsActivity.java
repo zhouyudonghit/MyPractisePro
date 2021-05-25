@@ -6,18 +6,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.R;
 import com.example.localuser.retrofittest.Utils.AppUtils;
+import com.example.localuser.retrofittest.Utils.ScreenUtils;
 import com.googlecode.mp4parser.authoring.Edit;
 
 public class UIUtilsActivity extends AppCompatActivity {
     private String TAG = LogConfigs.TAG_PREFIX_UIUTILS + getClass().getSimpleName();
     private EditText dpEt;
     private EditText pxEt;
+    private TextView appShowAreaSize;
+    private TextView realSize;
     private TextView dp_pxTv;
     private static int NUMBER = 0;
     @Override
@@ -31,6 +36,8 @@ public class UIUtilsActivity extends AppCompatActivity {
     private void initView()
     {
         dp_pxTv = findViewById(R.id.dp_px);
+        appShowAreaSize = findViewById(R.id.app_show_area_size);
+        realSize = findViewById(R.id.real_screen_size);
         dpEt = findViewById(R.id.dp_et);
         pxEt = findViewById(R.id.px_et);
         dp_pxTv.setOnClickListener(new View.OnClickListener() {
@@ -60,18 +67,14 @@ public class UIUtilsActivity extends AppCompatActivity {
             }
         });
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Log.d(TAG,"change NUMBER = 3");
-                NUMBER = 3;
-            }
-        }).start();
+        showScreenSize();
+    }
+
+    private void showScreenSize()
+    {
+        Window window = getWindow();
+        appShowAreaSize.setText("应用程序显示区域 宽："+ ScreenUtils.getWindowWidth1(window)+",高："+ScreenUtils.getWindowHeight1(window));
+        realSize.setText("实际显示区域 宽："+ ScreenUtils.getWindowWidth2(window)+",高："+ScreenUtils.getWindowHeight2(window));
     }
 
     @Override

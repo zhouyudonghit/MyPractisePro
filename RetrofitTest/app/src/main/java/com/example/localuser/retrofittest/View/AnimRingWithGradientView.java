@@ -23,7 +23,7 @@ import com.example.localuser.retrofittest.Utils.AppUtils;
  */
 public class AnimRingWithGradientView extends View {
     private String TAG = LogConfigs.TAG_PREFIX_DRAWABLE_TEST + getClass().getSimpleName();
-    private static final int ANIM_DURATION = 2*1000;
+    private static final int ANIM_DURATION = 3*1000;
     private int mRingStrokeWidth;
     private Paint mRingPaint;
     private Paint mAnimPaint;
@@ -65,12 +65,15 @@ public class AnimRingWithGradientView extends View {
 //        canvas.drawCircle(cx,cy,radius,mRingPaint);
 
         //画彩色渐变圆弧
-//        canvas.save();
-//        canvas.rotate(-90);
-        SweepGradient gradient = new SweepGradient(cx,cy, mDrawingStartColor,mDrawingEndColor);
+        canvas.save();
+        canvas.rotate(-90,cx,cy);
+        double radians = Math.asin((mRingStrokeWidth/2.0)/(cx - (mRingStrokeWidth/2.0)));
+        int degree = (int) Math.toDegrees(radians);
+//        SweepGradient gradient = new SweepGradient(cx,cy, mDrawingStartColor,mDrawingEndColor);
+        SweepGradient gradient = new SweepGradient(cx,cy, mStartColor,mEndColor);
         mAnimPaint.setShader(gradient);
-        canvas.drawArc(mRingStrokeWidth/2,mRingStrokeWidth/2,width-mRingStrokeWidth/2,height-mRingStrokeWidth/2,mStartAngle,mSweepAngle,false,mAnimPaint);
-//        canvas.restore();
+        canvas.drawArc(mRingStrokeWidth/2,mRingStrokeWidth/2,width-mRingStrokeWidth/2,height-mRingStrokeWidth/2,mStartAngle+degree,mSweepAngle,false,mAnimPaint);
+        canvas.restore();
     }
 
     public void startForwardAnim()
@@ -80,7 +83,7 @@ public class AnimRingWithGradientView extends View {
             protected void applyTransformation(float interpolatedTime, Transformation t) {
                 super.applyTransformation(interpolatedTime, t);
                 Log.d(TAG,"interpolatedTime = "+interpolatedTime);
-                mSweepAngle = interpolatedTime * 359;
+                mSweepAngle = interpolatedTime * 360;
                 mDrawingEndColor = getGradientColor(interpolatedTime);
                 invalidate();
             }
@@ -89,7 +92,7 @@ public class AnimRingWithGradientView extends View {
             @Override
             public void onAnimationStart(Animation animation) {
                 reverse = false;
-                mStartAngle = -90;
+                mStartAngle = 0;
                 mDrawingStartColor = mStartColor;
             }
 

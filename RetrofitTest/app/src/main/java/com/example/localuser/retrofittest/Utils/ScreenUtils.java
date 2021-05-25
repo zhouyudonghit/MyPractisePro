@@ -7,8 +7,58 @@ import android.util.Log;
 import android.view.Display;
 import android.view.Window;
 
+import com.example.localuser.retrofittest.MyApplication;
+
 public class ScreenUtils {
     public static String TAG = "ScreenUtils";
+
+    /**
+     * 应用程序显示区域宽度
+     * @return
+     */
+    public static int getWindowWidth1(Window window)
+    {
+        Display defaultDisplay = window.getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        defaultDisplay.getSize(point);
+        return point.x;
+    }
+
+    /**
+     * 应用程序显示区域高度
+     * @return
+     */
+    public static int getWindowHeight1(Window window)
+    {
+        Display defaultDisplay = window.getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        defaultDisplay.getSize(point);
+        return point.y;
+    }
+
+    /**
+     * 实际显示区域宽度
+     * @return
+     */
+    public static int getWindowWidth2(Window window)
+    {
+        Display defaultDisplay = window.getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        defaultDisplay.getRealSize(point);
+        return point.x;
+    }
+
+    /**
+     * 实际显示区域高度
+     * @return
+     */
+    public static int getWindowHeight2(Window window)
+    {
+        Display defaultDisplay = window.getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        defaultDisplay.getRealSize(point);
+        return point.y;
+    }
 
     public static void getWindowSizeMethod1(Window window)
     {
