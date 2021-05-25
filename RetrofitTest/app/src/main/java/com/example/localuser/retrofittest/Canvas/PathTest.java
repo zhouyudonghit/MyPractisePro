@@ -92,4 +92,28 @@ public class PathTest extends BaseTest {
         mPaint.setStyle(Paint.Style.FILL);
         canvas.drawPath(mPath,mPaint);
     }
+
+    /**
+     * Clip(剪切)的时机：通常理解的clip(剪切)，是对已经存在的图形进行clip的。但是，在android上是对canvas（画布）上进行clip的，要在画图之前对canvas进行clip，如果画图之后再对canvas进行clip不会影响到已经画好的图形。一定要记住clip是针对canvas而非图形
+     *
+     * Clip中的Op的参数的意思：
+     *
+     * DIFFERENCE是第一次不同于第二次的部分显示出来A-B-------
+     *
+     * REPLACE是显示第二次的B******
+     *
+     * REVERSE_DIFFERENCE 是第二次不同于第一次的部分显示--------
+     *
+     * INTERSECT交集显示A-(A-B)*******
+     *
+     * UNION全部显示A+B******
+     *
+     * XOR补集 就是全集的减去交集生育部分显示--------
+     * @param canvas
+     */
+    public void clipPath1(Canvas canvas){
+        Path path = new Path();
+        path.addRect(mViewWidth/4,0,mViewWidth*3/4,mViewHeight,Path.Direction.CCW);
+        canvas.clipPath(path);
+    }
 }
