@@ -157,12 +157,18 @@
             android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".autosleep.SleepWatcherTestActivity"/>
         <activity android:name=".drawprocesstest.DrawProcessTestActivity"/>
-        <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
+        <activity android:name=".BootCompleteReceiver.BroadcastReceiverTestActivity"/>
+<!--        <receiver android:name=".BootCompleteReceiver.BootCompletedReceiver">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+        <activity android:name=".ToastTest.ToastTestActivity"/>
+        <activity android:name=".ToastTest.TransparentActivity"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name=".imageviewtest.ImageViewTestActivity"/>
+        <activity android:name=".imageviewtest.ImageViewTestActivity2"/>
         <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver">
             <intent-filter>
                 <action android:name="sleepwatcher.beginwork" />

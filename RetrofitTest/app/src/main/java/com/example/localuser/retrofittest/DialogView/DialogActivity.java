@@ -29,7 +29,8 @@ public class DialogActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog();
+//                showDialog();
+                showMedalDialog();
             }
         });
 //        View view = LayoutInflater.from(this).inflate(R.layout.layout_dialog_view,null);
@@ -67,5 +68,11 @@ public class DialogActivity extends AppCompatActivity {
 
         ScreenUtils.getWindowSizeMethod1(myDialog.getWindow());
         ScreenUtils.getWindowSizeMethod1(getWindow());
+    }
+
+    private void showMedalDialog()
+    {
+        MedalRuleInfoDialog dialog = new MedalRuleInfoDialog(this);
+        dialog.show();
     }
 }

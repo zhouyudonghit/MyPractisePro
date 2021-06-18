@@ -35,7 +35,7 @@ public class JsonTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
 //        test8();
-        test1();
+        test9();
     }
 
     public void test1()
@@ -190,5 +190,23 @@ public class JsonTestActivity extends AppCompatActivity {
         {
             Log.e(TAG,"",e);
         }
+    }
+
+    //弹窗提醒-等级提示 1014
+    //弹窗提醒-经验值提示 1015
+    //弹窗提醒-勋章提醒 1016
+    private void test9()
+    {
+        TaskMessageData data = new TaskMessageData();
+        data.setExpNum(11);
+        data.setName("测试任务");
+        data.setFunctionId(1015);
+        Log.d(TAG,new Gson().toJson(data));
+
+        TaskMessageData data2 = new TaskMessageData();
+        data2.setExpNum(11);
+        data2.setName("金牌");
+        data2.setFunctionId(1014);
+        Log.d(TAG,new Gson().toJson(data));
     }
 }

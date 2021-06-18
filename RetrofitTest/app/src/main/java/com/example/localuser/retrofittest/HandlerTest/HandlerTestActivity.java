@@ -47,7 +47,7 @@ public class HandlerTestActivity extends AppCompatActivity {
                 Log.d(TAG,"begin loop");
                 Handler handler1 = new Handler();
                 handler1.sendEmptyMessage(0);
-                //Toast.makeText(HandlerTestActivity.this, "test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HandlerTestActivity.this, "test", Toast.LENGTH_SHORT).show();
                 Looper.loop();
                 Log.d(TAG,"after loop");
             }

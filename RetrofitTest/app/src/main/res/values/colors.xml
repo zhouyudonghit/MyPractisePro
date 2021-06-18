@@ -14,4 +14,7 @@
     <color name="color_000022_80">#CC000022</color>
 
     <color name="transparent">#00ffffff</color>
+
+    <color name="shadow_default_color">#1a000000</color>
+    <color name="shadow_card_default_color">#ffffff</color>
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="282dp" android:layout_height="390dp">
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollview"
+        android:fillViewport="true"
+        android:background="@color/black">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rule_image"
+            android:scaleType="fitCenter"
+            android:background="@android:color/holo_blue_bright"/>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.localuser.retrofittest.View.RoundCornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="282dp"
+    android:layout_height="285dp"
+    android:id="@+id/root_layout">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rule_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/medal_rule_test"/>
+<!--    <ScrollView android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/scrollview"-->
+<!--        android:fillViewport="true"-->
+<!--        android:scrollbars="none">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/rule_image"-->
+<!--            android:scaleType="fitXY"-->
+<!--            android:src="@drawable/medal_rule_test"/>-->
+<!--        </LinearLayout>-->
+<!--&lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="200dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/rule_image"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:scaleType="fitXY"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:src="@drawable/medal_rule_test"/>&ndash;&gt;-->
+<!--    </ScrollView>-->
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:id="@+id/close_image"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/close_2"
+        android:scaleType="fitXY" />
+</com.example.localuser.retrofittest.View.RoundCornerRelativeLayout>

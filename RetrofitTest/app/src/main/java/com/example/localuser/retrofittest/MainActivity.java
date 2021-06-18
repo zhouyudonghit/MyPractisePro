@@ -16,6 +16,7 @@ import com.example.localuser.retrofittest.AddressPickerTest.AddressPickerTest2Ac
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
 import com.example.localuser.retrofittest.AudioManagerTest.AudioManagerTestActivity;
+import com.example.localuser.retrofittest.BootCompleteReceiver.BroadcastReceiverTestActivity;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.Configs.AppConfigs;
 import com.example.localuser.retrofittest.ConstraintLayout.ConstraintLayoutTestActivity;
@@ -57,6 +58,7 @@ import com.example.localuser.retrofittest.SocketTest.SocketTestActivity;
 import com.example.localuser.retrofittest.SurfaceViewTest.SurfaceViewTestActivity;
 import com.example.localuser.retrofittest.SurfaceViewTest.customcamera.CustomCameraActivity;
 import com.example.localuser.retrofittest.TimerTest.TimerTestActivity;
+import com.example.localuser.retrofittest.ToastTest.ToastTestActivity;
 import com.example.localuser.retrofittest.Toolbar.ToolbarActivity;
 import com.example.localuser.retrofittest.Utils.AppUtils;
 import com.example.localuser.retrofittest.View.MyViewActivity;
@@ -68,6 +70,8 @@ import com.example.localuser.retrofittest.edittext.EditTextMainActivity;
 import com.example.localuser.retrofittest.edittext.EditTextTestActivity;
 import com.example.localuser.retrofittest.edittext.EditTextTestActivity2;
 import com.example.localuser.retrofittest.edittext.EditTextTestActivity3;
+import com.example.localuser.retrofittest.imageviewtest.ImageViewTestActivity;
+import com.example.localuser.retrofittest.imageviewtest.ImageViewTestActivity2;
 import com.example.localuser.retrofittest.popupwindow.PopupWindowTestActivity;
 import com.example.localuser.retrofittest.service.ServiceTestActivity;
 import com.example.localuser.retrofittest.statusbartest.StatusbarTestActivity;
@@ -91,7 +95,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41,tv42,tv43,tv44,tv45;
-    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52,tv53,tv54,tv55;
+    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52,tv53,tv54,tv55,tv56,tv57,tv58;
     public static String TAG = "retrofit";
 
     @Override
@@ -561,6 +565,30 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, DrawProcessTestActivity.class));
             }
         });
+
+        tv56 = findViewById(R.id.broadcast__test_activity);
+        tv56.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, BroadcastReceiverTestActivity.class));
+            }
+        });
+
+        tv57 = findViewById(R.id.toast__test_activity);
+        tv57.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ToastTestActivity.class));
+            }
+        });
+
+        tv58 = findViewById(R.id.imageview__test_activity);
+        tv58.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ImageViewTestActivity2.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
@@ -581,7 +609,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv5);
         list.add(tv6);
 //        list.add(tv7);
-        list.add(tv8);
+//        list.add(tv8);
         list.add(tv9);
 //        list.add(tv10);
         list.add(tv11);
@@ -593,7 +621,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv17);
         list.add(tv18);
         list.add(tv19);
-        list.add(tv20);
+//        list.add(tv20);
         list.add(tv21);
         list.add(tv22);
         list.add(tv23);
@@ -629,11 +657,15 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv53);
 //        list.add(tv54);
 //        list.add(tv55);
+//        list.add(tv56);
+//        list.add(tv57);
+//        list.add(tv58);
         for(TextView textView :list)
         {
             textView.setVisibility(View.GONE);
         }
     }
+
     public void test()
     {
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://baidu.com")

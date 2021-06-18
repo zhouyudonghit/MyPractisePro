@@ -36,6 +36,7 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
     private MyRoundRectView myRoundRectView;
     private MessageCenterUnreadTipView messageCenterUnreadTipView;
     private RoundRectImageView mRoundRectImageView;
+    private ShadowViewCard mShadowViewCard;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -101,6 +102,7 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         view.setEndColor(Color.parseColor("#607DFE"));
         view.setRingStrokeWidth(12);
         view.startForwardAnim();
+        view.setVisibility(View.GONE);
 
 //        DivideLineLoadingView divideLineLoadingView = findViewById(R.id.divideLineLoadingView);
 //        divideLineLoadingView.setDimention(2,8,false);
@@ -117,9 +119,13 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
                 findViewById(R.id.root).getHeight();
             }
         });
+        verticalMarqueeView.setVisibility(View.GONE);
 
         final VerticalMarqueeView2 verticalMarqueeView2 = findViewById(R.id.verticalMarqueeView2);
         verticalMarqueeView2.startScrolling();
+        verticalMarqueeView2.setVisibility(View.GONE);
+
+        mShadowViewCard = findViewById(R.id.ShadowViewCard);
     }
 
     public void startAnimation()

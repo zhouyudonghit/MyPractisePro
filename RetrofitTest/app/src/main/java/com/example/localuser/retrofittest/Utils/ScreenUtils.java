@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.View;
 import android.view.Window;
 
 import com.example.localuser.retrofittest.MyApplication;
@@ -106,5 +107,20 @@ public class ScreenUtils {
         int widthPixel = outMetrics.widthPixels;
         int heightPixel = outMetrics.heightPixels;
         Log.w(TAG, "widthPixel = " + widthPixel + ",heightPixel = " + heightPixel);
+    }
+
+    public static String getMeasureSpecMode(int measure)
+    {
+        if(View.MeasureSpec.getMode(measure) == View.MeasureSpec.UNSPECIFIED)
+        {
+            return "MeasureSpec.UNSPECIFIED";
+        }else if(View.MeasureSpec.getMode(measure) == View.MeasureSpec.AT_MOST)
+        {
+            return "MeasureSpec.AT_MOST";
+        }else if(View.MeasureSpec.getMode(measure) == View.MeasureSpec.EXACTLY)
+        {
+            return "MeasureSpec.EXACTLY";
+        }
+        return "UNKNOWN";
     }
 }

@@ -51,13 +51,15 @@
 
     <View android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:background="@color/gray"/>
+        android:background="@color/gray"
+        android:visibility="gone"/>
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/round_rect_imageview_2"
-        android:src="@mipmap/content_films"/>
+        android:src="@mipmap/content_films"
+        android:visibility="gone"/>
 
     <com.example.localuser.retrofittest.View.AnimRingWithGradientView
         android:layout_width="204dp"
@@ -100,4 +102,21 @@
             android:text="test3"
             android:background="@android:color/holo_orange_dark"/>
     </com.example.localuser.retrofittest.View.VerticalMarqueeView2>
+
+    <com.example.localuser.retrofittest.View.ShadowViewCard
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/ShadowViewCard"
+        android:layout_marginLeft="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/holo_red_light"
+            android:visibility="visible"/>
+    </com.example.localuser.retrofittest.View.ShadowViewCard>
 </LinearLayout>

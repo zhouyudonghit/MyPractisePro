@@ -444,5 +444,28 @@
         android:id="@+id/drawprocess__test_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="广播测试"
+        android:id="@+id/broadcast__test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="toast测试"
+        android:id="@+id/toast__test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="imageview_test"
+        android:id="@+id/imageview__test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
 </LinearLayout>
 </ScrollView>
