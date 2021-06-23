@@ -169,6 +169,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
         <activity android:name=".imageviewtest.ImageViewTestActivity"/>
         <activity android:name=".imageviewtest.ImageViewTestActivity2"/>
+        <activity android:name=".SVGATest.SVGATestActivity"/>
         <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver">
             <intent-filter>
                 <action android:name="sleepwatcher.beginwork" />

@@ -1,5 +1,6 @@
 package com.example.localuser.retrofittest.Utils;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.ClipData;
@@ -13,17 +14,21 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.MyApplication;
 import com.example.localuser.retrofittest.edittext.EditTextTestActivity;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class AppUtils {
     private static Application mApplicationContext = MyApplication.getInstance();
     private static String TAG = "AppUtils";
+
     /**
      * 获取包名
      *
@@ -135,21 +140,21 @@ public class AppUtils {
         return isWork;
     }
 
-     /**
+    /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */
-     public static int dip2px(Context context, float dpValue) {
-         final float scale = context.getResources().getDisplayMetrics().density;
-         return (int) (dpValue * scale + 0.5f);
-     }
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
 
-      /**
-       * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
-       */
-     public static int px2dip(Context context, float pxValue) {
-         final float scale = context.getResources().getDisplayMetrics().density;
-         return (int) (pxValue / scale + 0.5f);
-     }
+    /**
+     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     */
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
 
     public static int dp2px(float dp) {
         float density = Resources.getSystem().getDisplayMetrics().density;
@@ -168,8 +173,7 @@ public class AppUtils {
         return (int) (spValue * fontScale + 0.5f);
     }
 
-    public static String getClipboardContent(Context context)
-    {
+    public static String getClipboardContent(Context context) {
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         if (cm != null) {
             ClipData data = cm.getPrimaryClip();
@@ -186,8 +190,7 @@ public class AppUtils {
         return null;
     }
 
-    public static String getClipboardContent2()
-    {
+    public static String getClipboardContent2() {
         ClipboardManager manager = (ClipboardManager) MyApplication.getInstance().getSystemService(Context.CLIPBOARD_SERVICE);
         if (manager != null) {
             if (manager.hasPrimaryClip() && manager.getPrimaryClip().getItemCount() > 0) {
@@ -201,8 +204,7 @@ public class AppUtils {
         return "";
     }
 
-    public static void setClipboardContent(Context context,String content)
-    {
+    public static void setClipboardContent(Context context, String content) {
         //获取剪贴板管理器：
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         // 创建普通字符型ClipData
@@ -211,24 +213,53 @@ public class AppUtils {
         cm.setPrimaryClip(mClipData);
     }
 
-    public static void clearClipboard(Context context)
-    {
+    public static void clearClipboard(Context context) {
         //获取剪贴板管理器：
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             //这种写法也会报空指针异常，不可取
             cm.clearPrimaryClip();
-        }else {
+        } else {
             //这种写法会报空指针异常，不可取
             cm.setPrimaryClip(null);
         }
     }
 
-    public static void startActivity()
-    {
+    public static void startActivity() {
         Intent intent = new Intent(MyApplication.getInstance(), EditTextTestActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        ActivityCompat.startActivity(MyApplication.getInstance(),intent,null);
+        ActivityCompat.startActivity(MyApplication.getInstance(), intent, null);
+    }
+
+    public static String getIccid1(Context context) {
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        String iccid = tm.getSimSerialNumber();
+        return iccid;
+    }
+
+    public static String getIccid2(Context context)
+    {
+        String iccid = null;
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        try {
+            Method method = tm.getClass().getDeclaredMethod("getSubscriberInfo");
+            try {
+                method.setAccessible(true);
+                Object obj = method.invoke(tm);
+                Method method2 = obj.getClass().getDeclaredMethod("getPhone",int.class);
+                method2.setAccessible(true);
+                Object obj2 = method2.invoke(obj,0);
+                Method method3 = obj2.getClass().getMethod("getFullIccSerialNumber");
+                iccid = (String) method3.invoke(obj2);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return iccid;
     }
 }
