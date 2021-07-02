@@ -8,7 +8,9 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
@@ -82,11 +84,12 @@ public class MyTextView extends AppCompatTextView {
 //        //canvas.restore();
 //        canvas.drawText("test",0,100,mPaint);
 //        testOval(canvas);
-        testPath(canvas);
+//        testPath(canvas);
 //        testCircle(canvas);
 //        testShader(canvas);
 //        exercise(canvas);
 //        testText(canvas);
+
     }
 
     public void move()

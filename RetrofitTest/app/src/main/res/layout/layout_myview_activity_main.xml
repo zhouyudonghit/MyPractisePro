@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:messageview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="2600dp"
     android:id="@+id/root">
@@ -9,27 +10,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/myview"
-        android:background="@android:color/holo_blue_bright"/>
+        android:background="@android:color/holo_blue_bright"
+        tools:visibility="gone"/>
 
     <com.example.localuser.retrofittest.View.MyAdhesionView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/my_adhesion_view"/>
+        android:id="@+id/my_adhesion_view"
+        tools:visibility="gone"/>
 
     <com.example.localuser.retrofittest.View.MyDrawLineView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/my_drawline_view"/>
+        android:id="@+id/my_drawline_view"
+        tools:visibility="gone"/>
 
     <com.example.localuser.retrofittest.View.MyRoundRectView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:id="@+id/my_roundrect_view"/>
+        android:id="@+id/my_roundrect_view"
+        tools:visibility="gone"/>
 
     <com.example.localuser.retrofittest.View.MyColorRingView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/my_color_ring_view"/>
+        android:id="@+id/my_color_ring_view"
+        tools:visibility="gone"/>
 
     <com.example.localuser.retrofittest.View.MessageCenterUnreadTipView
         android:layout_width="match_parent"
@@ -42,12 +48,14 @@
         messageview:circle_witdh="12dp"
         messageview:round_rect_width="18dp"
         messageview:text_color="#ffffff"
-        messageview:round_rect_radio="7.5dp"/>
+        messageview:round_rect_radio="7.5dp"
+        tools:visibility="gone"/>
 
     <com.example.localuser.retrofittest.View.RoundRectImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/round_rect_imageview"/>
+        android:id="@+id/round_rect_imageview"
+        tools:visibility="gone"/>
 
     <View android:layout_width="match_parent"
         android:layout_height="4dp"
@@ -64,16 +72,20 @@
     <com.example.localuser.retrofittest.View.AnimRingWithGradientView
         android:layout_width="204dp"
         android:layout_height="204dp"
-        android:id="@+id/animRingWithGradientView"/>
+        android:id="@+id/animRingWithGradientView"
+        tools:visibility="gone"/>
     
     <com.example.localuser.retrofittest.View.DivideLineLoadingView
         android:layout_width="120dp"
         android:layout_height="4dp"
-        android:id="@+id/divideLineLoadingView"/>
+        android:id="@+id/divideLineLoadingView"
+        tools:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:visibility="gone">
+
     <com.example.localuser.retrofittest.View.VerticalMarqueeView
         android:layout_width="120dp"
         android:layout_height="8dp"
@@ -85,7 +97,8 @@
         android:layout_height="16dp"
         android:orientation="vertical"
         android:id="@+id/verticalMarqueeView2"
-        android:background="@android:color/darker_gray">
+        android:background="@android:color/darker_gray"
+        tools:visibility="gone">
         <TextView
             android:layout_width="120dp"
             android:layout_height="16dp"
@@ -107,7 +120,8 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:id="@+id/ShadowViewCard"
-        android:layout_marginLeft="0dp">
+        android:layout_marginLeft="0dp"
+        tools:visibility="gone">
 
         <ImageView
             android:layout_width="match_parent"
@@ -119,4 +133,15 @@
             android:background="@android:color/holo_red_light"
             android:visibility="visible"/>
     </com.example.localuser.retrofittest.View.ShadowViewCard>
+
+    <com.example.localuser.retrofittest.View.MyTextView1
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="60dp"
+        android:gravity="center"
+        android:background="@color/color_000022_80"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        tools:text="testtest"
+        android:id="@+id/MyTextView1"/>
 </LinearLayout>

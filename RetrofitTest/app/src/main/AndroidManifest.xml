@@ -59,6 +59,8 @@
 
         <activity android:name=".MotionEventTest.MotionEventTestActivity"></activity>
 
+        <activity android:name=".MotionEventTest.ScrollViewTestActivity"/>
+
         <activity android:name=".DialogView.DialogActivity"></activity>
 
         <activity android:name=".PullRefreshRecyclerView.PullRefreshRecyclerViewActivity"></activity>

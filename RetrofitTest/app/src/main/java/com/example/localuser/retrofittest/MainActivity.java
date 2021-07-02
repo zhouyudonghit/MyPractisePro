@@ -43,6 +43,7 @@ import com.example.localuser.retrofittest.MemoryLeak.MemoryLeakActivity;
 import com.example.localuser.retrofittest.MemoryTest.MemoryTestActivity;
 import com.example.localuser.retrofittest.MergeTest.MergeTestActivity;
 import com.example.localuser.retrofittest.MotionEventTest.MotionEventTestActivity;
+import com.example.localuser.retrofittest.MotionEventTest.ScrollViewTestActivity;
 import com.example.localuser.retrofittest.NoneMainThreadOpUI.NoneMainThreadOpUIActivity;
 import com.example.localuser.retrofittest.NotificationTest.NotificationTestActivity;
 import com.example.localuser.retrofittest.OKhttpTest.OKHttpTestActivity;
@@ -177,7 +178,8 @@ public class MainActivity extends AppCompatActivity {
         tv7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MotionEventTestActivity.class));
+//                startActivity(new Intent(MainActivity.this, MotionEventTestActivity.class));
+                startActivity(new Intent(MainActivity.this, ScrollViewTestActivity.class));
             }
         });
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.localuser.retrofittest.MotionEventTest.MyScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="340dp"
+    android:id="@+id/scrollview"
+    android:background="@color/color_000022_80"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:id="@+id/tv1"
+                android:background="@android:color/holo_green_light"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@android:color/holo_red_dark"
+                android:id="@+id/tv2"
+                android:layout_below="@+id/tv1"/>
+
+            <com.example.localuser.retrofittest.MotionEventTest.MyView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:id="@+id/myview"
+                android:layout_below="@id/tv2"
+                android:background="@android:color/holo_red_light"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.example.localuser.retrofittest.MotionEventTest.MyScrollView>

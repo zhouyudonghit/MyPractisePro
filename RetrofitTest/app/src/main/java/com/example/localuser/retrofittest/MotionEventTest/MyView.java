@@ -16,12 +16,15 @@ public class MyView extends View {
     private String TAG = MotionEventTestActivity.TAG_PREFIX+getClass().getSimpleName();
     public MyView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        setClickable(true);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.d(TAG,"dispatchTouchEvent"+event.toString());
-        return super.dispatchTouchEvent(event);
+        boolean result = super.dispatchTouchEvent(event);
+        Log.d(TAG,"result = "+result);
+        return result;
     }
 
     @Override
