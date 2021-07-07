@@ -172,6 +172,10 @@
         <activity android:name=".imageviewtest.ImageViewTestActivity"/>
         <activity android:name=".imageviewtest.ImageViewTestActivity2"/>
         <activity android:name=".SVGATest.SVGATestActivity"/>
+
+        <activity android:name=".FoResultTest.ForResultTestActivity"/>
+        <activity android:name=".FoResultTest.TargetActivity"/>
+
         <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver">
             <intent-filter>
                 <action android:name="sleepwatcher.beginwork" />

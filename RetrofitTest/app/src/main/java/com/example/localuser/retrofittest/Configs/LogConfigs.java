@@ -33,4 +33,5 @@ public class LogConfigs {
     public static String TAG_PREFIX_DRAW_PROCESS_TEST = "draw_process_test--";
     public static String TAG_PREFIX_BROADCAST_TEST = "broadcast_test--";
     public static String TAG_PREFIX_TOAST_TEST = "toast_test--";
+    public static String TAG_PREFIX_FORRESULT_TEST = "forresult_test--";
 }

@@ -1,5 +1,6 @@
 package com.example.localuser.retrofittest.Utils;
 
+import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.localuser.retrofittest.MyApplication;
 
@@ -122,5 +124,23 @@ public class ScreenUtils {
             return "MeasureSpec.EXACTLY";
         }
         return "UNKNOWN";
+    }
+
+    /**
+     * 获取屏幕的宽度
+     *
+     * @param context
+     * @return
+     */
+    public static float getScreenWidth(Context context) {
+        return getDisplayMetrics(context).widthPixels;
+    }
+
+    public static DisplayMetrics getDisplayMetrics(Context context) {
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        ((WindowManager) context.getSystemService(
+                Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(
+                displaymetrics);
+        return displaymetrics;
     }
 }

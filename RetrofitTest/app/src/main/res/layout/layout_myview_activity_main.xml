@@ -85,11 +85,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:visibility="gone">
-
-    <com.example.localuser.retrofittest.View.VerticalMarqueeView
-        android:layout_width="120dp"
-        android:layout_height="8dp"
-        android:id="@+id/verticalMarqueeView"/>
+        <com.example.localuser.retrofittest.View.VerticalMarqueeView
+            android:layout_width="120dp"
+            android:layout_height="8dp"
+            android:id="@+id/verticalMarqueeView"/>
     </RelativeLayout>
 
     <com.example.localuser.retrofittest.View.VerticalMarqueeView2
@@ -143,5 +142,16 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         tools:text="testtest"
-        android:id="@+id/MyTextView1"/>
+        android:id="@+id/MyTextView1"
+        tools:visibility="gone"/>
+
+    <com.example.localuser.retrofittest.View.LineWithShadowView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/LineWithShadowView"/>
+
+    <com.example.localuser.retrofittest.View.SmoothCurveView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:id="@+id/SmoothCurveView"/>
 </LinearLayout>

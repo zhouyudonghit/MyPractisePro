@@ -475,5 +475,13 @@
         android:id="@+id/svga__test_activity"
         android:textSize="26dp"
         android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="forresult_test"
+        android:id="@+id/forresult_test_activity"
+        android:textSize="26dp"
+        android:layout_marginBottom="6dp"/>
 </LinearLayout>
 </ScrollView>

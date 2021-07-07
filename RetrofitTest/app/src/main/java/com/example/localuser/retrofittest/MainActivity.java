@@ -25,6 +25,7 @@ import com.example.localuser.retrofittest.DragSortListView.DslvTestActivity;
 import com.example.localuser.retrofittest.DrawLayout.DrawLayoutActivity;
 import com.example.localuser.retrofittest.Drawable.DrawableActivity;
 import com.example.localuser.retrofittest.FileTest.FileTestActivity;
+import com.example.localuser.retrofittest.FoResultTest.ForResultTestActivity;
 import com.example.localuser.retrofittest.GaoDeMapTest.GaoDeMapTestActivity;
 import com.example.localuser.retrofittest.Glide.GlideTestActivity;
 import com.example.localuser.retrofittest.HandlerTest.HandlerTestActivity;
@@ -97,7 +98,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41,tv42,tv43,tv44,tv45;
-    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52,tv53,tv54,tv55,tv56,tv57,tv58,tv59;
+    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52,tv53,tv54,tv55,tv56,tv57,tv58,tv59,tv60;
     public static String TAG = "retrofit";
 
     @Override
@@ -600,6 +601,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SVGATestActivity.class));
             }
         });
+
+        tv60 = findViewById(R.id.forresult_test_activity);
+        tv60.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ForResultTestActivity.class));
+            }
+        });
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
@@ -673,6 +682,7 @@ public class MainActivity extends AppCompatActivity {
 //        list.add(tv57);
 //        list.add(tv58);
 //        list.add(tv59);
+//        list.add(tv60);
         for(TextView textView :list)
         {
             textView.setVisibility(View.GONE);

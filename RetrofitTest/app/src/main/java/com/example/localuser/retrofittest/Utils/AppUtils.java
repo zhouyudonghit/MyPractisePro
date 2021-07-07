@@ -262,4 +262,9 @@ public class AppUtils {
         }
         return iccid;
     }
+
+    public static float getSreenScaleByWidth(Context context)
+    {
+        return ScreenUtils.getScreenWidth(context)*1.0f/AppUtils.dip2px(context,375);
+    }
 }

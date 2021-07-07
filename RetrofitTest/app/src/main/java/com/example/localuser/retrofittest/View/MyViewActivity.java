@@ -13,6 +13,7 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import com.example.localuser.retrofittest.MainActivity;
 import com.example.localuser.retrofittest.R;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 
 /**
  * Created by localuser on 2018/4/16.
@@ -80,7 +82,6 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         myColorRingView.setVisibility(View.GONE);
 
         messageCenterUnreadTipView = findViewById(R.id.message_view);
-        messageCenterUnreadTipView.setVisibility(View.VISIBLE);
         messageCenterUnreadTipView.setVisibility(View.GONE);
 
         mRoundRectImageView  = findViewById(R.id.round_rect_imageview);
@@ -96,6 +97,9 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         });
         mRoundRectImageView.setVisibility(View.GONE);
 
+        ImageView imageView = findViewById(R.id.round_rect_imageview_2);
+        imageView.setVisibility(View.GONE);
+
         AnimRingWithGradientView view = findViewById(R.id.animRingWithGradientView);
         view.setDefaultRingColor(Color.parseColor("#B3DCE4EF"));
         view.setStartColor(Color.parseColor("#7FACFF"));
@@ -104,11 +108,12 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         view.startForwardAnim();
         view.setVisibility(View.GONE);
 
-//        DivideLineLoadingView divideLineLoadingView = findViewById(R.id.divideLineLoadingView);
-//        divideLineLoadingView.setDimention(2,8,false);
-//        divideLineLoadingView.setColors(Color.parseColor("#D6E0EA"),Color.parseColor("#6686FE"));
-//        divideLineLoadingView.setLineTotalNum(4);
-//        divideLineLoadingView.startLoading();
+        DivideLineLoadingView divideLineLoadingView = findViewById(R.id.divideLineLoadingView);
+        divideLineLoadingView.setDimention(2,8,false);
+        divideLineLoadingView.setColors(Color.parseColor("#D6E0EA"),Color.parseColor("#6686FE"));
+        divideLineLoadingView.setLineTotalNum(4);
+        divideLineLoadingView.startLoading();
+        divideLineLoadingView.setVisibility(View.GONE);
 
         final VerticalMarqueeView verticalMarqueeView = findViewById(R.id.verticalMarqueeView);
         verticalMarqueeView.initView();
@@ -126,6 +131,14 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         verticalMarqueeView2.setVisibility(View.GONE);
 
         mShadowViewCard = findViewById(R.id.ShadowViewCard);
+        mShadowViewCard.setVisibility(View.GONE);
+
+        LineWithShadowView lineWithShadowView = findViewById(R.id.LineWithShadowView);
+        lineWithShadowView.setVisibility(View.GONE);
+
+        SmoothCurveView smoothCurveView =  findViewById(R.id.SmoothCurveView);
+        smoothCurveView.setData(new Date(),null);
+        smoothCurveView.setVisibility(View.VISIBLE);
     }
 
     public void startAnimation()
