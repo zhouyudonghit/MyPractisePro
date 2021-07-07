@@ -24,11 +24,11 @@ import java.util.List;
 public class SmoothCurveView extends LineWithShadowView{
     private String TAG = LogConfigs.TAG_PREFIX_MYVIEW + getClass().getSimpleName();
     //二阶贝塞尔曲线
-    private final static int CURVE_TYPE_QUTO_AHEAD_UP = 0;
-    private final static int CURVE_TYPE_QUTO_AHEAD_DOWN = 1;
+    private final static int CURVE_TYPE_QUTO_AHEAD_X = 0;
+    private final static int CURVE_TYPE_QUTO_AHEAD_Y = 1;
     //二阶贝塞尔曲线
-    private final static int CURVE_TYPE_QUTO_BEHIND_UP = 2;
-    private final static int CURVE_TYPE_QUTO_BEHIND_DOWN = 3;
+    private final static int CURVE_TYPE_QUTO_BEHIND_X = 2;
+    private final static int CURVE_TYPE_QUTO_BEHIND_Y = 3;
     //三阶贝塞尔曲线
     private final static int CURVE_TYPE_CUBIC = 4;
     private float mPaddingToTopOrBottom;
@@ -40,6 +40,7 @@ public class SmoothCurveView extends LineWithShadowView{
     private List<WeightInfo> mDatas = new ArrayList<>();
     private float mMaxWeight = -1;
     private float mMinWeight = -1;
+    private Paint mOtherPaint;
 
     public SmoothCurveView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -49,6 +50,7 @@ public class SmoothCurveView extends LineWithShadowView{
     protected void init() {
         super.init();
         mPaint.setStrokeCap(Paint.Cap.ROUND);
+        mOtherPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         //两条线的连接处圆角方式，平滑
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaddingToTopOrBottom = AppUtils.dip2px(getContext(),10)*AppUtils.getSreenScaleByWidth(getContext());
@@ -76,6 +78,7 @@ public class SmoothCurveView extends LineWithShadowView{
             //没有数据，不绘制
             return;
         }
+        drawThreeTickMarks(canvas);
         calculatePointLocations();
         constructPath();
         if(mPath != null)
@@ -84,7 +87,22 @@ public class SmoothCurveView extends LineWithShadowView{
             mPaint.setShader(linearGradient);
             canvas.drawPath(mPath, mPaint);
         }
-        //todo 绘制首尾两个标识点
+        drawCircles(canvas);
+    }
+
+    private void drawThreeTickMarks(Canvas canvas)
+    {
+        mOtherPaint.setStyle(Paint.Style.STROKE);
+        mOtherPaint.setColor(Color.parseColor("#80DCB07D"));
+        int lineWidth = AppUtils.dip2px(getContext(),0.5f);
+        if(lineWidth < 2)
+        {
+            lineWidth = 2;
+        }
+        mOtherPaint.setStrokeWidth(lineWidth);
+        canvas.drawLine(0,lineWidth/2,getWidth(),lineWidth/2,mOtherPaint);
+        canvas.drawLine(0,getHeight()/2,getWidth(),getHeight()/2,mOtherPaint);
+        canvas.drawLine(0,getHeight() - lineWidth/2,getWidth(),getHeight()-lineWidth/2,mOtherPaint);
     }
 
     private void calculatePointLocations()
@@ -147,29 +165,29 @@ public class SmoothCurveView extends LineWithShadowView{
     {
         if(point1.y > point2.y)
         {
-            connectTwoPoints(point1,point2,CURVE_TYPE_QUTO_AHEAD_DOWN);
+            connectTwoPoints(point1,point2,CURVE_TYPE_QUTO_AHEAD_X);
         }else{
-            connectTwoPoints(point1,point2,CURVE_TYPE_QUTO_AHEAD_UP);
+            connectTwoPoints(point1,point2,CURVE_TYPE_QUTO_AHEAD_X);
         }
     }
 
     private void connectTwoPoints(Point point1,Point point2,int curveType)
     {
         mPath.moveTo(point1.x,point1.y);
-        if(curveType == CURVE_TYPE_QUTO_AHEAD_DOWN)
+        if(curveType == CURVE_TYPE_QUTO_AHEAD_X)
         {
             float controlX = point1.x + (point2.x-point1.x)*CONTROL_PERCENT;
             float controlY = point1.y;
             mPath.quadTo(controlX,controlY,point2.x,point2.y);
-        }else if(curveType == CURVE_TYPE_QUTO_AHEAD_UP) {
+        }else if(curveType == CURVE_TYPE_QUTO_AHEAD_Y) {
             float controlX = point1.x;
             float controlY = point1.y + (point2.y-point1.y)*CONTROL_PERCENT;
             mPath.quadTo(controlX,controlY,point2.x,point2.y);
-        }else if(curveType == CURVE_TYPE_QUTO_BEHIND_DOWN) {
+        }else if(curveType == CURVE_TYPE_QUTO_BEHIND_Y) {
             float controlX = point2.x;
             float controlY = point2.y - (point2.y-point1.y)*CONTROL_PERCENT;
             mPath.quadTo(controlX,controlY,point2.x,point2.y);
-        } else if(curveType == CURVE_TYPE_QUTO_BEHIND_UP) {
+        } else if(curveType == CURVE_TYPE_QUTO_BEHIND_X) {
             float controlX = point2.x - (point2.x-point1.x)*CONTROL_PERCENT;
             float controlY = point2.y;
             mPath.quadTo(controlX,controlY,point2.x,point2.y);
@@ -191,14 +209,14 @@ public class SmoothCurveView extends LineWithShadowView{
             connectTwoPoints(point2,point3,CURVE_TYPE_CUBIC);
         }else{
             if(point1.y < point2.y) {
-                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_BEHIND_UP);
-                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_AHEAD_DOWN);
+                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_BEHIND_X);
+                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_AHEAD_Y);
             }else{
                 Log.d(TAG,"here,"+point1+point2+point3);
-//                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_BEHIND_DOWN);
-//                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_AHEAD_UP);
-//                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_AHEAD_DOWN);
-//                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_BEHIND_UP);
+//                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_BEHIND_Y);
+//                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_AHEAD_X);
+//                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_AHEAD_Y);
+//                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_BEHIND_X);
                 connectTwoPoints(point1, point2, CURVE_TYPE_CUBIC);
                 connectTwoPoints(point2, point3, CURVE_TYPE_CUBIC);
             }
@@ -233,7 +251,7 @@ public class SmoothCurveView extends LineWithShadowView{
 
         WeightInfo weightInfo4 = new WeightInfo();
         weightInfo4.setCreateTime("2021-07-27 00:00:00");
-        weightInfo4.setWeight("70");
+        weightInfo4.setWeight("10");
         mDatas.add(weightInfo4);
     }
 
@@ -270,5 +288,10 @@ public class SmoothCurveView extends LineWithShadowView{
                 }
             }
         }
+    }
+
+    private void drawCircles(Canvas canvas)
+    {
+
     }
 }
