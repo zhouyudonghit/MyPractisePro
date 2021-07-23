@@ -671,7 +671,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv46);
         list.add(tv47);
         list.add(tv48);
-        list.add(tv49);
+//        list.add(tv49);
         list.add(tv50);
         list.add(tv51);
         list.add(tv52);

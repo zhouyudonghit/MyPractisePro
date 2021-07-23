@@ -12,6 +12,7 @@ public class FontUtils {
     public static final String PATH_PHT_HEAVY = "fonts/AlibabaSans-Heavy.otf";
     public static final String PATH_PHT_HEAVY_ITALIC = "fonts/AlibabaSans-HeavyItalic.otf";
     public static final String PATH_BEBAS_REGULAR = "fonts/Bebas-Regular.otf";
+    public static final String PATH_DINNextLT_Medium = "fonts/DINNextLTPro-Medium.TTF";
     private static final HashMap<String, Typeface> sTypefaceCacheList = new HashMap<>();
 
     public static Typeface getPHTRegular(Context context){
@@ -47,5 +48,9 @@ public class FontUtils {
             sTypefaceCacheList.put(path, typeface);
         }
         return typeface;
+    }
+
+    public static Typeface getDINNextLTMedium(Context context){
+        return getTypeface(context, PATH_DINNextLT_Medium);
     }
 }

@@ -15,19 +15,32 @@ public class MyTextView extends android.support.v7.widget.AppCompatTextView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.d(TAG,"onMeasure"+hashCode());
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Log.d(TAG,"onMeasure"+this);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        Log.d(TAG,"onLayout"+hashCode());
         super.onLayout(changed, left, top, right, bottom);
-        Log.d(TAG,"onLayout"+this);
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        Log.d(TAG,"draw()"+hashCode());
+        super.draw(canvas);
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        Log.d(TAG,"dispatchDraw()"+hashCode());
+        super.dispatchDraw(canvas);
+
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        Log.d(TAG,"onDraw"+hashCode());
         super.onDraw(canvas);
-        Log.d(TAG,"onDraw"+this);
     }
 }

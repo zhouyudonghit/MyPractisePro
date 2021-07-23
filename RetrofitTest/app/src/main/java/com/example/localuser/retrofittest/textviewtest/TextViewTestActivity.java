@@ -15,10 +15,13 @@ import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TextAppearanceSpan;
+import android.text.style.TypefaceSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.localuser.retrofittest.R;
+import com.example.localuser.retrofittest.Utils.FontUtils;
 
 public class TextViewTestActivity extends AppCompatActivity {
     private TextView textView;
@@ -123,10 +126,28 @@ public class TextViewTestActivity extends AppCompatActivity {
     private void test2()
     {
         ColorStateList redColors = ColorStateList.valueOf(0xffff0000);
-        SpannableStringBuilder spanBuilder = new SpannableStringBuilder("这是一个测试");
+        SpannableStringBuilder spanBuilder = new SpannableStringBuilder("468个测试, 468个测试");
         //style 为0 即是正常的，还有Typeface.BOLD(粗体) Typeface.ITALIC(斜体)等
         //size  为0 即采用原始的正常的 size大小
         spanBuilder.setSpan(new TextAppearanceSpan(null, 0, 60, redColors, null), 0, 3, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+
+        spanBuilder.setSpan(new TextAppearanceSpan(null, FontUtils.getDINNextLTMedium(this).getStyle(), 60, redColors, null), 8, 11, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+//        StyleSpan styleSpan_B = new StyleSpan(FontUtils.getDINNextLTMedium(this).getStyle());
+//        StyleSpan styleSpan_B = new StyleSpan(Typeface.BOLD);
+        TypefaceSpan styleSpan_B = new CustomTypefaceSpan(null,FontUtils.getDINNextLTMedium(this));
+        spanBuilder.setSpan(styleSpan_B,0,1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         textView.setText(spanBuilder);
+    }
+
+    private void test3()
+    {
+        textView.setTypeface(FontUtils.getDINNextLTMedium(this));
+        textView.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("zyd-test","textView.getHeight() = "+textView.getHeight()+",textView.getWidth() = "+textView.getWidth());
+            }
+        });
     }
 }

@@ -46,12 +46,14 @@ public class DrawableActivity extends AppCompatActivity {
 
         drawableTest = findViewById(R.id.drawable_test);
         MyDrawable1 drawable1 = new MyDrawable1();
-        RoundRectDrawable drawable2 = new RoundRectDrawable(AppUtils.dp2px(16),true,true,Color.parseColor("#FFC434"),Color.parseColor("#FF820B"));
+//        RoundRectDrawable drawable2 = new RoundRectDrawable(AppUtils.dp2px(0),true,true,Color.parseColor("#FFC434"),Color.parseColor("#FF820B"));
+        RoundRectDrawable2 drawable2 = new RoundRectDrawable2(AppUtils.dp2px(4),AppUtils.dp2px(20),AppUtils.dp2px(4),AppUtils.dp2px(20),Color.BLACK);
         drawableTest.setBackground(drawable2);
-        drawableTest.setVisibility(View.GONE);
+        drawableTest.setVisibility(View.VISIBLE);
         Log.d(TAG,"drawable1.getMinimumHeight() = "+drawable1.getMinimumHeight());
 
         mImageView = findViewById(R.id.image_view_test);
+        mImageView.setVisibility(View.GONE);
 //        mImageView.setImageResource(R.mipmap.content_films);
     }
 

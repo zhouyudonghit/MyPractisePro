@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 public class RoundRectDrawable extends Drawable {
-    private float mRadius;
+    private float mRadius;//度数为0，会画个直角
     private Paint mPaint;
     private boolean mGradient;//是否渐变
     private boolean mVertical;//是否是竖直方向渐变

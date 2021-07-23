@@ -10,9 +10,13 @@ import android.graphics.Point;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.widget.LinearLayout;
+
 import com.example.localuser.retrofittest.Configs.LogConfigs;
+import com.example.localuser.retrofittest.R;
 import com.example.localuser.retrofittest.Utils.AppUtils;
 import com.example.localuser.retrofittest.Utils.DateUtil;
+import com.example.localuser.retrofittest.Utils.ScreenUtils;
 import com.example.localuser.retrofittest.View.bean.WeightInfo;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,13 +37,14 @@ public class SmoothCurveView extends LineWithShadowView{
     private final static int CURVE_TYPE_CUBIC = 4;
     private float mPaddingToTopOrBottom;
     private float mPaddingToLeftOrRight;
-    private final static float CONTROL_PERCENT = 1/4.0f;
+    private final static float CONTROL_PERCENT = 2/4.0f;
     private Path mPath;
     private Date mMonthDate;
     private List<Point> mPointLocations = new ArrayList<>();
     private List<WeightInfo> mDatas = new ArrayList<>();
     private float mMaxWeight = -1;
     private float mMinWeight = -1;
+    private float mMinPointY;
     private Paint mOtherPaint;
 
     public SmoothCurveView(Context context, AttributeSet attrs) {
@@ -55,6 +60,7 @@ public class SmoothCurveView extends LineWithShadowView{
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaddingToTopOrBottom = AppUtils.dip2px(getContext(),10)*AppUtils.getSreenScaleByWidth(getContext());
         mPaddingToLeftOrRight = AppUtils.dip2px(getContext(),12)*AppUtils.getSreenScaleByWidth(getContext());
+        Log.d(TAG,"test = "+getContext().getResources().getDimension(R.dimen.test));
     }
 
     @Override
@@ -68,6 +74,7 @@ public class SmoothCurveView extends LineWithShadowView{
 ////        path.cubicTo(controlX1,300,controlX2,100,400,100);
 //        path.quadTo(100,300,400,100);
 //        canvas.drawPath(path,mPaint);
+        mPath = null;
         drawCurve(canvas);
     }
 
@@ -86,6 +93,7 @@ public class SmoothCurveView extends LineWithShadowView{
             LinearGradient linearGradient = new LinearGradient(mPointLocations.get(0).x, mPointLocations.get(0).y, mPointLocations.get(1).x, mPointLocations.get(1).y, Color.parseColor("#FEAE31"), Color.parseColor("#FC7616"), Shader.TileMode.CLAMP);
             mPaint.setShader(linearGradient);
             canvas.drawPath(mPath, mPaint);
+            drawArea(canvas);
         }
         drawCircles(canvas);
     }
@@ -107,6 +115,7 @@ public class SmoothCurveView extends LineWithShadowView{
 
     private void calculatePointLocations()
     {
+        mPointLocations.clear();
         int days = DateUtil.getMonthDay(mMonthDate);
         float beginX = AppUtils.dip2px(getContext(),12)*AppUtils.getSreenScaleByWidth(getContext());
         float endX = getWidth() - beginX;
@@ -128,6 +137,10 @@ public class SmoothCurveView extends LineWithShadowView{
                 }else {
                     point.y = (int) (beginY + (mMaxWeight - weightInfo.getWeightFloat())/(mMaxWeight - mMinWeight)*internalY);
                 }
+                if(weightInfo.getWeightFloat() == mMaxWeight)
+                {
+                    mMinPointY = point.y;
+                }
                 Log.d(TAG,"point = "+point);
                 mPointLocations.add(point);
             }
@@ -141,11 +154,11 @@ public class SmoothCurveView extends LineWithShadowView{
             return;
         }
         mPath = new Path();
+        mPath.moveTo(mPointLocations.get(0).x,mPointLocations.get(0).y);
         //多个点才画线
         for(int i = 0;i < mPointLocations.size();i += 2)
         {
             Point point1 = mPointLocations.get(i);
-            mPath.moveTo(point1.x,point1.y);
             if((i + 1) == mPointLocations.size())
             {
                 break;
@@ -173,7 +186,6 @@ public class SmoothCurveView extends LineWithShadowView{
 
     private void connectTwoPoints(Point point1,Point point2,int curveType)
     {
-        mPath.moveTo(point1.x,point1.y);
         if(curveType == CURVE_TYPE_QUTO_AHEAD_X)
         {
             float controlX = point1.x + (point2.x-point1.x)*CONTROL_PERCENT;
@@ -209,8 +221,10 @@ public class SmoothCurveView extends LineWithShadowView{
             connectTwoPoints(point2,point3,CURVE_TYPE_CUBIC);
         }else{
             if(point1.y < point2.y) {
-                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_BEHIND_X);
-                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_AHEAD_Y);
+//                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_BEHIND_X);
+//                connectTwoPoints(point2, point3, CURVE_TYPE_QUTO_AHEAD_Y);
+                connectTwoPoints(point1, point2, CURVE_TYPE_CUBIC);
+                connectTwoPoints(point2, point3, CURVE_TYPE_CUBIC);
             }else{
                 Log.d(TAG,"here,"+point1+point2+point3);
 //                connectTwoPoints(point1, point2, CURVE_TYPE_QUTO_BEHIND_Y);
@@ -221,6 +235,23 @@ public class SmoothCurveView extends LineWithShadowView{
                 connectTwoPoints(point2, point3, CURVE_TYPE_CUBIC);
             }
         }
+    }
+
+    /**
+     * 绘制区域的颜色渐变
+     * @param canvas
+     */
+    private void drawArea(Canvas canvas)
+    {
+        LinearGradient linearGradient = new LinearGradient(0,mMinPointY,0,getHeight(),Color.parseColor("#1aff962d"),Color.parseColor("#00fffaf8"), Shader.TileMode.CLAMP);
+        mPath.lineTo(mPointLocations.get(mPointLocations.size()-1).x,getHeight());
+        mPath.lineTo(mPointLocations.get(0).x,getHeight());
+        mPath.lineTo(mPointLocations.get(0).x,mPointLocations.get(0).y);
+        mPath.close();
+        mOtherPaint.setStyle(Paint.Style.FILL);
+        mOtherPaint.setShader(linearGradient);
+        canvas.drawPath(mPath,mOtherPaint);
+        mOtherPaint.setShader(null);
     }
 
     public void setData(Date monthDate, List<WeightInfo> datas)
@@ -235,24 +266,54 @@ public class SmoothCurveView extends LineWithShadowView{
     private void makeFakeDatas()
     {
         WeightInfo weightInfo1 = new WeightInfo();
-        weightInfo1.setCreateTime("2021-07-07 00:00:00");
+        weightInfo1.setCreateTime("2021-07-01 00:00:00");
         weightInfo1.setWeight("20");
         mDatas.add(weightInfo1);
 
         WeightInfo weightInfo2 = new WeightInfo();
-        weightInfo2.setCreateTime("2021-07-12 00:00:00");
-        weightInfo2.setWeight("40");
+        weightInfo2.setCreateTime("2021-07-02 00:00:00");
+        weightInfo2.setWeight("90");
         mDatas.add(weightInfo2);
 
         WeightInfo weightInfo3 = new WeightInfo();
-        weightInfo3.setCreateTime("2021-07-20 00:00:00");
-        weightInfo3.setWeight("30");
+        weightInfo3.setCreateTime("2021-07-03 00:00:00");
+        weightInfo3.setWeight("20");
         mDatas.add(weightInfo3);
 
-        WeightInfo weightInfo4 = new WeightInfo();
-        weightInfo4.setCreateTime("2021-07-27 00:00:00");
-        weightInfo4.setWeight("10");
-        mDatas.add(weightInfo4);
+        WeightInfo weightInfo7 = new WeightInfo();
+        weightInfo7.setCreateTime("2021-07-07 00:00:00");
+        weightInfo7.setWeight("90");
+        mDatas.add(weightInfo7);
+
+        WeightInfo weightInfo12 = new WeightInfo();
+        weightInfo12.setCreateTime("2021-07-12 00:00:00");
+        weightInfo12.setWeight("40");
+        mDatas.add(weightInfo12);
+
+        WeightInfo weightInfo15 = new WeightInfo();
+        weightInfo15.setCreateTime("2021-07-15 00:00:00");
+        weightInfo15.setWeight("90");
+        mDatas.add(weightInfo15);
+
+        WeightInfo weightInfo20 = new WeightInfo();
+        weightInfo20.setCreateTime("2021-07-20 00:00:00");
+        weightInfo20.setWeight("30");
+        mDatas.add(weightInfo20);
+
+        WeightInfo weightInfo27 = new WeightInfo();
+        weightInfo27.setCreateTime("2021-07-27 00:00:00");
+        weightInfo27.setWeight("10");
+        mDatas.add(weightInfo27);
+
+        WeightInfo weightInfo29 = new WeightInfo();
+        weightInfo29.setCreateTime("2021-07-29 00:00:00");
+        weightInfo29.setWeight("90");
+        mDatas.add(weightInfo29);
+
+        WeightInfo weightInfo30 = new WeightInfo();
+        weightInfo30.setCreateTime("2021-07-30 00:00:00");
+        weightInfo30.setWeight("10");
+        mDatas.add(weightInfo30);
     }
 
     public float getMaxWeight() {
@@ -292,6 +353,26 @@ public class SmoothCurveView extends LineWithShadowView{
 
     private void drawCircles(Canvas canvas)
     {
+        if(mPointLocations.size() == 0)
+        {
+            return;
+        }
+        drawCircle(canvas,mPointLocations.get(0).x,mPointLocations.get(0).y);
+        int size = mPointLocations.size();
+        if(size >= 2)
+        {
+            drawCircle(canvas,mPointLocations.get(size-1).x,mPointLocations.get(size-1).y);
+        }
+    }
 
+    private void drawCircle(Canvas canvas,float x,float y)
+    {
+        mOtherPaint.setStyle(Paint.Style.STROKE);
+        mOtherPaint.setStrokeWidth(AppUtils.dp2px(4));
+        mOtherPaint.setColor(Color.parseColor("#4dfb952c"));
+        canvas.drawCircle(x,y,AppUtils.dp2px(4),mOtherPaint);
+        mOtherPaint.setStyle(Paint.Style.FILL);
+        mOtherPaint.setColor(Color.WHITE);
+        canvas.drawCircle(x,y,AppUtils.dp2px(2),mOtherPaint);
     }
 }
