@@ -133,12 +133,19 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         mShadowViewCard = findViewById(R.id.ShadowViewCard);
         mShadowViewCard.setVisibility(View.GONE);
 
+        MyTextView1 myTextView1 = findViewById(R.id.MyTextView1);
+        myTextView1.setVisibility(View.GONE);
+
         LineWithShadowView lineWithShadowView = findViewById(R.id.LineWithShadowView);
         lineWithShadowView.setVisibility(View.GONE);
 
         SmoothCurveView smoothCurveView =  findViewById(R.id.SmoothCurveView);
         smoothCurveView.setData(new Date(),null);
-        smoothCurveView.setVisibility(View.VISIBLE);
+        smoothCurveView.setVisibility(View.GONE);
+
+        RoundRectImageView3 roundRectImageView3 = findViewById(R.id.RoundRectImageView3);
+//        roundRectImageView3.setOutLine();
+//        roundRectImageView3.setBackgroundResource(R.mipmap.content_films);
     }
 
     public void startAnimation()

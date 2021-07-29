@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:fresco="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/svga_test_bg"/>
     <com.opensource.svgaplayer.SVGAImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/mSVGAKninghtood"
         android:background="#00000000"
         fresco:autoPlay="true"
         fresco:clearsAfterStop="true"
-        fresco:loopCount="1" />
-</LinearLayout>
+        fresco:loopCount="-1" />
+</RelativeLayout>

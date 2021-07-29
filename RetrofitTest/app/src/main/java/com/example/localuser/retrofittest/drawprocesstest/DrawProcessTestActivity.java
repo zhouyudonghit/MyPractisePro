@@ -1,10 +1,12 @@
 package com.example.localuser.retrofittest.drawprocesstest;
 
+import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
@@ -29,6 +31,13 @@ public class DrawProcessTestActivity extends AppCompatActivity {
     {
         myTextView1 = findViewById(R.id.tv1);
         myTextView2 = findViewById(R.id.tv2);
+        myLinearLayout = findViewById(R.id.root);
+        myLinearLayout.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                Log.d(TAG,"",new Exception());
+            }
+        });
         myTextView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +48,7 @@ public class DrawProcessTestActivity extends AppCompatActivity {
 //
                 LinearLayout.LayoutParams lp2 = (LinearLayout.LayoutParams) myTextView2.getLayoutParams();
                 Log.d(TAG,"lp2 = "+lp2);
-                lp2.height = AppUtils.dp2px(40);
+//                lp2.height = AppUtils.dp2px(40);
                 myTextView2.setLayoutParams(lp2);
             }
         });
@@ -51,5 +60,6 @@ public class DrawProcessTestActivity extends AppCompatActivity {
                 Log.d(TAG,"ViewTreeObserver.OnDrawListener(),onDraw()");
             }
         });
+        myTextView1.getRootView().
     }
 }

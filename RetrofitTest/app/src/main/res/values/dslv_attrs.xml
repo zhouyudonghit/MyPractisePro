@@ -57,6 +57,14 @@
     <attr name="shadowCardColor" format="color" />
     <attr name="shadowColor" format="color" />
     <!--阴影颜色模糊度，越大越模糊-->
-    <attr name="shadowRadius" format="integer" />
+    <attr name="shadowRadius" format="dimension" />
+  </declare-styleable>
+
+  <declare-styleable name="RoundRectImageView2">
+    <attr name="radius" format="dimension" />
+  </declare-styleable>
+
+  <declare-styleable name="RoundRectImageView3">
+    <attr name="radius_2" format="dimension" />
   </declare-styleable>
 </resources>

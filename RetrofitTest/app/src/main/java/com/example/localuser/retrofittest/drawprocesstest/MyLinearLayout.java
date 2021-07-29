@@ -45,7 +45,7 @@ public class MyLinearLayout extends LinearLayout {
     @Override
     protected void dispatchDraw(Canvas canvas) {
         Exception e = new Exception();
-        Log.e(TAG,"",e);
+        Log.e(TAG,"dispatchDraw",e);
         Log.d(TAG,"dispatchDraw()");
         super.dispatchDraw(canvas);
     }

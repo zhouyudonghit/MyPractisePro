@@ -22,4 +22,10 @@
         android:layout_height="200dp"
         android:id="@+id/press_anim_view"
         />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/frame_test"
+        android:background="@drawable/frame_animation_test1"/>
 </LinearLayout>

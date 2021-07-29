@@ -29,9 +29,9 @@ public class SVGATestActivity extends AppCompatActivity {
         //false表示动画停在最后一帧
         mSVGAImage.setClearsAfterStop(false);
         //设置动画循环播放，-1表示无限循环,0也是无限循环，1表示总共播放一遍，3表示总共播放三遍
-        mSVGAImage.setLoops(3);
+        mSVGAImage.setLoops(0);
         initSVGAImageView();
-        testSVGA3();
+        testSVGA4();
 //        HttpResponseCache.install(new File(HnUiUtils.getContext().getExternalFilesDir(null), "svga"), 1024 * 1024 * 128);
     }
 
@@ -123,6 +123,27 @@ public class SVGATestActivity extends AppCompatActivity {
                     SVGADrawable drawable = new SVGADrawable(videoItem, dynamicEntity);
                     mSVGAImage.setImageDrawable(drawable);
                     if (mSVGAImage != null) {
+                        mSVGAImage.stepToFrame(0, true);
+                    }
+                }
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+    }
+
+    private void testSVGA4()
+    {
+        new SVGAParser(this).decodeFromAssets("top3.svga", new SVGAParser.ParseCompletion() {
+            @RequiresApi(api = Build.VERSION_CODES.P)
+            @Override
+            public void onComplete(@NotNull SVGAVideoEntity videoItem) {
+                if (mSVGAImage != null) {
+                    if (mSVGAImage != null) {
+                        mSVGAImage.setVideoItem(videoItem);
                         mSVGAImage.stepToFrame(0, true);
                     }
                 }

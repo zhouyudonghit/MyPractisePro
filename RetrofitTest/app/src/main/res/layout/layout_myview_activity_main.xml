@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:messageview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="2600dp"
     android:id="@+id/root">
 
@@ -119,17 +121,22 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:id="@+id/ShadowViewCard"
-        android:layout_marginLeft="0dp"
+        android:layout_marginLeft="20dp"
+        app:shadowRadius="16dp"
+        app:shadowOffsetY="16dp"
+        app:shadowOffsetX="16dp"
+        app:shadowRound="24dp"
         tools:visibility="gone">
 
-        <ImageView
+        <com.example.localuser.retrofittest.View.RoundRectImageView2
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="20dp"
-            android:background="@android:color/holo_red_light"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="36dp"
+            android:src="@android:color/holo_red_light"
+            app:radius="24dp"
             android:visibility="visible"/>
     </com.example.localuser.retrofittest.View.ShadowViewCard>
 
@@ -154,4 +161,11 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:id="@+id/SmoothCurveView"/>
+
+    <com.example.localuser.retrofittest.View.RoundRectImageView3
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/RoundRectImageView3"
+        app:radius_2="24dp"
+        android:background="@color/black"/>
 </LinearLayout>

@@ -28,6 +28,7 @@ public class MyTextView extends android.support.v7.widget.AppCompatTextView {
     @Override
     public void draw(Canvas canvas) {
         Log.d(TAG,"draw()"+hashCode());
+        Log.e(TAG,"draw()",new Exception());
         super.draw(canvas);
     }
 
@@ -35,7 +36,6 @@ public class MyTextView extends android.support.v7.widget.AppCompatTextView {
     protected void dispatchDraw(Canvas canvas) {
         Log.d(TAG,"dispatchDraw()"+hashCode());
         super.dispatchDraw(canvas);
-
     }
 
     @Override

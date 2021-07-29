@@ -3,6 +3,7 @@ package com.example.localuser.retrofittest.AnimatorTest;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.localuser.retrofittest.R;
@@ -22,6 +24,7 @@ import com.example.localuser.retrofittest.uiutils.UIUtilsActivity;
 public class AnimatorTestActivity extends AppCompatActivity {
     private Button mButton;
     private TextView mTextView;
+    private ImageView mFrameTestImageView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +39,9 @@ public class AnimatorTestActivity extends AppCompatActivity {
                 startActivity(new Intent(AnimatorTestActivity.this, UIUtilsActivity.class));
             }
         });
+        mFrameTestImageView = findViewById(R.id.frame_test);
+        AnimationDrawable anim = (AnimationDrawable) mFrameTestImageView.getBackground();
+        anim.start();
     }
 
     public void runAnimator()

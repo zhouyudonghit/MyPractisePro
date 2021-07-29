@@ -62,7 +62,7 @@ public class ShadowViewCard extends FrameLayout {
         shadowBottomHeight = a.getDimensionPixelSize(R.styleable.ShadowViewCard_shadowBottomHeight, dp2px(getContext(), DEFAULT_VALUE_SHADOW_BOTTOM_HEIGHT));
         shadowOffsetY = a.getDimensionPixelSize(R.styleable.ShadowViewCard_shadowOffsetY, dp2px(getContext(), DEFAULT_VALUE_SHADOW_OFFSET_Y));
         shadowOffsetX = a.getDimensionPixelSize(R.styleable.ShadowViewCard_shadowOffsetX, dp2px(getContext(), DEFAULT_VALUE_SHADOW_OFFSET_X));
-        shadowRadius = a.getInteger(R.styleable.ShadowViewCard_shadowRadius, DEFAULT_VALUE_SHADOW_RADIUS);
+        shadowRadius = a.getDimensionPixelSize(R.styleable.ShadowViewCard_shadowRadius, DEFAULT_VALUE_SHADOW_RADIUS);
         a.recycle();
 //        setPadding(shadowLeftHeight, shadowTopHeight, shadowRightHeight, shadowBottomHeight);
         setLayerType(LAYER_TYPE_SOFTWARE, null);
@@ -109,22 +109,21 @@ public class ShadowViewCard extends FrameLayout {
         shadowPaint.setColor(Color.WHITE);
         shadowPaint.setStyle(Paint.Style.FILL);
         shadowPaint.setAntiAlias(true);
-        shadowRadius = 48;
-        float left = shadowRadius;
-        float top = shadowRadius-12;
-        float right = getWidth() - shadowRadius;
-        float bottom = getHeight() - 12-shadowRadius;
+//        shadowRadius = 48;
+        float left = shadowRadius - shadowOffsetX;
+        float top = shadowRadius - shadowOffsetY;
+        float right = getWidth() - shadowRadius - shadowOffsetX;
+        float bottom = getHeight() - shadowRadius - shadowOffsetY;
 //        float left = 0;
 //        float top = 0;
 //        float right = getWidth();
-//        float bottom = getHeight()-24;
-//        shadowPaint.setShadowLayer(shadowRadius, shadowOffsetX, shadowOffsetX, shadowColor);
+//        float bottom = getHeight();
+//        shadowPaint.setShadowLayer(shadowRadius, shadowOffsetX, shadowOffsetY, shadowColor);
         //#1a524B43
-        shadowPaint.setShadowLayer(shadowRadius, 0, 12, Color.parseColor("#1a524B43"));
+        shadowPaint.setShadowLayer(shadowRadius, shadowOffsetX, shadowOffsetY, Color.parseColor("#1a524B43"));
         Log.d(TAG,"shadowRadius = "+shadowRadius+",shadowOffsetX = "+shadowOffsetX);
         RectF rectF = new RectF(left, top, right, bottom);
-//        canvas.drawRoundRect(rectF, shadowRound, shadowRound, shadowPaint);
-        canvas.drawRoundRect(rectF, 24, 24, shadowPaint);
+        canvas.drawRoundRect(rectF, shadowRound, shadowRound, shadowPaint);
 //        canvas.save();
         super.dispatchDraw(canvas);
     }
