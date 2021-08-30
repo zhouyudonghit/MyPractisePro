@@ -26,7 +26,7 @@ public class PullRefreshRecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pullrefresh_recyclerview_main);
         recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         mDatas = new ArrayList<>();
@@ -46,19 +46,19 @@ public class PullRefreshRecyclerViewActivity extends AppCompatActivity {
         mDatas.add("item 5");
         mDatas.add("item 6");
         mDatas.add("item 7");
-        mDatas.add("item 8");
-        mDatas.add("item 9");
-        mDatas.add("item 10");
-        mDatas.add("item 11");
-        mDatas.add("item 12");
-        mDatas.add("item 13");
-        mDatas.add("item 14");
-        mDatas.add("item 15");
-        mDatas.add("item 16");
-        mDatas.add("item 17");
-        mDatas.add("item 18");
-        mDatas.add("item 19");
-        mDatas.add("item 20");
+//        mDatas.add("item 8");
+//        mDatas.add("item 9");
+//        mDatas.add("item 10");
+//        mDatas.add("item 11");
+//        mDatas.add("item 12");
+//        mDatas.add("item 13");
+//        mDatas.add("item 14");
+//        mDatas.add("item 15");
+//        mDatas.add("item 16");
+//        mDatas.add("item 17");
+//        mDatas.add("item 18");
+//        mDatas.add("item 19");
+//        mDatas.add("item 20");
         adapter.setDatas(mDatas);
     }
 

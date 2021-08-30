@@ -1,5 +1,6 @@
 package com.example.localuser.retrofittest.drawprocesstest;
 
+import android.graphics.Color;
 import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,8 +31,11 @@ public class DrawProcessTestActivity extends AppCompatActivity {
     private void initView()
     {
         myTextView1 = findViewById(R.id.tv1);
+        myTextView1.setBackgroundColor(Color.RED);
         myTextView2 = findViewById(R.id.tv2);
+        myTextView2.setBackgroundColor(Color.YELLOW);
         myLinearLayout = findViewById(R.id.root);
+        myLinearLayout.setBackgroundColor(Color.GREEN);
         myLinearLayout.setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
@@ -45,7 +49,7 @@ public class DrawProcessTestActivity extends AppCompatActivity {
 //                LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) myTextView1.getLayoutParams();
 //                Log.d(TAG,"lp = "+lp);
 //                lp.height = AppUtils.dp2px(160);
-//
+
                 LinearLayout.LayoutParams lp2 = (LinearLayout.LayoutParams) myTextView2.getLayoutParams();
                 Log.d(TAG,"lp2 = "+lp2);
 //                lp2.height = AppUtils.dp2px(40);
@@ -60,6 +64,6 @@ public class DrawProcessTestActivity extends AppCompatActivity {
                 Log.d(TAG,"ViewTreeObserver.OnDrawListener(),onDraw()");
             }
         });
-        myTextView1.getRootView().
+        Log.d(TAG,"myTextView1.getRootView().getLayerType() = "+myTextView1.getRootView().getLayerType());
     }
 }

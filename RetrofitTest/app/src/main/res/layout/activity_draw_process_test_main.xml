@@ -2,7 +2,8 @@
 <com.example.localuser.retrofittest.drawprocesstest.MyLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
+    android:baselineAlignedChildIndex="1"
     android:id="@+id/root">
 
     <com.example.localuser.retrofittest.drawprocesstest.MyTextView
@@ -17,7 +18,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:id="@+id/tv2"
-        android:textSize="16sp"
+        android:textSize="40sp"
         android:text="tv2"
         android:gravity="center"/>
 

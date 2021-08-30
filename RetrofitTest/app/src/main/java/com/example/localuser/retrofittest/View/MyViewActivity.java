@@ -117,14 +117,14 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
 
         final VerticalMarqueeView verticalMarqueeView = findViewById(R.id.verticalMarqueeView);
         verticalMarqueeView.initView();
-        verticalMarqueeView.post(new Runnable() {
-            @Override
-            public void run() {
-//                verticalMarqueeView.getHeight();
-                findViewById(R.id.root).getHeight();
-            }
-        });
-        verticalMarqueeView.setVisibility(View.GONE);
+//        verticalMarqueeView.post(new Runnable() {
+//            @Override
+//            public void run() {
+////                verticalMarqueeView.getHeight();
+//                findViewById(R.id.root).getHeight();
+//            }
+//        });
+        verticalMarqueeView.setVisibility(View.VISIBLE);
 
         final VerticalMarqueeView2 verticalMarqueeView2 = findViewById(R.id.verticalMarqueeView2);
         verticalMarqueeView2.startScrolling();
@@ -146,6 +146,7 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
         RoundRectImageView3 roundRectImageView3 = findViewById(R.id.RoundRectImageView3);
 //        roundRectImageView3.setOutLine();
 //        roundRectImageView3.setBackgroundResource(R.mipmap.content_films);
+        roundRectImageView3.setVisibility(View.GONE);
     }
 
     public void startAnimation()

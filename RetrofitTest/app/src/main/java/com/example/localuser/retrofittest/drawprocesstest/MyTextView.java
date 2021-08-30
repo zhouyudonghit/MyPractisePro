@@ -27,8 +27,8 @@ public class MyTextView extends android.support.v7.widget.AppCompatTextView {
 
     @Override
     public void draw(Canvas canvas) {
-        Log.d(TAG,"draw()"+hashCode());
-        Log.e(TAG,"draw()",new Exception());
+        Log.d(TAG,"draw()"+hashCode()+",height = "+getHeight());
+//        Log.e(TAG,"draw()",new Exception());
         super.draw(canvas);
     }
 

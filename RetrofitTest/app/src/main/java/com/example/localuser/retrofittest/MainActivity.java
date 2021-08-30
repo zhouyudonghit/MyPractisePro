@@ -590,7 +590,7 @@ public class MainActivity extends AppCompatActivity {
         tv58.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ImageViewTestActivity2.class));
+                startActivity(new Intent(MainActivity.this, ImageViewTestActivity.class));
             }
         });
 
@@ -631,7 +631,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv6);
         list.add(tv7);
         list.add(tv8);
-        list.add(tv9);
+//        list.add(tv9);
         list.add(tv10);
         list.add(tv11);
         list.add(tv12);
@@ -642,7 +642,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv17);
         list.add(tv18);
         list.add(tv19);
-        list.add(tv20);
+//        list.add(tv20);
         list.add(tv21);
         list.add(tv22);
         list.add(tv23);
@@ -655,8 +655,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv30);
         list.add(tv31);
         list.add(tv32);
-        list.add(tv33);
-        list.add(tv34);
+//        list.add(tv33);
+//        list.add(tv34);
         list.add(tv35);
         list.add(tv36);
         list.add(tv37);
@@ -680,8 +680,8 @@ public class MainActivity extends AppCompatActivity {
 //        list.add(tv55);
         list.add(tv56);
         list.add(tv57);
-        list.add(tv58);
-        list.add(tv59);
+//        list.add(tv58);
+//        list.add(tv59);
         list.add(tv60);
         for(TextView textView :list)
         {

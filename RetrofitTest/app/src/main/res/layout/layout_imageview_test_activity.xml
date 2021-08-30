@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.example.localuser.retrofittest.View.RoundCornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="282dp"
-    android:layout_height="285dp"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
     android:id="@+id/root_layout">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0.6dp"
         android:id="@+id/rule_image"
-        android:paddingLeft="100dp"
-        android:scaleType="fitXY"
+        android:paddingLeft="0dp"
+        android:scaleType="center"
         android:background="@color/black"
         android:src="@drawable/medal_rule_test"/>
 <!--    <ScrollView android:layout_width="match_parent"-->
@@ -37,12 +37,12 @@
 <!--    </ScrollView>-->
 
     <ImageView
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/close_image"
         android:layout_alignParentRight="true"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/close_2"
-        android:scaleType="fitXY" />
+        android:src="@drawable/close_2"
+        android:scaleType="fitCenter" />
 </com.example.localuser.retrofittest.View.RoundCornerRelativeLayout>

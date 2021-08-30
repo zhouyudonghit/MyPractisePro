@@ -137,7 +137,7 @@ public class SVGATestActivity extends AppCompatActivity {
 
     private void testSVGA4()
     {
-        new SVGAParser(this).decodeFromAssets("top3.svga", new SVGAParser.ParseCompletion() {
+        new SVGAParser(this).decodeFromAssets("top3-simple.svga", new SVGAParser.ParseCompletion() {
             @RequiresApi(api = Build.VERSION_CODES.P)
             @Override
             public void onComplete(@NotNull SVGAVideoEntity videoItem) {

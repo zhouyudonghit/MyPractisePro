@@ -35,7 +35,9 @@ public class JsonTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_test_main);
 //        test8();
-        test9();
+//        test9();
+        test10();
+//        GsonTest.testNameValuePairList2JsonStr();
     }
 
     public void test1()
@@ -208,5 +210,12 @@ public class JsonTestActivity extends AppCompatActivity {
         data2.setName("金牌");
         data2.setFunctionId(1014);
         Log.d(TAG,new Gson().toJson(data));
+    }
+
+    private void test10()
+    {
+        String json = "{\"telephone\":\"pCUDIMIP16LHCMquh6VvJA==\"}";
+        TestBean2 testBean2 = new Gson().fromJson(json,TestBean2.class);
+        Log.d(TAG,"testBean2 = "+testBean2);
     }
 }

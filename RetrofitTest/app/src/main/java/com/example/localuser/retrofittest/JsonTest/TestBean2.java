@@ -6,6 +6,7 @@ public class TestBean2 extends AbstractTestBean{
     private String str;
     @SerializedName("userAge")
     private Integer age;
+    private String telephone;
 
     public int getAge() {
         return age;
@@ -25,7 +26,22 @@ public class TestBean2 extends AbstractTestBean{
 
     @Override
     public String toString() {
-        String s = "str = "+str+",age = "+age;
-        return s;
+        return "TestBean2{" +
+                "str='" + str + '\'' +
+                ", age=" + age +
+                ", telephone='" + telephone + '\'' +
+                '}';
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 }

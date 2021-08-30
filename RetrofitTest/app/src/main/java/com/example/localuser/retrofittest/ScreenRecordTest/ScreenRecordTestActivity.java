@@ -1,6 +1,7 @@
 package com.example.localuser.retrofittest.ScreenRecordTest;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.projection.MediaProjection;
@@ -10,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +24,7 @@ import com.example.localuser.retrofittest.R;
 
 public class ScreenRecordTestActivity extends AppCompatActivity
 {
+    private String TAG = getClass().getSimpleName();
     private Button start;
     private Button stop;
     boolean isrun = false;//用来标记录屏的状态private MediaProjectionManager mediaProjectionManager;
@@ -58,31 +61,35 @@ public class ScreenRecordTestActivity extends AppCompatActivity
         width = outMetrics.widthPixels;
         height = outMetrics.heightPixels;
         dpi = outMetrics.densityDpi;
-        startActivity(new Intent(this, ListViewTestActivity.class));
-        finish();
+//        startActivity(new Intent(this, ListViewTestActivity.class));
+//        finish();
     }
 
     private void startRecord()
     {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 102);
-        }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 103);
-        }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 104);
-        }
-        Intent intent = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            intent = mediaProjectionManager.createScreenCaptureIntent();
-            startActivityForResult(intent, 101);//正常情况是要执行到这里的,作用是申请捕捉屏幕
-        } else {
-            //ShowUtil.showToast(this, "Android版本太低，无法使用该功能");
-        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 102);
+//        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+//                != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 103);
+//        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+//                != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 104);
+//        }
+//        Intent intent = null;
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+//            intent = mediaProjectionManager.createScreenCaptureIntent();
+//            startActivityForResult(intent, 101);//正常情况是要执行到这里的,作用是申请捕捉屏幕
+//        } else {
+//            //ShowUtil.showToast(this, "Android版本太低，无法使用该功能");
+//        }
+
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        Log.d(TAG,"telephonyManager.getImei() = "+telephonyManager.getImei());
+        telephonyManager.getDeviceId();
     }
 
     private void stopRecord()

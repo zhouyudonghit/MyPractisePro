@@ -143,6 +143,7 @@ public class TextViewTestActivity extends AppCompatActivity {
     private void test3()
     {
         textView.setTypeface(FontUtils.getDINNextLTMedium(this));
+        textView.setTypeface(Typeface.DEFAULT);
         textView.post(new Runnable() {
             @Override
             public void run() {

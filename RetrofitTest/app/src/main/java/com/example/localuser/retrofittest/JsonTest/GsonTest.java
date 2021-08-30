@@ -10,9 +10,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GsonTest {
     private static String TAG = LogConfigs.TAG_PREFIX_JSON_TEST+"GsonTest";
@@ -107,5 +112,29 @@ public class GsonTest {
         String json = "{\"userAge\":20,\"str\":\"test\",\"id\":0}";
         TestBean2 testBean2 = mGson.fromJson(json,TestBean2.class);
         Log.d(TAG,testBean2.toString());
+    }
+
+    public static void testMap2JsonString()
+    {
+        Map<String,String> map = new HashMap<>();
+        map.put("key1","value1");
+    }
+
+    public static void testNameValuePairList2JsonStr()
+    {
+        List<NameValuePair> bodyList = new ArrayList<>();
+        bodyList.add(new BasicNameValuePair("key1","value1"));
+        bodyList.add(new BasicNameValuePair("key2",2+""));
+        Log.d(TAG,mGson.toJson(bodyList));
+
+        Map<String,String> map = new HashMap<>();
+        for(NameValuePair nameValuePair : bodyList)
+        {
+            if(nameValuePair != null)
+            {
+                map.put(nameValuePair.getName(),nameValuePair.getValue());
+            }
+        }
+        Log.d(TAG,mGson.toJson(map));
     }
 }

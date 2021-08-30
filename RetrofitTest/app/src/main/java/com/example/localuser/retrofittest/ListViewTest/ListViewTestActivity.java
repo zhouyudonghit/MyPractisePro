@@ -156,10 +156,10 @@ public class ListViewTestActivity extends AppCompatActivity {
         //当滑动到最后一项，下句代码有效，且有平滑效果
 //        mRecycleView.smoothScrollToPosition(0);
         //当跳转位置在第一个可见项之后，最后一个可见项之前smoothScrollToPosition()不会滚动
-//        mRecycleView.smoothScrollToPosition(10);
+//        mRecycleView.smoothScrollToPosition(12);
         //如果要跳转的位置在最后可见项之后，会平滑滚动，直至出现在最后一项可见位置
 //        mRecycleView.smoothScrollToPosition(13);
-        mLinearLayoutManager.scrollToPositionWithOffset(0,0);
+        mLinearLayoutManager.scrollToPositionWithOffset(12,0);
     }
 
     private void testSystemDemoActivity()

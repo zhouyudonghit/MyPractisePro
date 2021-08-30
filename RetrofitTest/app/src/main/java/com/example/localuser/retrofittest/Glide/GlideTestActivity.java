@@ -38,6 +38,12 @@ public class GlideTestActivity extends AppCompatActivity {
         map.size();
     }
 
+    private void testGif()
+    {
+        String url = "https://sdosspre1.cnsuning.com/ottshms/shmspblr/XzU2_sLKBoy_VWV7Ut6CsdyQlmZ4eb3lLjvtiYsQNfHk1QNSeuXmVkQe-HAWS-k4.gif";
+        Glide.with(this).asGif().load(url).into(image1);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

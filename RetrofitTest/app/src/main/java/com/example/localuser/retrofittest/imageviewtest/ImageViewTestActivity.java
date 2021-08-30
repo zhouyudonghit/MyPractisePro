@@ -43,7 +43,7 @@ public class ImageViewTestActivity extends AppCompatActivity {
         ScalingUtil.scaleViewAndChildren(relativeLayout,scale);
         Drawable drawable = getDrawable(R.drawable.medal_rule_test);
         Log.d(TAG,"drawable.getIntrinsicHeight() = "+drawable.getIntrinsicHeight()+",drawable.getMinimumWidth() = "+drawable.getMinimumWidth());
-        adjustImageView(drawable);
+//        adjustImageView(drawable);
 //        mImageView.post(new Runnable() {
 //            @Override
 //            public void run() {
@@ -61,6 +61,12 @@ public class ImageViewTestActivity extends AppCompatActivity {
 //                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mImageView.getLayoutParams();
 //                lp.height = 1031;
 //                mImageView.setLayoutParams(lp);
+            }
+        });
+        mImageView.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG,"mImageView.getWidth() = "+mImageView.getWidth()+",mImageView.getHeight() = "+mImageView.getHeight());
             }
         });
     }
