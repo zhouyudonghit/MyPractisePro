@@ -105,7 +105,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.v("activityA","onCreate");
+        Log.i("activityA","onCreate");
         Log.d("activityA","onCreate");
+        Log.w("activityA","onCreate");
+        Log.e("activityA","onCreate");
         //test3();
 //        startActivity(new Intent(MainActivity.this, SleepWatcherTestActivity.class));
     }
@@ -676,7 +680,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(tv51);
         list.add(tv52);
         list.add(tv53);
-        list.add(tv54);
+//        list.add(tv54);
 //        list.add(tv55);
         list.add(tv56);
         list.add(tv57);
