@@ -1,8 +1,10 @@
 package com.example.localuser.retrofittest.OKhttpTest;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.OKhttpTest.SNNetConfig.SuningNetTest;
@@ -19,9 +21,15 @@ public class OKHttpTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_okhttp_main);
 //        mOkHttpTest = new OkHttpTestPost();
 //        ((OkHttpTestPost) mOkHttpTest).testPostKeyValue();
-//        mOkHttpTest = new OkHttpTestGet(false);
-//        ((OkHttpTestGet) mOkHttpTest).test3();
-        mOkHttpTest = new SuningNetTest(false);
-        ((SuningNetTest) mOkHttpTest).test1();
+        mOkHttpTest = new OkHttpTestGet(false);
+        ((OkHttpTestGet) mOkHttpTest).test3();
+//        mOkHttpTest = new SuningNetTest(false);
+//        ((SuningNetTest) mOkHttpTest).test1();
+        test22(null);
+    }
+
+    public void test22(@NonNull String str)
+    {
+//        Log.d(TAG,"test22,"+str.length());
     }
 }
