@@ -1,10 +1,8 @@
 package com.example.localuser.retrofittest.AddressPickerTest;
 
-import com.contrarywind.interfaces.IPickerViewData;
-
 import java.util.List;
 
-public class ProvinceJsonBean implements IPickerViewData {
+public class ProvinceJsonBean {
     private String name;
     private List<CityBean> city;
 
@@ -24,8 +22,6 @@ public class ProvinceJsonBean implements IPickerViewData {
         this.city = city;
     }
 
-
-    @Override
     public String getPickerViewText() {
         return name;
     }

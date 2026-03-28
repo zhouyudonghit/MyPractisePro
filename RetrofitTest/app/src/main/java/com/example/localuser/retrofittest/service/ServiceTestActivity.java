@@ -17,7 +17,7 @@ import android.view.LayoutInflater;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.aidl.IBookManager;
+//import com.example.aidl.IBookManager;
 import com.example.localuser.retrofittest.MainActivity;
 
 public class ServiceTestActivity extends AppCompatActivity {
@@ -143,7 +143,7 @@ public class ServiceTestActivity extends AppCompatActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d(TAG,"remoteServiceConnection onServiceConnected");
-            IBookManager bookManager = IBookManager.Stub.asInterface(service);
+//            IBookManager bookManager = IBookManager.Stub.asInterface(service);
         }
 
         @Override

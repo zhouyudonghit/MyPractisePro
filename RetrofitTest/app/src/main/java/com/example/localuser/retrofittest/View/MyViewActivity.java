@@ -172,13 +172,13 @@ public class MyViewActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.my_drawline_view:
-                myDrawLineViewOnclick();
-                break;
-            default:
-        }
+//        switch (v.getId())
+//        {
+//            case R.id.my_drawline_view:
+//                myDrawLineViewOnclick();
+//                break;
+//            default:
+//        }
     }
 
     public void myDrawLineViewOnclick()

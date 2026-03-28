@@ -32,7 +32,8 @@
         android:largeHeap="true"
         android:networkSecurityConfig="@xml/network_security_config">
         <activity android:name="com.example.localuser.retrofittest.MainActivity"
-            android:configChanges="orientation|screenSize|fontScale">
+            android:configChanges="orientation|screenSize|fontScale"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -143,7 +144,7 @@
         <activity android:name=".MatrixTest.MatrixTestActivity"/>
         <activity android:name=".AddressPickerTest.AddressPickerTest1Activity" />
         <activity android:name=".AddressPickerTest.AddressPickerTest2Activity"/>
-        <activity android:name=".stepcounter.StepCounterTestActivity">
+        <activity android:name=".stepcounter.StepCounterTestActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -176,7 +177,7 @@
         <activity android:name=".FoResultTest.ForResultTestActivity"/>
         <activity android:name=".FoResultTest.TargetActivity"/>
 
-        <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver">
+        <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="sleepwatcher.beginwork" />
             </intent-filter>
