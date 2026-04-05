@@ -9,10 +9,12 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
+
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.support.v7.widget.AppCompatTextView;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Scroller;

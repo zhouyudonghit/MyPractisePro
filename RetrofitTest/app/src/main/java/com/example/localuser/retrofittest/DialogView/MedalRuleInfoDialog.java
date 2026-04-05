@@ -4,13 +4,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+
+import androidx.annotation.NonNull;
 
 import com.example.localuser.retrofittest.R;
 import com.example.localuser.retrofittest.View.RoundRectImageView;

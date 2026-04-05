@@ -1,7 +1,8 @@
 package com.example.localuser.retrofittest.View.bean;
 
-import android.support.annotation.Keep;
 import android.util.Log;
+
+import androidx.annotation.Keep;
 
 import com.example.localuser.retrofittest.Utils.DateUtil;
 

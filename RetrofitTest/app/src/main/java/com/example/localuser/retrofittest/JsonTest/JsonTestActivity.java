@@ -8,7 +8,7 @@ import com.amap.api.maps.model.LatLng;
 import com.example.localuser.retrofittest.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
 import org.json.JSONArray;

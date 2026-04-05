@@ -1,6 +1,5 @@
 package com.example.localuser.retrofittest.drawprocesstest;
 
-import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
 import java.lang.reflect.InvocationHandler;

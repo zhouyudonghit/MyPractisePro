@@ -12,9 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 import com.example.localuser.retrofittest.R;
 
-public class RoundRectImageView3 extends android.support.v7.widget.AppCompatImageView {
+public class RoundRectImageView3 extends AppCompatImageView {
     private String TAG = getClass().getSimpleName();
     private int mRadius;
     private Path mRoundedRectPath;

@@ -1,28 +1,27 @@
 package com.example.localuser.retrofittest.MaterialDesignTest;
 
+import static com.google.android.material.appbar.AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS;
+import static com.google.android.material.appbar.AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL;
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.localuser.retrofittest.ListViewTest.recyclelistview.BaseCommonRecycleAdapter;
 import com.example.localuser.retrofittest.ListViewTest.recyclelistview.CommonRecycleViewHolder;
 import com.example.localuser.retrofittest.R;
+import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.support.design.widget.AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS;
-import static android.support.design.widget.AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED;
-import static android.support.design.widget.AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL;
-import static android.support.design.widget.AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP;
 
 public class CoordinatorLayoutRecyclerViewTestActivity extends AppCompatActivity {
     private RecyclerView mRecycleView;

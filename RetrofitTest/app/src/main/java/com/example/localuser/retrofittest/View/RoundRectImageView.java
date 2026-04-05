@@ -11,14 +11,16 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.util.Log;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.Utils.AppUtils;
 
-public class RoundRectImageView extends android.support.v7.widget.AppCompatImageView {
+public class RoundRectImageView extends AppCompatImageView {
     private String TAG = LogConfigs.TAG_PREFIX_CANVAS + getClass().getSimpleName();
     private static final int COLORDRAWABLE_DIMENSION = 1;
     private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;

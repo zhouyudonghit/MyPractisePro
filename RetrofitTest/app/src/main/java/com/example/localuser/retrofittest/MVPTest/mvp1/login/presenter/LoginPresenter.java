@@ -1,6 +1,6 @@
 package com.example.localuser.retrofittest.MVPTest.mvp1.login.presenter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.localuser.retrofittest.MVPTest.mvp1.login.contact.LoginContacts;
 import com.example.localuser.retrofittest.MVPTest.mvp1.programm.BasePresenter;

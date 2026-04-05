@@ -3,9 +3,10 @@ package com.example.localuser.retrofittest.ShareAnimator;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;

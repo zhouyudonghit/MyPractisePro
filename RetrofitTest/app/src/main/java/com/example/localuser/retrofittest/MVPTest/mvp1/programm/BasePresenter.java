@@ -1,6 +1,6 @@
 package com.example.localuser.retrofittest.MVPTest.mvp1.programm;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.localuser.retrofittest.MVPTest.mvp1.base.BaseXPresenter;
 

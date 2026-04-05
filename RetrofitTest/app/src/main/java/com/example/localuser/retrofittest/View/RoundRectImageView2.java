@@ -5,9 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.support.v7.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.util.Log;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.example.localuser.retrofittest.R;
 import com.example.localuser.retrofittest.Utils.AppUtils;

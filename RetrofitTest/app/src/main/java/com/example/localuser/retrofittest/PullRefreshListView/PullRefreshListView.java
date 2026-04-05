@@ -3,7 +3,6 @@ package com.example.localuser.retrofittest.PullRefreshListView;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
-import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;

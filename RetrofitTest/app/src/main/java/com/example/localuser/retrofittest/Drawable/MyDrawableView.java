@@ -2,14 +2,16 @@ package com.example.localuser.retrofittest.Drawable;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 
-public class MyDrawableView extends android.support.v7.widget.AppCompatImageView {
+public class MyDrawableView extends AppCompatImageView {
     private String TAG = LogConfigs.TAG_PREFIX_DRAWABLE_TEST +getClass().getSimpleName();
     public MyDrawableView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);

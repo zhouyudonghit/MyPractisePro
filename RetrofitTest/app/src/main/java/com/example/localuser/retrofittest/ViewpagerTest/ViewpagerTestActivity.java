@@ -1,14 +1,13 @@
 package com.example.localuser.retrofittest.ViewpagerTest;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +17,7 @@ import com.example.localuser.retrofittest.Configs.LogConfigs;
 import com.example.localuser.retrofittest.PullRefreshListView.Configs;
 import com.example.localuser.retrofittest.R;
 import com.example.localuser.retrofittest.Utils.AppUtils;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -19,7 +19,7 @@ android {
     defaultConfig {
         namespace "com.example.localuser.retrofittest"
         minSdk 24
-        targetSdkVersion 36
+        targetSdk 36
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -47,7 +47,32 @@ android {
 //        jumboMode true
 //        preDexLibraries = false
 //    }
+    // 启用 Compose
+    buildFeatures {
+        compose true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+// Kotlin
+    kotlinOptions {
+        jvmTarget = "21"
+    }
+
+    // Compose 编译器版本（必须和你的 Kotlin 版本匹配）
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.5.14"
+    }
 }
+
+// 如果你用的是 Kotlin 1.8+，额外添加这个配置（兼容新版 Gradle）
+kotlin {
+    jvmToolchain(21)
+}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -94,4 +119,11 @@ dependencies {
     }
     implementation('com.github.yyued:SVGAPlayer-Android:2.5.15')
     implementation(project(':moduleA'))
+
+    // Compose 核心库（修复错误）
+    implementation "androidx.compose.ui:ui:1.7.5"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.7.5"
+    debugImplementation "androidx.compose.ui:ui-tooling:1.7.5"
+    implementation "androidx.compose.material:material:1.7.5"
+    implementation "androidx.activity:activity-compose:1.9.3"
 }

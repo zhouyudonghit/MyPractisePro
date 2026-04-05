@@ -1,6 +1,7 @@
 package com.example.localuser.retrofittest.JsonTest;
 
-import android.support.annotation.Keep;
+
+import androidx.annotation.Keep;
 
 /**
  * 成长体系任务弹窗的透传消息里面的数据bean

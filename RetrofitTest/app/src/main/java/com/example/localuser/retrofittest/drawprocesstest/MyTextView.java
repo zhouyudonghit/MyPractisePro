@@ -4,9 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
+
+import androidx.appcompat.widget.AppCompatTextView;
+
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 
-public class MyTextView extends android.support.v7.widget.AppCompatTextView {
+public class MyTextView extends AppCompatTextView {
     private String TAG = LogConfigs.TAG_PREFIX_DRAW_PROCESS_TEST + getClass().getSimpleName();
 
     public MyTextView(Context context, AttributeSet attrs) {

@@ -1,13 +1,13 @@
 package com.example.localuser.retrofittest.MaterialDesignTest.BottomSheetBehaviorTest;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetDialogFragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.localuser.retrofittest.R;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BottomSheetDialogTestFragment extends BottomSheetDialogFragment {
     @Nullable

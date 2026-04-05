@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -18,6 +17,8 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.example.localuser.retrofittest.Configs.LogConfigs;
 

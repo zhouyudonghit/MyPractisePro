@@ -1,10 +1,10 @@
 package com.example.localuser.retrofittest.MaterialDesignTest;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.localuser.retrofittest.R;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 /**
  * 参考链接：https://www.jianshu.com/p/c6a6d08f4a2b

@@ -3,11 +3,6 @@ package com.example.localuser.retrofittest.PullRefreshRecyclerView;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSmoothScroller;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -18,6 +13,11 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.localuser.retrofittest.R;
 
@@ -87,7 +87,7 @@ public class MyPullRefreshRecyclerView extends LinearLayout implements MyHeadVie
         adapter = new MyAdapter(mContext,mDatas);
         mListView.setAdapter(adapter);
         setdata();
-        DividerItemDecoration divider = new DividerItemDecoration(mContext,DividerItemDecoration.VERTICAL);
+        DividerItemDecoration divider = new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL);
         MyDividerDrawable dividerDarwble = new MyDividerDrawable();
         divider.setDrawable(dividerDarwble);
         mListView.addItemDecoration(divider);
