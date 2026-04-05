@@ -177,6 +177,8 @@
         <activity android:name=".FoResultTest.ForResultTestActivity"/>
         <activity android:name=".FoResultTest.TargetActivity"/>
 
+        <activity android:name=".asmtest1.AsmTest1Activity"/>
+
         <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="sleepwatcher.beginwork" />

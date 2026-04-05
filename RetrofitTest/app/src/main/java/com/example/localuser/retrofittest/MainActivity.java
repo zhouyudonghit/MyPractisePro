@@ -16,6 +16,8 @@ import com.example.localuser.retrofittest.AddressPickerTest.AddressPickerTest2Ac
 import com.example.localuser.retrofittest.AnimatorTest.AnimatorTestActivity;
 import com.example.localuser.retrofittest.AsyncTaskTest.AsyncTaskTestActivity;
 import com.example.localuser.retrofittest.AudioManagerTest.AudioManagerTestActivity;
+import com.example.localuser.retrofittest.base.AsmFunctionRegistry;
+import com.example.localuser.retrofittest.base.BaseActivity;
 import com.example.localuser.retrofittest.BootCompleteReceiver.BroadcastReceiverTestActivity;
 import com.example.localuser.retrofittest.Canvas.CanvasActivity;
 import com.example.localuser.retrofittest.Configs.AppConfigs;
@@ -98,7 +100,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,tv11,tv12,tv13,tv14,tv15,tv16,tv17,tv18,tv19,tv20,tv21,tv22,tv23;
     private TextView tv24,tv25,tv26,tv27,tv28,tv29,tv30,tv31,tv32,tv33,tv34,tv35,tv36,tv37,tv38,tv39,tv40,tv41,tv42,tv43,tv44,tv45;
-    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52,tv53,tv54,tv55,tv56,tv57,tv58,tv59,tv60;
+    private TextView tv46,tv47,tv48,tv49,tv50,tv51,tv52,tv53,tv54,tv55,tv56,tv57,tv58,tv59,tv60,tv61;
     public static String TAG = "retrofit";
 
     @Override
@@ -130,6 +132,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d("activityA","onResume");
+        
+        // 初始化ASM功能注册表
+        AsmFunctionRegistry registry = AsmFunctionRegistry.getInstance();
+        registry.scanPackage();
+        
         getPackageManager();
         tv1 = (TextView) findViewById(R.id.toolbar_activity);
         tv1.setOnClickListener(new View.OnClickListener() {
@@ -613,6 +620,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ForResultTestActivity.class));
             }
         });
+
+        // 自动绑定ASM功能注册表中的所有功能
+        bindAsmFunctions(registry);
+
 //        BootCompletedReceiver receiver = new BootCompletedReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
 //        intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
@@ -622,6 +633,41 @@ public class MainActivity extends AppCompatActivity {
         }
 //        AppUtils.startActivity();
         Log.d(TAG,"iccid = "+AppUtils.getIccid2(this));
+    }
+
+    /**
+     * 自动绑定ASM功能注册表中的所有功能
+     * 根据functionName动态查找TextView并设置点击事件和可见性
+     */
+    private void bindAsmFunctions(AsmFunctionRegistry registry) {
+        for (String functionName : registry.getAllFunctionNames()) {
+            String textViewIdName = AsmFunctionRegistry.getTextViewIdName(functionName);
+            int resId = getResources().getIdentifier(textViewIdName, "id", getPackageName());
+            if (resId != 0) {
+                TextView tv = findViewById(resId);
+                if (tv != null) {
+                    // 设置可见性
+                    tv.setVisibility(registry.isVisible(functionName) ? View.VISIBLE : View.GONE);
+                    // 设置点击事件
+                    final String fn = functionName;
+                    tv.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Class<? extends BaseActivity> activityClass = registry.getFunctionClass(fn);
+                            if (activityClass != null) {
+                                Intent intent = new Intent(MainActivity.this, activityClass);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(MainActivity.this, "功能未注册: " + fn, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                    Log.d(TAG, "Bound ASM function: " + functionName + " -> " + textViewIdName);
+                }
+            } else {
+                Log.w(TAG, "TextView not found for function: " + functionName + " (id: " + textViewIdName + ")");
+            }
+        }
     }
 
     private void hide()

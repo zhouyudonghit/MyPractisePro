@@ -4,5 +4,6 @@ class Test2 {
     private fun test1() {
         var test = Test()
         //test.number2;
+        TestCompanionObject.value5;
     }
 }

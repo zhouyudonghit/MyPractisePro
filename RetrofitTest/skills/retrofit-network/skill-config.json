@@ -1,0 +1,58 @@
+{
+  "name": "retrofit-network",
+  "version": "1.0.0",
+  "description": "Android Retrofit网络请求技能",
+  "category": "android-network",
+  "tags": [
+    "android",
+    "network",
+    "retrofit",
+    "okhttp",
+    "rxjava",
+    "http",
+    "api"
+  ],
+  "triggers": [
+    "retrofit",
+    "网络请求",
+    "http请求",
+    "api调用",
+    "网络接口"
+  ],
+  "tools": [],
+  "dependencies": {
+    "gradle": [
+      "com.squareup.retrofit2:retrofit:2.0.2",
+      "com.squareup.retrofit2:converter-gson:2.0.2",
+      "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
+      "io.reactivex.rxjava2:rxjava:2.1.3",
+      "io.reactivex.rxjava2:rxandroid:2.0.1"
+    ]
+  },
+  "examples": [
+    {
+      "title": "基本GET请求",
+      "description": "执行简单的GET网络请求",
+      "code": "GetRequest_Interface request = RetrofitClient.getRetrofitInstance()\n    .create(GetRequest_Interface.class);\nCall<Translation> call = request.getCall();\ncall.enqueue(new Callback<Translation>() {\n    @Override\n    public void onResponse(Call<Translation> call, Response<Translation> response) {\n        if (response.isSuccessful()) {\n            Translation translation = response.body();\n            // 处理数据\n        }\n    }\n    @Override\n    public void onFailure(Call<Translation> call, Throwable t) {\n        // 处理错误\n    }\n});"
+    },
+    {
+      "title": "RxJava异步请求",
+      "description": "使用RxJava执行异步网络请求",
+      "code": "request.getCall()\n    .subscribeOn(Schedulers.io())\n    .observeOn(AndroidSchedulers.mainThread())\n    .subscribe(new Observer<Translation>() {\n        @Override\n        public void onNext(Translation translation) {\n            // 处理数据\n        }\n        @Override\n        public void onError(Throwable e) {\n            // 处理错误\n        }\n        @Override\n        public void onComplete() {}\n    });"
+    }
+  ],
+  "faq": [
+    {
+      "question": "如何添加请求头？",
+      "answer": "可以使用@Header注解在方法参数中添加，或通过OkHttp拦截器统一添加"
+    },
+    {
+      "question": "如何处理HTTPS证书？",
+      "answer": "需要自定义OkHttpClient配置SSLContext和TrustManager"
+    },
+    {
+      "question": "如何实现请求重试？",
+      "answer": "可以使用RxJava的retryWhen操作符或自定义拦截器实现自动重试机制"
+    }
+  ]
+}

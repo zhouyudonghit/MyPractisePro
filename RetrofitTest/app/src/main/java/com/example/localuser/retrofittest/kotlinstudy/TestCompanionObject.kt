@@ -10,5 +10,7 @@ class TestCompanionObject {
                 return 4
             }
             set(value) {}
+
+        val value5 = 5;
     }
 }
