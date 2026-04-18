@@ -16,7 +16,9 @@ public class AsmFunctionRegistry {
 
     // 已知需要注册的类列表 - 新增功能时需要在此添加
     private static final String[] KNOWN_CLASSES = {
-        "com.example.localuser.retrofittest.asmtest1.AsmTest1Activity"
+        "com.example.localuser.retrofittest.asmtest1.AsmTest1Activity",
+        "com.example.localuser.retrofittest.kotlinstudy.KotlinStudyActivity",
+        "com.example.localuser.retrofittest.kotlinstudy.RetrofitKotlinActivity"
     };
 
     public static class FunctionInfo {

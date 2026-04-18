@@ -178,6 +178,8 @@
         <activity android:name=".FoResultTest.TargetActivity"/>
 
         <activity android:name=".asmtest1.AsmTest1Activity"/>
+        <activity android:name=".kotlinstudy.KotlinStudyActivity"/>
+        <activity android:name=".kotlinstudy.RetrofitKotlinActivity"/>
 
         <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver" android:exported="true">
             <intent-filter>
