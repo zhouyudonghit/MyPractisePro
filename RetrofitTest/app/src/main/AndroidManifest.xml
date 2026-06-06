@@ -137,7 +137,7 @@
             android:windowSoftInputMode="stateVisible|adjustResize"
             android:screenOrientation="portrait"/>
         <activity android:name=".edittext.EditTextMainActivity"/>
-        <activity android:name=".ConstraintLayout.ConstraintLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
+        <activity android:name=".layouttest.ConstraintLayoutTestActivity" android:theme="@style/APPNoActionBarTheme"/>
         <activity android:name=".uiutils.UIUtilsActivity"></activity>
         <activity android:name=".MaskViewTest.MaskViewTestActivity"/>
 
@@ -180,6 +180,9 @@
         <activity android:name=".asmtest1.AsmTest1Activity"/>
         <activity android:name=".kotlinstudy.KotlinStudyActivity"/>
         <activity android:name=".kotlinstudy.RetrofitKotlinActivity"/>
+        <activity android:name=".figmatest.FigmaTestActivity"/>
+        <activity android:name=".layouttest.LayoutTestActivity"/>
+        <activity android:name=".layouttest.LinearLayoutTestActivity"/>
 
         <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver" android:exported="true">
             <intent-filter>

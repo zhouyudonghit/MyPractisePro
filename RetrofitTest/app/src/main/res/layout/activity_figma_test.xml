@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ==================== Cover Header (16:9 比例) ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="#421B50"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="200dp"
+                android:background="#421B50">
+
+                <!-- 使用 DimensionRatio 保持 16:9 宽高比 -->
+                <View
+                    android:id="@+id/ratio_anchor"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- 标题文字 - 居中 -->
+                <TextView
+                    android:id="@+id/tv_cover_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Material 3\nDesign Kit"
+                    android:textColor="#FFFFFF"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ratio_anchor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ratio_anchor"
+                    app:layout_constraintVertical_bias="0.45" />
+
+                <!-- 版本号 - 标题下方 -->
+                <TextView
+                    android:id="@+id/tv_cover_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="V 1.24"
+                    android:textColor="#B0A0B8"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cover_title" />
+
+                <!-- 左侧装饰图形区域 -->
+                <View
+                    android:id="@+id/decor_left"
+                    android:layout_width="120dp"
+                    android:layout_height="160dp"
+                    android:alpha="0.3"
+                    android:background="@drawable/bg_m3_decor_left"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <!-- 右侧装饰图形区域 -->
+                <View
+                    android:id="@+id/decor_right"
+                    android:layout_width="100dp"
+                    android:layout_height="180dp"
+                    android:alpha="0.25"
+                    android:background="@drawable/bg_m3_decor_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Card 1: Guidance ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Left: Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Guidance"
+                        android:textColor="#1D1B20"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Material.io supports this design kit with documentation and guidance for how to use the components and styles.\n\nOur specifications have been updated for Material 3 to provide for additional guidance for modern styling, adaptive guidance, and color."
+                        android:textColor="#49454F"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.25" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Material.io"
+                        android:textColor="#6750A4"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Right: Image Placeholder -->
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="16dp"
+                    android:background="#DED8E1"
+                    android:contentDescription="Guidance illustration"
+                    android:scaleType="centerCrop"
+                    android:src="@android:color/transparent" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Card 2: Platforms ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <!-- Left: Text Content -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Platforms"
+                            android:textColor="#1D1B20"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="The Material 3 Design Kit is a multi-platform design library for building with the Material 3 Design System.\n\nIt serves as a comprehensive framework to help designers and developers in crafting beautiful interfaces across platforms such as Android, Flutter, Jetpack Compose, and Web."
+                            android:textColor="#49454F"
+                            android:textSize="14sp"
+                            android:lineSpacingMultiplier="1.25" />
+                    </LinearLayout>
+
+                    <!-- Right: Image Placeholder -->
+                    <ImageView
+                        android:layout_width="160dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="16dp"
+                        android:background="#4D5EF8"
+                        android:alpha="0.7"
+                        android:contentDescription="Platforms illustration"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+
+                <!-- Info Banner -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="#E6E0E9"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier="1.25"
+                        android:padding="16dp"
+                        android:text="Material Android is Compose-first. Use this design kit for Jetpack Compose."
+                        android:textColor="#49454F"
+                        android:textSize="13sp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Card 3: Typography ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Left: Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Typography"
+                        android:textColor="#1D1B20"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Google Fonts makes it easy to bring personality and performance to your websites and products. Our catalog of open-source fonts makes it easy to integrate expressive type and icons seamlessly—no matter where you are in the world."
+                        android:textColor="#49454F"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.25" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="fonts.google.com"
+                        android:textColor="#6750A4"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Right: Image Placeholder -->
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="16dp"
+                    android:background="#DED8E1">
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Card 4: Symbols / Icons ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Left: Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Symbols"
+                        android:textColor="#1D1B20"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Material Symbols are Google's newest icons consolidating over 2,500 glyphs in a single font file with a wide range of design variants.\n\nUsing the Material Symbols plugin, designers can easily search and add symbols in Figma, creating a more efficient design workflow."
+                        android:textColor="#49454F"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.25" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="figma.com/@googlefonts"
+                        android:textColor="#6750A4"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Right: Image Placeholder -->
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="130dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@android:color/darker_gray">
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Card 5: Colors ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Left: Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Colors"
+                        android:textColor="#1D1B20"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Color is used to express style and communicate meaning. With dynamic color, Material puts personal color preferences and individual needs at the forefront of systematic color application.\n\nMaterial You reimagines color as a more individualized experience with dynamic and accessible color expression."
+                        android:textColor="#49454F"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.25" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Material Theme Builder Plugin"
+                        android:textColor="#6750A4"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Right: Color Preview -->
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="16dp"
+                    android:background="#FFCCBC"
+                    android:elevation="1dp">
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Card 6: Themes ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Left: Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Themes"
+                        android:textColor="#1D1B20"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Use the Material Theme Builder to explore dynamic color, build a custom theme, and export code through generated Material Design tokens.\n\nBuilt to work with Material Design components by selecting components and swapping to your theme or updating the M3 theme."
+                        android:textColor="#49454F"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.25" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Material Theme Builder Plugin"
+                        android:textColor="#6750A4"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Right: Theme Preview -->
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="105dp"
+                    android:layout_marginStart="16dp"
+                    android:background="#C8E6C9"
+                    android:elevation="1dp">
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Card 7: Feedback ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Left: Text Content -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Feedback"
+                        android:textColor="#1D1B20"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Have feedback for the Material Design team?\nWe'd love to hear what you think.\nMaterial Design Kit feedback form\nFurther suggestions and/or questions?\nEmail m3-design-kit-feedback@google.com"
+                        android:textColor="#49454F"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.25" />
+                </LinearLayout>
+
+                <!-- Right: Image Placeholder -->
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="16dp"
+                    android:background="#E0E0E0"
+                    android:elevation="1dp">
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== Footer License ==================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:text="This resource is available under CC BY 4.0.\nBy downloading this file, you agree to the Google Terms of Service.\nThe Google Privacy Policy describes how data is handled in this service."
+            android:textColor="#49454F"
+            android:textSize="12sp"
+            android:lineSpacingMultiplier="1.3" />
+
+    </LinearLayout>
+</ScrollView>

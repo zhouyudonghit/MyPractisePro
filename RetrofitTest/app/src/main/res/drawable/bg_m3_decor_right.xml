@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 右侧 Material 装饰图形 (模拟 Figma shape-16) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="180dp"
+    android:viewportWidth="100"
+    android:viewportHeight="180">
+    
+    <!-- 主色调竖条 -->
+    <path
+        android:pathData="M60,20 L90,20 A10,10 0,0,1 100,30 L100,150 A10,10 0,0,1 90,160 L60,160 A10,10 0,0,1 50,150 L50,30 A10,10 0,0,1 60,20 Z"
+        android:fillColor="#812BC7"
+        android:alpha="0.5"/>
+
+    <!-- 圆形装饰 -->
+    <path
+        android:pathData="M25,140m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"
+        android:fillColor="#E599FE"
+        android:alpha="0.4"/>
+    
+    <!-- 顶部小圆 -->
+    <path
+        android:pathData="M70,45m-16,0a16,16 0,1 1,32 0a16,16 0,1 1,-32 0"
+        android:fillColor="#C583FF"
+        android:alpha="0.5"/>
+</vector>

@@ -18,7 +18,9 @@ public class AsmFunctionRegistry {
     private static final String[] KNOWN_CLASSES = {
         "com.example.localuser.retrofittest.asmtest1.AsmTest1Activity",
         "com.example.localuser.retrofittest.kotlinstudy.KotlinStudyActivity",
-        "com.example.localuser.retrofittest.kotlinstudy.RetrofitKotlinActivity"
+        "com.example.localuser.retrofittest.kotlinstudy.RetrofitKotlinActivity",
+        "com.example.localuser.retrofittest.figmatest.FigmaTestActivity",
+        "com.example.localuser.retrofittest.layouttest.LayoutTestActivity"
     };
 
     public static class FunctionInfo {
