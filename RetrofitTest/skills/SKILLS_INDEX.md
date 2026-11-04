@@ -55,6 +55,59 @@ Android Retrofit 网络请求技能，提供标准化的网络请求开发流程
 
 ---
 
+### 3. [实现MainActivity自动增加功能项](./add_funtion_base_new_activity/add_funtion_base_new_activity.md)
+
+**版本**: N/A  
+**分类**: android-base  
+**标签**: android, asm, annotation, activity, registry
+
+#### 技能描述
+当新增一个测试功能时，通过新建的 Activity，自动为 MainActivity 添加功能入口。使用运行时反射自动扫描 @AsmFunction 注解，自动完成注册工作。
+
+#### 何时使用
+- 新增一个测试功能 Activity，需要在 MainActivity 显示入口
+- 使用 @AsmFunction 注解自动注册功能
+
+#### 内容概览
+- ✅ 输入要求（包名、类名、functionName）
+- ✅ 创建 Activity（继承 BaseActivity，添加 @AsmFunction 注解）
+- ✅ 注册到 AsmFunctionRegistry.KNOWN_CLASSES
+- ✅ AndroidManifest.xml 注册
+- ✅ activity_main.xml 添加 TextView（ID 规则：`{functionName}_activity`）
+- ✅ 运行时反射自动绑定点击事件和可见性
+
+#### 快速链接
+- 📖 [完整文档](./add_funtion_base_new_activity/add_funtion_base_new_activity.md)
+
+---
+
+### 4. [AI SSE 流式对话开发](./ai-sse-test/ai-sse-demo开发.md)
+
+**版本**: N/A  
+**分类**: android-ai  
+**标签**: android, sse, okhttp, kotlin, ai, chat, room
+
+#### 技能描述
+AI SSE 开发，开发一个流式对话 demo。基于 SSE 协议，采用智谱大模型的 SSE 接口，使用 Kotlin 实现类似豆包界面的流式对话交互。
+
+#### 何时使用
+- 用户需要实现 AI 流式对话功能
+- 用户提到 SSE、流式输出、大模型对话
+
+#### 内容概览
+- ✅ SSE 协议解析（OkHttp + Response.body().source() 逐行读取）
+- ✅ 解析 `data:` 行，遇到 `data: [DONE]` 结束
+- ✅ 子线程读流，viewModelScope + flow 抛到 UI 层
+- ✅ 缓冲区拼接处理（解决 JSON 被拆分到两个 buffer 的坑）
+- ✅ 手动停止对话（call.cancel()）
+- ✅ 多轮对话（维护 messages 列表 + Room 数据库持久化）
+- ✅ UI 交互（类似豆包界面）
+
+#### 快速链接
+- 📖 [完整文档](./ai-sse-test/ai-sse-demo开发.md)
+
+---
+
 ## 🎯 如何使用技能文档
 
 ### 选择合适的技能
@@ -193,6 +246,8 @@ cd skills/your-skill-name
 | 日期 | 技能 | 更新内容 |
 |------|------|----------|
 | 2026-03-28 | retrofit-network | 创建 Retrofit 网络请求技能文档 v1.0.0 |
+| 2026-11-01 | add_funtion_base_new_activity | 登记实现MainActivity自动增加功能项技能 |
+| 2026-11-01 | ai-sse-test | 登记AI SSE流式对话开发技能 |
 
 ---
 
@@ -217,6 +272,6 @@ cd skills/your-skill-name
 
 ---
 
-**最后更新时间**: 2026-03-28  
-**技能总数**: 2  
-**技能文档版本**: 1.0.0
+**最后更新时间**: 2026-11-01  
+**技能总数**: 4  
+**技能文档版本**: 1.2.0

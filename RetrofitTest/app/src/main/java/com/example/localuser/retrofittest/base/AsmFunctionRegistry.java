@@ -20,7 +20,8 @@ public class AsmFunctionRegistry {
         "com.example.localuser.retrofittest.kotlinstudy.KotlinStudyActivity",
         "com.example.localuser.retrofittest.kotlinstudy.RetrofitKotlinActivity",
         "com.example.localuser.retrofittest.figmatest.FigmaTestActivity",
-        "com.example.localuser.retrofittest.layouttest.LayoutTestActivity"
+        "com.example.localuser.retrofittest.layouttest.LayoutTestActivity",
+        "com.example.localuser.retrofittest.aissetest.AiSSETestActivity"
     };
 
     public static class FunctionInfo {

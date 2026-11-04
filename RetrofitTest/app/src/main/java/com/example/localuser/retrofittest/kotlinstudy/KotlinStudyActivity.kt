@@ -5,6 +5,9 @@ import android.util.Log
 import com.example.localuser.retrofittest.R
 import com.example.localuser.retrofittest.base.AsmFunction
 import com.example.localuser.retrofittest.base.BaseActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /**
  * KotlinStudyActivity - Kotlin学习功能测试
@@ -27,5 +30,11 @@ class KotlinStudyActivity : BaseActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "KotlinStudyActivity onDestroy")
+    }
+
+    fun test1() {
+        CoroutineScope(Dispatchers.Default).launch{
+            Log.d(TAG, "test1")
+        }
     }
 }
