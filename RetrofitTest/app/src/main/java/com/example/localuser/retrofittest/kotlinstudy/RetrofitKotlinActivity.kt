@@ -17,9 +17,9 @@ import kotlin.getValue
 @AsmFunction(functionName = "retrofit_kotlin_demo", visible = true)
 class RetrofitKotlinActivity : BaseActivity() {
 
-    companion object {
-        private const val TAG = "RetrofitKotlinActivity"
-    }
+//    companion object {
+//        private const val TAG = "RetrofitKotlinActivity"
+//    }
 
     // 使用 viewModels() 创建 ViewModel
     private val viewModel: RetrofitViewModel by viewModels()

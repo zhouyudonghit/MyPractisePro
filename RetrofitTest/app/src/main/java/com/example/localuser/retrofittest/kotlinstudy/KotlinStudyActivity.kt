@@ -16,9 +16,9 @@ import kotlinx.coroutines.launch
 @AsmFunction(functionName = "koltin_study", visible = true)
 class KotlinStudyActivity : BaseActivity() {
     
-    companion object {
-        private const val TAG = "KotlinStudyActivity"
-    }
+//    companion object {
+//        private const val TAG = "KotlinStudyActivity"
+//    }
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -184,6 +184,8 @@
         <activity android:name=".layouttest.LayoutTestActivity"/>
         <activity android:name=".layouttest.LinearLayoutTestActivity"/>
         <activity android:name=".aissetest.AiSSETestActivity"/>
+        <activity android:name=".aroutertest.ARouterTestActivity"/>
+        <activity android:name=".aroutertest.ARouterSecondActivity"/>
 
         <receiver android:name=".autosleep.SleepWatcherWorkBroadcastReceiver" android:exported="true">
             <intent-filter>

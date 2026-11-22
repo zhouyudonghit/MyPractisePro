@@ -11,17 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 /**
  * 基础Activity，提供通用方法、布局加载、视图初始化和日志输出
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected static final String TAG = "BaseActivity";
+    protected final String TAG = getClass().getSimpleName() + "--";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getResLayoutId());
+        ARouter.getInstance().inject(this);
         initView();
         initData();
     }

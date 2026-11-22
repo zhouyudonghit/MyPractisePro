@@ -5,6 +5,13 @@ plugins {
     id 'kotlin-kapt'
 }
 
+// 从 local.properties 读取密钥（该文件被 .gitignore 忽略，不会提交到仓库）
+def localProps = new Properties()
+def localPropsFile = rootProject.file("local.properties")
+if (localPropsFile.exists()) {
+    localProps.load(new FileInputStream(localPropsFile))
+}
+
 android {
     signingConfigs {
         release {
@@ -37,6 +44,12 @@ android {
 //            abiFilters "armeabi-v7a"
 //            abiFilters "x86","armeabi","armeabi-v7a"
             abiFilters "arm64-v8a","armeabi","armeabi-v7a"
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
         }
     }
     buildTypes {
@@ -76,13 +89,6 @@ android {
 // 如果你用的是 Kotlin 1.8+，额外添加这个配置（兼容新版 Gradle）
 kotlin {
     jvmToolchain(21)
-}
-
-// 从 local.properties 读取密钥（该文件被 .gitignore 忽略，不会提交到仓库）
-def localProps = new Properties()
-def localPropsFile = rootProject.file("local.properties")
-if (localPropsFile.exists()) {
-    localProps.load(new FileInputStream(localPropsFile))
 }
 
 
@@ -152,4 +158,9 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.6.1'
     implementation 'androidx.room:room-ktx:2.6.1'
     kapt 'androidx.room:room-compiler:2.6.1'
+
+    // ==================== ARouter 路由框架 ====================
+    // 注意：1.7.x 发布在已关闭的 jcenter，Maven Central 最高只有 1.5.2
+    implementation 'com.alibaba:arouter-api:1.5.2'
+    kapt 'com.alibaba:arouter-compiler:1.5.2'
 }
